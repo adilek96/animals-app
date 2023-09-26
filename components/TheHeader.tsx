@@ -49,9 +49,9 @@ export  function TheHeader() {
        
       </div>
        <div className="flex items-center">
-        <div className=" 2xl:flex flex-nowrap xl:hidden md:hidden sm:hidden   ">
+        <div className=" lg:flex flex-nowrap  md:hidden sm:hidden   ">
           <nav>
-            <ul className=" 2xl:flex flex-none h-[150px]    items-center   gap-[40px] ">
+            <ul className=" lg:flex flex-none h-[150px]    items-center   gap-[40px] ">
               <li><Link href="/"   className={`h-[150px] px-5 flex items-center hover:text-yellow-300 duration-300 ${pathname === '/' ? ' text-yellow-300 border-t-[5px] border-t-yellow-300 border-solid' : ''}`} >Главная</Link></li>
               <li>
                 <Link href="/posts" onMouseEnter ={showPostsSubMenu} onMouseLeave={hidePostsSubMenu} className={`relative h-[150px] px-5 flex items-center  hover:text-yellow-300 duration-300 ${pathname === '/posts' ? ' text-yellow-300 border-t-[5px] border-t-yellow-300 border-solid' : ''}`} >Обьявления <FaChevronDown  className="text-3xl ml-3 text-gray-300 pt-2 font-extrabold"/> </Link>
