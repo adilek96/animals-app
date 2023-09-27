@@ -18,10 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={openSans.className}>
-      <body>
+      <body >
         <TheHeader />
 
-        <main>{children}</main>
+        <main >{children}</main>
         <TheFooter />
       </body>
     </html>

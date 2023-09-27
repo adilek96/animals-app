@@ -37,7 +37,7 @@ export  function TheHeader() {
     setArticleSubActive(false)
   }
   return (
-    <header className="shadow-2xl shadow-orange-900 box-content max-w-full h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-orange-500 border-solid">
+    <header className=" shadow-2xl shadow-orange-900 box-content  h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-orange-500 border-solid">
 
       <div className="w-[100px]  ">
         <Link href="/" >
@@ -51,7 +51,7 @@ export  function TheHeader() {
        
       </div>
        <div className=" flex items-center flex-nowrap">
-        <div className="xl:flex flex-nowrap  lg:hidden md:hidden sm:hidden">
+        <div className="lg:flex flex-nowrap   md:hidden sm:hidden">
           <nav className="inline-block">
             <ul className=" box-content text-[16px] font-bold antialiased flex flex-none h-[100px] gap-[3px]   items-center     ">
               <li><Link href="/"   className={` box-content h-[100px] px-3 flex items-center hover:text-orange-500 duration-300 ${pathname === '/' ? ' text-orange-500 border-t-[5px] border-t-orange-500 border-solid' : ''}`} >Главная</Link></li>
