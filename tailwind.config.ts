@@ -1,4 +1,5 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors'
 
 const config: Config = {
   content: [
@@ -15,7 +16,11 @@ const config: Config = {
       },
       screens:{
         'sm': '336px',
-        
+      },
+      colors: {
+        primary: colors.orange,
+      
+
       }
     },
   },
