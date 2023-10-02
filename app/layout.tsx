@@ -5,7 +5,6 @@ import { Open_Sans } from "next/font/google";
 import { TheFooter } from "@/components/TheFooter";
 import { BurgerMenu } from "@/components/BurgerMenu";
 
-
 const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -14,17 +13,16 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang="en" className={openSans.className}>
-      <body >
+      <body>
         <TheHeader />
-        <BurgerMenu/>
-        <main >{children}</main>
+        {/* <BurgerMenu/> */}
+        <main>{children}</main>
         <TheFooter />
       </body>
     </html>
