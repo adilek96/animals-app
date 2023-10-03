@@ -46,11 +46,11 @@ export function BurgerMenu() {
             opacity: burger ? 1 : 0,
             x: burger ? 0 : -100
           }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.5 }}
           className={`absolute  shadow-xl shadow-orange-900 h-[100%] w-[250px]  bg-white  rounded-md z-100 overflow-hidden  `}>
 
             <div className=" h-[150px] relative flex justify-center items-center gap-2">
-                <button onClick={() => setBurgerActive(!burger)} className="outline-none shadow-xl shadow-primary-800 absolute right-1 top-0 w-[30px] h-[30px]"><FaWindowClose className="absolute right-0 top-1  text-primary-300 w-[30px] h-[30px]"/></button>
+                <button onClick={() => setBurgerActive(!burger)} className="focus:outline-none active:outline-none shadow-xl shadow-primary-800 absolute right-1 top-0 w-[30px] h-[30px]"><FaWindowClose className="absolute right-0 top-1  text-primary-300 w-[30px] h-[30px]"/></button>
                 <div className="w-[70px] h-[70px] flex items-center justify-center shadow-xl shadow-orange-900 bg-primary-200 rounded-full border-collapse border-[3px] border-primary-500">
                     <div className="w-[60px] h-[60px] flex items-center justify-center shadow-inner shadow-orange-900 bg-white rounded-full border-collapse border-[2px] border-primary-500">
         <Image src="/logo/logo.png" 

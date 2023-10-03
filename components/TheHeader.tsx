@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaPlus, FaChevronDown,  FaSignInAlt } from "react-icons/fa";
 import { usePathname } from 'next/navigation';
 import  { burgerActiveState }  from "../store/burgerActiveState";
+import { motion } from "framer-motion";
 
 
 
@@ -89,12 +90,39 @@ export  function TheHeader() {
         </div>
           {/* ---------------------------- Mobile varint ---------------------------- */}
         <button  onClick={() => setBurgerActive(!burger)} className="relative 2xl:hidden xl:hidden lg:hidden flex flex-col  items-center justify-center gap-1 bg-primary-300 shadow-xl rounded-full shadow-primary-800  w-[40px] h-[40px] mr-2"> 
-                  <span className="w-[20px] h-[3px] bg-white "></span>
-                  <span className="w-[20px] h-[3px] bg-white active:hidden"></span>
-                  <span className="w-[20px] h-[3px] bg-white "></span>    
+                  <motion.span 
+                    initial={{
+                      rotate: 0,
+                      x: 0,
+                    }}
+                    animate={{
+                      
+                      y: burger ? 7: 0,
+                      rotate: burger ? 45: 0,
+                    }}
+                    transition={{ duration: 0.7 }}
+                    className="w-[20px] h-[3px] bg-white "></motion.span>
+                  <motion.span 
+                    initial={{ opacity: 0, x: -100 }} 
+                    animate={{
+                      opacity: !burger ? 1 : 0,
+                      x: !burger ? 0 : -100
+                    }}
+                    transition={{ duration: 0.7 }}
+                    className="w-[20px] h-[3px] bg-white "></motion.span>
+                  <motion.span 
+                    initial={{
+                      rotate: 0,
+                    }}
+                    animate={{
+                      y: burger ? -7: 0,
+                      rotate: burger ? -45: 0,
+                    }}
+                    transition={{ duration: 0.7 }}
+                    className="w-[20px] h-[3px] bg-white "></motion.span>    
                       
         </button>
-        <button className="utline-none shadow-xl shadow-green-800  md:w-[250px] sm:w-[40px]  flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
+        <button className="focus:outline-none active:outline-none shadow-xl shadow-green-800  md:w-[250px] sm:w-[40px]  flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
           <span className="font-extrabold text-3xl  md:mr-3 text-center"><FaPlus/> </span>  <span className="sm:hidden md:block">Добавить обьявления</span>
         </button>
       </div>
