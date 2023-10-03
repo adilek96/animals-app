@@ -47,7 +47,7 @@ export  function TheHeader() {
     <header className="  shadow-2xl shadow-primary-900 box-content  h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-primary-500 border-solid">
 
       <div className="w-[100px] ">
-        <Link href="/" >
+        <Link href="/" onClick={() => burger ? setBurgerActive(!burger): ""}>
         <Image src="/logo/logo.png" 
           width={60}
           height={60} 
@@ -94,7 +94,7 @@ export  function TheHeader() {
                   <span className="w-[20px] h-[3px] bg-white "></span>    
                       
         </button>
-        <button className="shadow-xl shadow-green-800  md:w-[250px] sm:w-[40px]  flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
+        <button className="utline-none shadow-xl shadow-green-800  md:w-[250px] sm:w-[40px]  flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
           <span className="font-extrabold text-3xl  md:mr-3 text-center"><FaPlus/> </span>  <span className="sm:hidden md:block">Добавить обьявления</span>
         </button>
       </div>
