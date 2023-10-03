@@ -2,14 +2,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
 import {  FaChevronDown, FaSignInAlt,FaWindowClose } from "react-icons/fa";
+import  { burgerActiveState }  from "../app/store/burgerActiveState";
 
 export function BurgerMenu() {
-    const [postsSubActive, setPostsSubActive] = useState(false)
-    const [articleSubActive, setArticleSubActive] = useState(false)
-    const pathname = usePathname()
-
+    const [postsSubActive, setPostsSubActive] = useState(false);
+    const [articleSubActive, setArticleSubActive] = useState(false);
+    const pathname = usePathname();
+    const burger = burgerActiveState(state => state.burger);
 
     const showPostsSubMenu = () => {
         setPostsSubActive(true)
@@ -37,7 +38,7 @@ export function BurgerMenu() {
         setArticleSubActive(false)
       }
   return (
-        <div className="absolute shadow-xl shadow-orange-900 h-[100%] w-[250px]  bg-white  rounded-md z-100 overflow-hidden  ">
+        <div className={`absolute ${!burger ? `bottom-[1000px]` : ``}  shadow-xl shadow-orange-900 h-[100%] w-[250px]  bg-white  rounded-md z-100 overflow-hidden  `}>
             <div className=" h-[150px] relative flex justify-center items-center gap-2">
                 <button className="shadow-xl shadow-primary-800 absolute right-1 top-0 w-[30px] h-[30px]"><FaWindowClose className="absolute right-0 top-1  text-primary-300 w-[30px] h-[30px]"/></button>
                 <div className="w-[70px] h-[70px] flex items-center justify-center shadow-xl shadow-orange-900 bg-primary-200 rounded-full border-collapse border-[3px] border-primary-500">

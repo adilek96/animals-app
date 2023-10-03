@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en" className={openSans.className}>
       <body>
         <TheHeader />
-        {/* <BurgerMenu/> */}
+        <BurgerMenu/>
         <main>{children}</main>
         <TheFooter />
       </body>

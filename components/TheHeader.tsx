@@ -3,7 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaPlus, FaChevronDown,  FaSignInAlt } from "react-icons/fa";
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
+import  { burgerActiveState }  from "../app/store/burgerActiveState";
 
 
 
@@ -11,6 +12,9 @@ export  function TheHeader() {
   const [postsSubActive, setPostsSubActive] = useState(false)
   const [articleSubActive, setArticleSubActive] = useState(false)
   const pathname = usePathname()
+  const burger = burgerActiveState(state => state.burger);
+  const setBurgerActive = burgerActiveState(state => state.setBurgerActive);
+ 
  
   const showPostsSubMenu = () => {
     setPostsSubActive(true)
@@ -36,6 +40,14 @@ export  function TheHeader() {
   }
   const onMouseOutArticleSub = () => {
     setArticleSubActive(false)
+  }
+
+  const burgerHandler = () => {
+    if(burger){
+      setBurgerActive(false)
+    } else {
+      setBurgerActive(true)
+    }
   }
   return (
     <header className="  shadow-2xl shadow-primary-900 box-content  h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-primary-500 border-solid">
@@ -82,7 +94,7 @@ export  function TheHeader() {
           <button className={`flex h-[100px] px-5  items-center   hover:text-primary-500 duration-300`}><FaSignInAlt className="text-2xl mr-2 text-gray-300  font-extrabold"/>Войти</button>
         </div>
           {/* ---------------------------- Mobile varint ---------------------------- */}
-        <button className="relative 2xl:hidden xl:hidden lg:hidden flex flex-col  items-center justify-center gap-1 bg-primary-300 shadow-xl rounded-full shadow-primary-800  w-[40px] h-[40px] mr-2"> 
+        <button  onClick={burgerHandler} className="relative 2xl:hidden xl:hidden lg:hidden flex flex-col  items-center justify-center gap-1 bg-primary-300 shadow-xl rounded-full shadow-primary-800  w-[40px] h-[40px] mr-2"> 
                   <span className="w-[20px] h-[3px] bg-white "></span>
                   <span className="w-[20px] h-[3px] bg-white active:hidden"></span>
                   <span className="w-[20px] h-[3px] bg-white "></span>    
