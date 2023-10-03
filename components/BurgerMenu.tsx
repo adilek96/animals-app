@@ -62,7 +62,7 @@ export function BurgerMenu() {
           <ul>
             <li><Link href="/" onClick={() => setBurgerActive(!burger)}  className={` box-content  px-3 flex items-center hover:text-primary-500 duration-300 ${pathname === '/' ? ' text-primary-500 bg-primary-100 h-[70px]' : 'h-[50px]'}`} >Главная</Link></li>
             <li>
-                <Link href={touch ? "#" : "/posts"} onTouchEnd={() => setTouch(true)} onDoubleClick={() => setBurgerActive(!burger)}  onMouseEnter ={showPostsSubMenu} onMouseLeave={hidePostsSubMenu} className={` box-content relative   px-3 flex items-center  hover:text-primary-500 duration-500 ${pathname === '/posts' ? ' text-primary-500  bg-primary-100  h-[70px]' : 'h-[50px]'}`} >Обьявления <FaChevronDown  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/> </Link>
+                <Link href="/posts"  onDoubleClick={() => setBurgerActive(!burger)}  onTouchMove ={showPostsSubMenu} onTouchCancel={hidePostsSubMenu} className={` box-content relative   px-3 flex items-center  hover:text-primary-500 duration-500 ${pathname === '/posts' ? ' text-primary-500  bg-primary-100  h-[70px]' : 'h-[50px]'}`} >Обьявления <FaChevronDown  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/> </Link>
                 {postsSubActive ? 
                 <ul onMouseEnter={onMouseInPostsSub}  onMouseLeave={onMouseOutPostsSub} className="sticky shadow-xl shadow-orange-900 h-[40px] w-[250px] bg-white  rounded-b-md z-10  ">
                   <li><Link href="/" onClick={() => setBurgerActive(!burger)} className={`h-[40px] px-7 flex items-center  hover:text-primary-500 `}>Продавцы</Link></li>
