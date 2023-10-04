@@ -77,8 +77,7 @@ export  function TheHeader() {
               <li>
                 <Link href="/articles" onMouseEnter ={showArticleSubMenu} onMouseLeave={hideArticleSubMenu} className={`box-content relative h-[100px] px-3 flex items-center  hover:text-primary-500 duration-500 ${pathname === '/articles' ? ' text-orange-500 border-t-[5px] border-t-orange-500 border-solid' : ''}`}>Статьи <FaChevronDown  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/></Link>
                 {articleSubActive ? 
-                <ul onMouseEnter ={onMouseInArticleSub} onMouseLeave={onMouseOutArticleSub} className="absolute shadow-xl shadow-orange-900 h-[300px] w-[200px] bg-white rounded-b-md z-10 ">
-                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>Новости</Link></li>
+                <ul onMouseEnter ={onMouseInArticleSub} onMouseLeave={onMouseOutArticleSub} className="absolute shadow-xl shadow-orange-900 h-[240px] w-[200px] bg-white rounded-b-md z-10 ">
                   <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>Собаки</Link></li>
                   <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>Кошки</Link></li>
                   <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>Птицы</Link></li>

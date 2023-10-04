@@ -84,10 +84,10 @@ export function BurgerMenu() {
             </li>
 
             <li>
-                <Link href="/articles" onTouchStart={showArticleSubMenu} onTouchMove={hideArticleSubMenu} onMouseEnter ={showArticleSubMenu}  onMouseLeave={hideArticleSubMenu} className={`box-content relative  px-3 flex items-center  hover:text-primary-500 duration-500 ${pathname === '/articles' ? ' text-primary-500 bg-primary-100 h-[70px]' : 'h-[50px]'}`}>Статьи {!articleSubActive ? <FaChevronDown  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/> : <FaChevronUp  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/>}</Link>
+                <Link href="" onTouchStart={showArticleSubMenu} onTouchMove={hideArticleSubMenu} onMouseEnter ={showArticleSubMenu}  onMouseLeave={hideArticleSubMenu} className={`box-content relative  px-3 flex items-center  hover:text-primary-500 duration-500 ${pathname === '/articles' ? ' text-primary-500 bg-primary-100 h-[70px]' : 'h-[50px]'}`}>Статьи {!articleSubActive ? <FaChevronDown  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/> : <FaChevronUp  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/>}</Link>
                 {articleSubActive ? 
                 <ul onMouseEnter ={onMouseInArticleSub} onMouseLeave={onMouseOutArticleSub} className="sticky shadow-xl shadow-orange-900 h-[200px] w-[250px] bg-white rounded-b-md z-10 ">
-                  <li><Link href="/" onClick={() => setBurgerActive(!burger)} className={`h-[40px] px-7 flex items-center  hover:text-primary-500 `}>Новости</Link></li>
+                  <li><Link href="/" onClick={() => setBurgerActive(!burger)} className={`h-[40px] px-7 flex items-center  hover:text-primary-500 `}>Все статьи</Link></li>
                   <li><Link href="/" onClick={() => setBurgerActive(!burger)} className={`h-[40px] px-7 flex items-center  hover:text-primary-500 `}>Собаки</Link></li>
                   <li><Link href="/" onClick={() => setBurgerActive(!burger)} className={`h-[40px] px-7 flex items-center  hover:text-primary-500 `}>Кошки</Link></li>
                   <li><Link href="/" onClick={() => setBurgerActive(!burger)} className={`h-[40px] px-7 flex items-center  hover:text-primary-500 `}>Птицы</Link></li>
