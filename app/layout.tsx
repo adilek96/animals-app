@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { TheFooter } from "@/components/TheFooter";
 import { BurgerMenu } from "@/components/BurgerMenu";
+import {LogInWindow} from "@/components/popUpWindows/LogInWindow";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -19,9 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={openSans.className}>
-      <body className=" overflow-x-hidden bg-gray-200">
+      <body className="overflow-x-hidden bg-gray-200">
         <TheHeader />
         <BurgerMenu/>
+        <LogInWindow />
         <main >{children}</main>
         <TheFooter />
       </body>
