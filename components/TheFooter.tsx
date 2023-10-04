@@ -7,7 +7,7 @@ export function TheFooter() {
   const contact = "+994556263262";
   const email = "info@animals.al";
   return (
-    <footer className="bg-white shadow-[12px_12px_50px_25px_rgb(0,0,0,0.25)] shadow-primary-900 box-border w-[100%] h-[350px] text-gray-800   border-t-[5px] border-primary-500 border-solid">
+    <footer className="bg-white overflow-hidden shadow-[12px_12px_50px_25px_rgb(0,0,0,0.25)] shadow-primary-900 box-border w-[100%] h-[350px] text-gray-800   border-t-[5px] border-primary-500 border-solid">
       <div className="flex justify-center items-center h-[80%] ">
         <div className="flex ">
           <Link href="/">
