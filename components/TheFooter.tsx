@@ -12,6 +12,7 @@ export function TheFooter() {
         <div className="flex gap-[5%]">
           <Link href="/">
             <Image
+              className="hidden md:block xl:w-[120%] lg:w-[100%] md:w-[80%] sm:w-[60%]"
               src={animalsLogo}
               width={150}
               height={150}
