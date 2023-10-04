@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={openSans.className}>
-      <body className="overflow-x-hidden bg-gray-200">
+    <html lang="en" className={` h-full ${openSans.className}`}>
+      <body className=" h-full overflow-x-hidden bg-gray-200">
         <TheHeader />
         <BurgerMenu/>
         <LogInWindow />

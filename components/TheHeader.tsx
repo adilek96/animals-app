@@ -6,16 +6,19 @@ import { FaPlus, FaChevronDown,  FaSignInAlt } from "react-icons/fa";
 import { usePathname } from 'next/navigation';
 import  { burgerActiveState }  from "../store/burgerActiveState";
 import { motion } from "framer-motion";
-
+import {logInModalActive} from "../store/logInModalActive"
 
 
 export  function TheHeader() {
   const [postsSubActive, setPostsSubActive] = useState(false)
   const [articleSubActive, setArticleSubActive] = useState(false)
   const pathname = usePathname()
+  // стэйт вызова бургер меню
   const burger = burgerActiveState(state => state.burger);
   const setBurgerActive = burgerActiveState(state => state.setBurgerActive);
- 
+  // стэйт вызова окна входа
+  const loginModal = logInModalActive(state => state.loginModal);
+  const setLoginModalActive = logInModalActive(state => state.setLoginModalActive);
  
   const showPostsSubMenu = () => {
     setPostsSubActive(true)
@@ -86,7 +89,7 @@ export  function TheHeader() {
               <li><Link href="/clinic" className={`box-content h-[100px] px-3 flex items-center  hover:text-primary-500 duration-300 ${pathname === '/clinic' ? ' text-primary-500 border-t-[5px] border-t-primary-500 border-solid' : ''}`}>Ветклиники</Link></li>
             </ul>
           </nav>
-          <button className={`flex h-[100px] px-5  items-center   hover:text-primary-500 duration-300`}><FaSignInAlt className="text-2xl mr-2 text-gray-300  font-extrabold"/>Войти</button>
+          <button onClick={() =>  setLoginModalActive(!loginModal) } className={`flex h-[100px] px-5  items-center   hover:text-primary-500 duration-300`}><FaSignInAlt className="text-2xl mr-2 text-gray-300  font-extrabold"/>Войти</button>
         </div>
           {/* ---------------------------- Mobile varint ---------------------------- */}
         <button  onClick={() => setBurgerActive(!burger)} className="relative 2xl:hidden xl:hidden lg:hidden flex flex-col  items-center justify-center gap-1 bg-primary-300 shadow-xl rounded-full shadow-primary-800  w-[40px] h-[40px] mr-2"> 
