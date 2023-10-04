@@ -25,7 +25,7 @@ export function TheFooter() {
             домашних животных в Азербайджане
           </p>
           <div className="mt-2">
-            <p className=" xl:text-[140%] lg:text-[120%]  md:text-[100%] sm:text-[80%] font-semibold">
+            <p className=" xl:text-[120%] lg:text-[100%]  md:text-[80%] sm:text-[60%] font-semibold">
               Контакты:
             </p>
             <ul className="list-none pt-4 space-y-1">
@@ -51,24 +51,26 @@ export function TheFooter() {
           </p>
           <div className="flex gap-3">
             <Link href="https://t.me/zooazerbaijan">
-              <span className="xl:text-[180%] lg:text-[160%]  md:text-[140%] sm:text-[120%]">
+              <span className="xl:text-[180%] lg:text-[160%]  md:text-[140%] sm:text-[120%] hover:text-primary-500">
                 <FaTelegram />
               </span>
             </Link>
             <Link href="https://www.facebook.com/groups/zooazerbaijan">
-              <span className="xl:text-[180%] lg:text-[160%]  md:text-[140%] sm:text-[120%]">
+              <span className="xl:text-[180%] lg:text-[160%]  md:text-[140%] sm:text-[120%] hover:text-primary-500">
                 <FaFacebook />
               </span>
             </Link>
             <Link href="https://wa.me/994556263262">
-              <span className="xl:text-[180%] lg:text-[160%]  md:text-[140%] sm:text-[120%]">
+              <span className="xl:text-[180%] lg:text-[160%]  md:text-[140%] sm:text-[120%] hover:text-primary-500">
                 <FaWhatsapp />
               </span>
             </Link>
           </div>
         </div>
       </div>
-      <div className="flex mt-[3%] justify-center xl:text-[120%] lg:text-[100%]  md:text-[80%] sm:text-[60%]">
+      <div className="bg-orange-500 h-1 w-[100%] mt-[3%] "></div>
+
+      <div className="flex  justify-center xl:text-[120%] lg:text-[100%]  md:text-[80%] sm:text-[60%]">
         Created with honor by &copy;{" "}
         <a
           className=" hover:text-primary-500 font-bold"
@@ -84,6 +86,7 @@ export function TheFooter() {
           kemikable.com
         </a>
       </div>
+      <div className="bg-orange-500 h-1 w-[100%]  "></div>
     </footer>
   );
 }
