@@ -45,7 +45,7 @@ export  function TheHeader() {
 
 
   return (
-    <header className="  shadow-2xl shadow-primary-900 box-content  h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-primary-500 border-solid">
+    <header className="bg-white   shadow-2xl shadow-primary-900 box-content  h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-primary-500 border-solid">
 
       <div className="w-[100px] ">
         <Link href="/" onClick={() => burger ? setBurgerActive(!burger): ""}>

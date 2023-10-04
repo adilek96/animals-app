@@ -7,9 +7,9 @@ export function TheFooter() {
   const contact = "+994556263262";
   const email = "info@animals.al";
   return (
-    <footer>
-      <div className="flex justify-center  mt-[3%] ml-[3%]">
-        <div className="flex gap-[5%]">
+    <footer className="bg-white shadow-[12px_12px_50px_25px_rgb(0,0,0,0.25)] shadow-primary-900 box-border w-[100%] h-[350px] text-gray-800   border-t-[5px] border-primary-500 border-solid">
+      <div className="flex justify-center items-center h-[80%] ">
+        <div className="flex ">
           <Link href="/">
             <Image
               className="hidden md:block xl:w-[120%] lg:w-[100%] md:w-[80%] sm:w-[60%]"
@@ -43,9 +43,9 @@ export function TheFooter() {
               </li>
             </ul>
           </div>
-        </div>
+        </div> 
 
-        <div className="ml-[-40%]">
+       <div className="ml-[-40%]">
           <p className="xl:text-[120%] lg:text-[100%]  md:text-[80%] sm:text-[60%] font-semibold mb-7 mr-3">
             Найди нас в социальных сетях:
           </p>
@@ -68,15 +68,15 @@ export function TheFooter() {
           </div>
         </div>
       </div>
-      <div className="bg-orange-500 h-1 w-[100%] mt-[3%] "></div>
-
-      <div className="flex  justify-center xl:text-[120%] lg:text-[100%]  md:text-[80%] sm:text-[60%]">
-        Created with honor by &copy;{" "}
+   
+        <hr className="text-center mx-auto border-t-[3px] w-[60vw]"/>
+      <div className="flex  justify-center items-center     md:text-[80%] sm:text-[60%]">
+        Created with honor by &copy;
         <a
-          className=" hover:text-primary-500 font-bold"
+          className=" hover:text-primary-500  font-bold"
           href="https://www.tabs.me"
         >
-          Tabs.me{" "}
+          Tabs.me
         </a>
         &nbsp; and &nbsp; &copy;
         <a
@@ -86,7 +86,7 @@ export function TheFooter() {
           kemikable.com
         </a>
       </div>
-      <div className="bg-orange-500 h-1 w-[100%]  "></div>
+      
     </footer>
   );
 }

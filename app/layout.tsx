@@ -19,10 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={openSans.className}>
-      <body>
+      <body className=" overflow-x-hidden bg-gray-200">
         <TheHeader />
         <BurgerMenu/>
-        <main>{children}</main>
+        <main >{children}</main>
         <TheFooter />
       </body>
     </html>

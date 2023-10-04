@@ -41,10 +41,10 @@ export function BurgerMenu() {
       }
   return (
         <motion.div 
-          initial={{ opacity: 0, x: -100 }} 
+          initial={{ opacity: 0, x: -1000 }} 
           animate={{
             opacity: burger ? 1 : 0,
-            x: burger ? 0 : -100
+            x: burger ? 0 : -1000
           }}
           transition={{ duration: 0.5 }}
           className={`absolute  shadow-xl shadow-orange-900 h-[100%] w-[250px]  bg-white  rounded-md z-100 overflow-hidden  `}>
