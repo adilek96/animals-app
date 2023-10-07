@@ -1,7 +1,12 @@
 import React from 'react';
 import { FcGoogle } from "react-icons/fc";
+import {logInModalActive} from "../../store/logInModalActive"
+
 
 export  function LogIn() {
+  const toggle = logInModalActive(state => state.toggle);
+  const setToggle = logInModalActive(state => state.setToggle);
+ 
   return (
     <>
     <button  className="focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[200px] "><FcGoogle className="text-[80px]"/>oogle вход</button>
@@ -29,9 +34,9 @@ export  function LogIn() {
              Пароль
            </label>
            <div className="text-sm">
-             <a href="#" className="font-semibold text-green-500 hover:text-green-700">
+             <button type='button' onClick={() => setToggle("forgot")} className="font-semibold text-green-500 hover:text-green-700">
                Забыли пароль?
-             </a>
+             </button>
            </div>
          </div>
          <div className="mt-2">
@@ -53,6 +58,9 @@ export  function LogIn() {
            Войти
          </button>
        </div>
-     </form></>
+     </form>
+    
+     </>
+  
   )
 }
