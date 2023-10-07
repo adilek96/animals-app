@@ -22,7 +22,7 @@ export  function LogInWindow() {
       transition={{ duration: 0.5 }}
       className=' fixed w-screen backdrop-blur-lg inset-0'>
       
-      <div className=' fixed md:w-[50vw] h-[85vh]  md:left-[25%] top-[5%] sm:w-[90vw] sm:left-[5%] bg-white z-50 shadow-2xl  shadow-gray-800 rounded-md border-t-[5px] border-primary-500 flex flex-col gap-3 justify-center items-center'>
+      <div className=' fixed md:w-[50vw] h-[90vh]  md:left-[25%] top-[5%] sm:w-[90vw] sm:left-[5%] bg-white z-50 shadow-2xl  shadow-gray-800 rounded-md border-t-[5px] border-primary-500 flex flex-col gap-3 justify-center items-center'>
       <button onClick={() =>  setLoginModalActive(!loginModal)} className="focus:outline-none active:outline-none shadow-xl shadow-primary-800 absolute right-1 top-0 w-[30px] h-[30px]"><FaWindowClose className="absolute right-0 top-1  text-primary-300 w-[30px] h-[30px]"/></button>
       <nav className="inline-block">
             <ul className=" w-[300px] box-content text-[16px] font-bold antialiased flex flex-none h-[80px] items-center ">
