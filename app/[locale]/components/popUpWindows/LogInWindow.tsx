@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import {  FaWindowClose } from "react-icons/fa";
-import {logInModalActive} from "../../store/logInModalActive"
+import {logInModalActive} from "../../../../store/logInModalActive"
 import { motion } from "framer-motion";
 import { LogIn } from './LogIn';
 import { SignIn } from './SignIn';

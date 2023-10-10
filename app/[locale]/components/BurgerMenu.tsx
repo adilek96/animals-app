@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from 'next/navigation';
 import {  FaChevronDown,FaChevronUp, FaSignInAlt,FaWindowClose } from "react-icons/fa";
-import { burgerActiveState }  from "../store/burgerActiveState";
+import { burgerActiveState }  from "../../../store/burgerActiveState";
 import { motion } from "framer-motion";
-import {logInModalActive} from "../store/logInModalActive"
+import {logInModalActive} from "../../../store/logInModalActive"
 
 export function BurgerMenu() {
     const [postsSubActive, setPostsSubActive] = useState(false);

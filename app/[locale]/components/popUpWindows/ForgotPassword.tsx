@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {logInModalActive} from "../../store/logInModalActive";
+import {logInModalActive} from "../../../../store/logInModalActive";
 
 export  function ForgotPassword() {
     const [check ,setCheck] = useState("email");

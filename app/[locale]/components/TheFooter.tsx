@@ -1,5 +1,5 @@
 import Image from "next/image";
-import animalsLogo from "../public/logo/logo.png";
+import animalsLogo from "../../../public/logo/logo.png";
 import Link from "next/link";
 import { FaFacebook, FaTelegram, FaWhatsapp } from "react-icons/fa6";
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FcGoogle } from "react-icons/fc";
-import {logInModalActive} from "../../store/logInModalActive"
+import {logInModalActive} from "../../../../store/logInModalActive"
 
 
 export  function LogIn() {
