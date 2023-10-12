@@ -1,11 +1,15 @@
 import React from 'react'
+import {useTranslations} from 'next-intl';
 
 export  function SignIn() {
+
+  const t = useTranslations("LogInForms");
+
   return (
     <form className="space-y-1 w-[300px] " action="#" >
         <div>
           <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-700">
-            Электронная почта
+            {t("email")}
           </label>
           <div>
            <input
@@ -21,7 +25,7 @@ export  function SignIn() {
 
         <div>
           <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-700">
-            Имя
+            {t("name")}
           </label>
           <div>
            <input
@@ -37,7 +41,7 @@ export  function SignIn() {
 
         <div>
           <label htmlFor="phone" className="block text-sm font-medium leading-6 text-gray-700">
-            Телефонный номер
+            {t("phone")}
           </label>
           <div className="">
            <input
@@ -54,7 +58,7 @@ export  function SignIn() {
         <div>
          <div className="flex items-center justify-between ">
            <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-700 ">
-             Пароль
+             {t("password")}
            </label>
           </div>
 
@@ -73,7 +77,7 @@ export  function SignIn() {
        <div>
          <div className="flex items-center justify-between ">
            <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-700 ">
-             Повторите пароль
+             {t("passRetry")}
            </label>
           </div>
 
@@ -94,7 +98,7 @@ export  function SignIn() {
            type="submit"
            className=" mt-1 focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[200px] "
          >
-           Регистрация
+           {t("registrButton")}
          </button>
        </div>
 

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { LogIn } from './LogIn';
 import { SignIn } from './SignIn';
 import { ForgotPassword } from './ForgotPassword';
-
+import {useTranslations} from 'next-intl';
 
 export  function LogInWindow() {
   const loginModal = logInModalActive(state => state.loginModal);
@@ -14,6 +14,7 @@ export  function LogInWindow() {
   const toggle = logInModalActive(state => state.toggle);
   const setToggle = logInModalActive(state => state.setToggle);
 
+  const t = useTranslations("LogInForms");
 
 
   return (
@@ -36,15 +37,15 @@ export  function LogInWindow() {
       
       {toggle === "forgot" ? 
       (<>
-        <button className={`w-[300px] box-content h-[80px]  flex items-center  hover:text-primary-500 duration-300 ${toggle === 'forgot' ? ' text-primary-500 border-t-[5px] border-t-primary-500 border-solid' : ''}`} >Востановление пароля</button>
+        <button className={`w-[300px] box-content h-[80px]  flex items-center  hover:text-primary-500 duration-300 ${toggle === 'forgot' ? ' text-primary-500 border-t-[5px] border-t-primary-500 border-solid' : ''}`} >{t("passRecovery")}</button>
         <ForgotPassword />
       </>) : 
       (<>
         <nav className="inline-block">
             <ul className=" w-[300px] box-content text-[16px] font-bold antialiased flex flex-none h-[80px] items-center ">
               
-              <li><button onClick={() => setToggle("login")}    className={`w-[150px] box-content h-[80px]  flex items-center  hover:text-primary-500 duration-300 ${toggle === 'login' ? ' text-primary-500 border-t-[5px] border-t-primary-500 border-solid' : ''}`} >Вход</button></li>
-              <li><button onClick={() => setToggle("signin")}   className={`w-[150px] box-content h-[80px]  flex items-center  hover:text-primary-500 duration-300 ${toggle === 'signin' ? ' text-primary-500 border-t-[5px] border-t-primary-500 border-solid' : ''}`} >Регистрация</button></li>
+              <li><button onClick={() => setToggle("login")}    className={`w-[150px] box-content h-[80px]  flex items-center  hover:text-primary-500 duration-300 ${toggle === 'login' ? ' text-primary-500 border-t-[5px] border-t-primary-500 border-solid' : ''}`} >{t("loginButton")}</button></li>
+              <li><button onClick={() => setToggle("signin")}   className={`w-[150px] box-content h-[80px]  flex items-center  hover:text-primary-500 duration-300 ${toggle === 'signin' ? ' text-primary-500 border-t-[5px] border-t-primary-500 border-solid' : ''}`} >{t("registrButton")}</button></li>
             </ul>
         </nav>
       

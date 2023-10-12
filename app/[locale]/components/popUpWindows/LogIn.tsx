@@ -1,20 +1,22 @@
 import React from 'react';
 import { FcGoogle } from "react-icons/fc";
 import {logInModalActive} from "../../../../store/logInModalActive"
-
+import {useTranslations} from 'next-intl';
 
 export  function LogIn() {
   const toggle = logInModalActive(state => state.toggle);
   const setToggle = logInModalActive(state => state.setToggle);
  
+  const t = useTranslations("LogInForms");
+
   return (
     <>
-    <button  className="focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[200px] "><FcGoogle className="text-[80px]"/>oogle вход</button>
-      <p className='font-bold mt-3'>Или</p>
+    <button  className="focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[200px] "><FcGoogle className="text-[80px]"/>{t("googleButton")}</button>
+      <p className='font-bold mt-3'>{t("or")}</p>
      <form className="space-y-3 w-[300px] " action="#" >
        <div>
          <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-700">
-           Электронная почта
+           {t("email")}
          </label>
          <div className="mt-2">
            <input
@@ -31,11 +33,11 @@ export  function LogIn() {
        <div>
          <div className="flex items-center justify-between ">
            <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-700 ">
-             Пароль
+             {t("password")}
            </label>
            <div className="text-sm">
              <button type='button' onClick={() => setToggle("forgot")} className="font-semibold text-green-500 hover:text-green-700">
-               Забыли пароль?
+               {t("passRestore")}
              </button>
            </div>
          </div>
@@ -55,7 +57,7 @@ export  function LogIn() {
            type="submit"
            className="focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[200px] "
          >
-           Войти
+           {t("loginButton")}
          </button>
        </div>
      </form>

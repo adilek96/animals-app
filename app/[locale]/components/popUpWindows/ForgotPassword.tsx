@@ -1,18 +1,22 @@
 import React, {useState} from 'react';
 import {logInModalActive} from "../../../../store/logInModalActive";
+import {useTranslations} from 'next-intl';
 
 export  function ForgotPassword() {
     const [check ,setCheck] = useState("email");
     const setToggle = logInModalActive(state => state.setToggle);
 
+
+    const t = useTranslations("LogInForms");
+
     const codeCheck = () => {
         return (
             <>
                 <form className="mt-10 space-y-12 w-[300px] " action="#" >
-                    <p className="block text-sm font-bold  text-primary-800">На ваш электронный адресс был выслан проверочный код</p>
+                    <p className="block text-sm font-bold  text-primary-800">{t("sendCodeText")}</p>
                 <div>
                  <label htmlFor="code" className="block text-sm font-medium leading-6 text-gray-700">
-                   Введите проверочный код
+                   {t("enterCode")}
                  </label>
                  <div className="mt-2">
                    <input
@@ -31,7 +35,7 @@ export  function ForgotPassword() {
                    onClick={() => setCheck("password")}
                    className="focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[150px] "
                  >
-                   Потвердить код
+                   {t("confirmCode")}
                  </button>
         
                  <button
@@ -39,7 +43,7 @@ export  function ForgotPassword() {
                    onClick={() => setCheck("email")}
                    className="focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-primary-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-primary-800    flex items-center justify-center text-center text-white  h-[40px] w-[100px] "
                  >
-                   Назад
+                   {t("back")}
                  </button>
                </div>
                 </form>
@@ -53,7 +57,7 @@ export  function ForgotPassword() {
                 <form className="mt-10 space-y-12 w-[300px] " action="#" >
                 <div>
                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-700">
-                   Электронная почта
+                   {t("email")}
                  </label>
                  <div className="mt-2">
                    <input
@@ -72,7 +76,7 @@ export  function ForgotPassword() {
                    onClick={() => setCheck("code")}
                    className="focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[150px] "
                  >
-                   Отправить код
+                   {t("sendCode")}
                  </button>
         
                  <button
@@ -80,7 +84,7 @@ export  function ForgotPassword() {
                    onClick={() => setToggle("login")}
                    className="focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-primary-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-primary-800    flex items-center justify-center text-center text-white  h-[40px] w-[100px] "
                  >
-                   Назад
+                   {t("back")}
                  </button>
                </div>
                 </form>
@@ -92,10 +96,10 @@ export  function ForgotPassword() {
         return (
             <>
                 <form className="mt-10 space-y-12 w-[300px] " action="#" >
-                    <p className="block text-sm font-bold  text-primary-800">Придумайте новый пароль</p>
+                    <p className="block text-sm font-bold  text-primary-800">{t("newPassText")}</p>
                 <div>
                  <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-700">
-                   Введите пароль
+                   {t("enterPass")}
                  </label>
                  <div className="mt-2">
                    <input
@@ -109,7 +113,7 @@ export  function ForgotPassword() {
                  </div>
 
                  <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-700">
-                   Повторите пароль
+                   {t("passRetry")}
                  </label>
                  <div className="mt-2">
                    <input
@@ -130,7 +134,7 @@ export  function ForgotPassword() {
                    type="button"
                    className="focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[150px] "
                  >
-                   Сменить пароль
+                   {t("passChange")}
                  </button>
         
                  <button
@@ -138,7 +142,7 @@ export  function ForgotPassword() {
                    onClick={() => { setCheck("email")}}
                    className="focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-primary-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-primary-800    flex items-center justify-center text-center text-white  h-[40px] w-[100px] "
                  >
-                   Назад
+                   {t("back")}
                  </button>
                </div>
                 </form>

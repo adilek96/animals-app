@@ -13,6 +13,27 @@
       "allAds": "Все обьявления",
       "allArticles": "Все статьи",
       "guest": "Гость"
+    },
+    "LogInForms": {
+      "loginButton": "Войти",
+      "registrButton": "Регистрация",
+      "googleButton": "oogle вход",
+      "or": "или",
+      "email": "Электронная почта",
+      "password": "Пароль",
+      "passRestore": "Забыли пароль?",
+      "name": "Имя",
+      "phone": "Телефонный номер",
+      "passRetry": "Повторите пароль",
+      "passRecovery": "Востановление пароля",
+      "sendCode": "Отправить код",
+      "sendCodeText": "На ваш электронный адресс был выслан проверочный код",
+      "enterCode": "Введите проверочный код",
+      "confirmCode": "Потвердить код",
+      "newPassText": "Придумайте новый пароль",
+      "enterPass": "Введите пароль",
+      "passChange": "Сменить пароль",
+      "back": "Назад"
     }
   
   }
