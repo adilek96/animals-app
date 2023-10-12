@@ -3,6 +3,16 @@
       "home": "Home",
       "ads": "Ads",
       "articles": "Articles",
-      "clinics": "Vet clinics"
+      "clinics": "Vet clinics",
+      "loginButton": "Log in",
+      "addButton": "Add ads",
+      "cats": "Cats",
+      "dogs": "Dogs",
+      "birds": "Birds",
+      "fishs": "Fish",
+      "allAds": "All ads",
+      "allArticles": "All articles",
+      "guest": "Guest"
     }
+  
   }

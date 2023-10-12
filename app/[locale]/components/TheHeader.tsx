@@ -88,10 +88,10 @@ export  function TheHeader() {
                 <Link href="/articles" onMouseEnter ={showArticleSubMenu} onMouseLeave={hideArticleSubMenu} className={`box-content relative h-[100px] px-3 flex items-center  hover:text-primary-500 duration-500 ${pathname === '/articles' ? ' text-orange-500 border-t-[5px] border-t-orange-500 border-solid' : ''}`}>{t("articles")} <FaChevronDown  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/></Link>
                 {articleSubActive ? 
                 <ul onMouseEnter={onMouseInArticleSub} onMouseLeave={onMouseOutArticleSub} className="absolute shadow-xl shadow-orange-900 h-[240px] w-[200px] bg-white rounded-b-md z-10 ">
-                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>Собаки</Link></li>
-                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>Кошки</Link></li>
-                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>Птицы</Link></li>
-                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>Рыбки</Link></li>
+                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("dogs")}</Link></li>
+                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("cats")}</Link></li>
+                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("birds")}</Link></li>
+                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("fishs")}</Link></li>
                 </ul> : ""}
               </li>
               <li><Link href="/clinic" className={`box-content h-[100px] px-3 flex items-center  hover:text-primary-500 duration-300 ${pathname === '/clinic' ? ' text-primary-500 border-t-[5px] border-t-primary-500 border-solid' : ''}`}>{t("clinics")}</Link></li>
@@ -100,7 +100,7 @@ export  function TheHeader() {
           </nav>
           
                   {/* ------------------------------------ Log In button ------------------------------- */}
-          <button onClick={() =>  setLoginModalActive(!loginModal) } className={`flex h-[100px] px-5  items-center   hover:text-primary-500 duration-300`}><FaSignInAlt className="text-2xl mr-2 text-gray-300  font-extrabold"/>Войти</button>
+          <button onClick={() =>  setLoginModalActive(!loginModal) } className={`flex h-[100px] px-5  items-center   hover:text-primary-500 duration-300`}><FaSignInAlt className="text-2xl mr-2 text-gray-300  font-extrabold"/>{t("loginButton")}</button>
         </div>
           {/* ---------------------------- Mobile varint ---------------------------- */}
         <button  onClick={() => setBurgerActive(!burger)} className="relative 2xl:hidden xl:hidden lg:hidden flex flex-col  items-center justify-center gap-1 bg-primary-300 shadow-xl rounded-full shadow-primary-800  w-[40px] h-[40px] mr-2"> 
@@ -137,7 +137,7 @@ export  function TheHeader() {
                       
         </button>
         <button className=" focus:outline-none active:outline-none shadow-xl shadow-green-800  md:w-[250px] sm:w-[40px]  flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
-          <span className="font-extrabold text-3xl  md:mr-3 text-center"><FaPlus/> </span>  <span className="sm:hidden md:block">Добавить обьявления</span>
+          <span className="font-extrabold text-3xl  md:mr-3 text-center"><FaPlus/> </span>  <span className="sm:hidden md:block">{t("addButton")}</span>
         </button>
       </div>
     
