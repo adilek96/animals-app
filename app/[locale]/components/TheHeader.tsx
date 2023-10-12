@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import {logInModalActive} from "../../../store/logInModalActive";
 import  {LangSwitcher}  from "./LangSwitcher"
 import {useTranslations} from 'next-intl';
+import { IoSettings } from "react-icons/io5";
 
 
 
@@ -22,7 +23,8 @@ export  function TheHeader() {
   const [postsSubActive, setPostsSubActive] = useState(false)
   // стейт вызова дроп-меню статей
   const [articleSubActive, setArticleSubActive] = useState(false)
- 
+  // стэйт вызова анимации шестеренки
+  const [settings, setSettings] = useState(false)
   // стэйт вызова бургер меню
   const burger = burgerActiveState(state => state.burger);
   const setBurgerActive = burgerActiveState(state => state.setBurgerActive);
@@ -143,11 +145,24 @@ export  function TheHeader() {
     
         
      
-      <div className=" absolute top-[100px] right-0 w-[120px] h-[30px] flex justify-center bg-white   rounded-bl-full shadow-lg shadow-primary-800">
-              {/* ----------------------------------- Language change buttons ---------------------------- */}
-              <LangSwitcher/>
-      </div>
      
+     
+     
+      <div onMouseEnter={() => setSettings(true)} onMouseLeave={() => setSettings(false)} className=" absolute top-[105px] right-[10px] w-[35px] hover:w-[150px] h-[35px] flex justify-start bg-white   rounded-full shadow-lg shadow-primary-800 duration-700">
+               {/* ----------------------------------- Language change buttons ---------------------------- */}
+              <LangSwitcher settings={settings}/>
+              <motion.div 
+                  initial={{
+                    rotate: 0,
+                  }}
+                  animate={{
+                    rotate: settings ? 180: 0,
+                  }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute  right-0 w-[35px] h-[35px] bg-gradient-to-r from-green-500 to-green-400  rounded-full flex justify-center items-center hover:contrast-125 duration-700 ">
+                <IoSettings className="text-[22px] text-white" />
+              </motion.div> 
+     </div>
     </header>
     
   )

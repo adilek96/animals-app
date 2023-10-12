@@ -11,8 +11,10 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'en-flag': "url('/public/flags/enflag.svg')",
+        'ru-flag': "url('/public/flags/ruflag.svg')",
+        'az-flag': "url('/public/flags/azflag.svg')",
       },
       screens:{
         'sm': '336px',
