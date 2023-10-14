@@ -105,7 +105,7 @@ export  function TheHeader() {
           <button onClick={() =>  setLoginModalActive(!loginModal) } className={`flex h-[100px] px-5  items-center   hover:text-primary-500 duration-300`}><FaSignInAlt className="text-2xl mr-2 text-gray-300  font-extrabold"/>{t("loginButton")}</button>
         </div>
           {/* ---------------------------- Mobile varint ---------------------------- */}
-        <button  onClick={() => setBurgerActive(!burger)} className="relative 2xl:hidden xl:hidden lg:hidden flex flex-col  items-center justify-center gap-1 bg-primary-300 shadow-xl rounded-full shadow-primary-800  w-[40px] h-[40px] mr-2"> 
+        <button  onClick={() => setBurgerActive(!burger)} className="relative 2xl:hidden xl:hidden lg:hidden flex flex-col  items-center justify-center gap-1 bg-primary-300 shadow-md rounded-full shadow-primary-800  w-[40px] h-[40px] mr-2"> 
                   <motion.span 
                     initial={{
                       rotate: 0,
@@ -119,7 +119,7 @@ export  function TheHeader() {
                     transition={{ duration: 0.7 }}
                     className="w-[20px] h-[3px] bg-white "></motion.span>
                   <motion.span 
-                    initial={{ opacity: 0, x: -100 }} 
+                    initial={{ opacity: 1, x: 0 }} 
                     animate={{
                       opacity: !burger ? 1 : 0,
                       x: !burger ? 0 : -100

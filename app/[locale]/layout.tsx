@@ -13,9 +13,9 @@ import {notFound} from 'next/navigation';
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
-export function generateStaticParams() {
-  return [{locale: 'en'}, {locale: 'ru'}, {locale: 'az'}];
-}
+// export function generateStaticParams() {
+//   return [{locale: 'en'}, {locale: 'ru'}, {locale: 'az'}];
+// }
 
 
 export const metadata: Metadata = {
