@@ -86,78 +86,7 @@ export function TheFooter() {
         </a>
       </div>
       </div>
-      {/* <div className="flex"> */}
-      
-
-      {/* <div className="h-[300px] flex justify-center flex-col">
-          <p>
-            <b>Мы в социальных сетях:</b>
-          </p>
-          <div className="flex gap-3 pt-4">
-            <Link href="https://t.me/zooazerbaijan">
-              <span className=" hover:text-primary-500 text-2xl ml-1 text-gray-400 pt-1 font-extrabold">
-                <FaTelegram />
-              </span>
-            </Link>
-            <Link href="https://www.facebook.com/groups/zooazerbaijan">
-              <span className=" hover:text-primary-500 text-2xl ml-1 text-gray-400 pt-1 font-extrabold">
-                <FaFacebook />
-              </span>
-            </Link>
-            <Link href="https://wa.me/994556263262">
-              <span className=" hover:text-primary-500 text-2xl ml-1 text-gray-400 pt-1 font-extrabold">
-                <FaWhatsapp />
-              </span>
-            </Link>
-          </div>
-        </div> */}
-       
-
-          {/* 
-          
-        </div> 
-
-       <div className="ml-[-40%]">
-          <p className="xl:text-[120%] lg:text-[100%]  md:text-[80%] sm:text-[60%] font-semibold mb-7 mr-3">
-            Найди нас в социальных сетях:
-          </p>
-          <div className="flex gap-3">
-            <Link href="https://t.me/zooazerbaijan">
-              <span className="xl:text-[180%] lg:text-[160%]  md:text-[140%] sm:text-[120%] hover:text-primary-500">
-                <FaTelegram />
-              </span>
-            </Link>
-            <Link href="https://www.facebook.com/groups/zooazerbaijan">
-              <span className="xl:text-[180%] lg:text-[160%]  md:text-[140%] sm:text-[120%] hover:text-primary-500">
-                <FaFacebook />
-              </span>
-            </Link>
-            <Link href="https://wa.me/994556263262">
-              <span className="xl:text-[180%] lg:text-[160%]  md:text-[140%] sm:text-[120%] hover:text-primary-500">
-                <FaWhatsapp />
-              </span>
-            </Link>
-          </div>
-        </div>
-      </div>
-   
-        <hr className="text-center mx-auto border-t-[3px] w-[60vw]"/>
-      <div className="flex  justify-center items-center     md:text-[80%] sm:text-[60%]">
-        Created with honor by &copy;
-        <a
-          className=" hover:text-primary-500  font-bold"
-          href="https://www.tabs.me"
-        >
-          Tabs.me
-        </a>
-        &nbsp; and &nbsp; &copy;
-        <a
-          className=" hover:text-primary-500 font-bold"
-          href="https://www.kemikable.com"
-        >
-          kemikable.com
-        </a>
-      </div> */}
+    
       
     </footer>
   );

@@ -10,6 +10,7 @@ import {logInModalActive} from "../../../store/logInModalActive";
 import  {LangSwitcher}  from "./LangSwitcher"
 import {useTranslations} from 'next-intl';
 import { IoSettings } from "react-icons/io5";
+import { ThemeSwitch } from './ThemeSwitch';
 
 
 
@@ -60,7 +61,7 @@ export  function TheHeader() {
 
 
   return (
-    <header className="bg-white  overflow-hidden shadow-md shadow-primary-900 box-content  h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-primary-500 border-solid">
+    <header className=" bg-white  overflow-hidden shadow-md shadow-primary-900 box-content  h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-primary-500 border-solid">
 
       <div className="w-[100px] ">
         <Link href="/" onClick={() => burger ? setBurgerActive(!burger): ""}>
@@ -148,9 +149,10 @@ export  function TheHeader() {
      
      
      
-      <div onMouseEnter={() => setSettings(true)} onMouseLeave={() => setSettings(false)} className=" absolute top-[105px] right-[10px] w-[35px] hover:w-[150px] h-[35px] flex justify-start bg-white   rounded-full shadow-md shadow-green-800 duration-700">
+      <div onMouseEnter={() => setSettings(true)} onMouseLeave={() => setSettings(false)} className=" absolute top-[105px] right-[10px] w-[35px] hover:w-[230px] h-[35px] flex justify-start bg-white   rounded-full shadow-md shadow-green-800 duration-700">
                {/* ----------------------------------- Language change buttons ---------------------------- */}
               <LangSwitcher settings={settings}/>
+              <ThemeSwitch settings={settings} />
               <motion.div 
                   initial={{
                     rotate: 0,
