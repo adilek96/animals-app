@@ -60,7 +60,7 @@ export  function TheHeader() {
 
 
   return (
-    <header className="bg-white  overflow-hidden shadow-2xl shadow-primary-900 box-content  h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-primary-500 border-solid">
+    <header className="bg-white  overflow-hidden shadow-md shadow-primary-900 box-content  h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-primary-500 border-solid">
 
       <div className="w-[100px] ">
         <Link href="/" onClick={() => burger ? setBurgerActive(!burger): ""}>
@@ -138,7 +138,7 @@ export  function TheHeader() {
                     className="w-[20px] h-[3px] bg-white "></motion.span>    
                       
         </button>
-        <button className=" focus:outline-none active:outline-none shadow-xl shadow-green-800  md:w-[250px] sm:w-[40px]  flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
+        <button className=" focus:outline-none active:outline-none shadow-md shadow-green-800  md:w-[250px] sm:w-[40px]  flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
           <span className="font-extrabold text-3xl  md:mr-3 text-center"><FaPlus/> </span>  <span className="sm:hidden md:block">{t("addButton")}</span>
         </button>
       </div>
@@ -148,7 +148,7 @@ export  function TheHeader() {
      
      
      
-      <div onMouseEnter={() => setSettings(true)} onMouseLeave={() => setSettings(false)} className=" absolute top-[105px] right-[10px] w-[35px] hover:w-[150px] h-[35px] flex justify-start bg-white   rounded-full shadow-lg shadow-primary-800 duration-700">
+      <div onMouseEnter={() => setSettings(true)} onMouseLeave={() => setSettings(false)} className=" absolute top-[105px] right-[10px] w-[35px] hover:w-[150px] h-[35px] flex justify-start bg-white   rounded-full shadow-md shadow-green-800 duration-700">
                {/* ----------------------------------- Language change buttons ---------------------------- */}
               <LangSwitcher settings={settings}/>
               <motion.div 

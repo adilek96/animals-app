@@ -25,7 +25,11 @@ const config: Config = {
       backgroundSize: {
         '50%': '50%',
         '200%': '200%'
+      },
+      boxShadow:{
+        'md-revers': '0 -3px 6px -1px rgb(0 0 0 / 0.1)'
       }
+
    
     },
   },

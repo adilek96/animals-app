@@ -13,6 +13,11 @@ import {notFound} from 'next/navigation';
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
+export function generateStaticParams() {
+  return [{locale: 'en'}, {locale: 'ru'}, {locale: 'az'}];
+}
+
+
 export const metadata: Metadata = {
   title: "Animals.Al",
   description: "Animals marketplace",
@@ -31,9 +36,7 @@ export default async function RootLayout({children, params}: {children: React.Re
     notFound();
   }
 
-  if(params.locale !== locale){
-    notFound();
-  }
+
   return (
     <html lang={locale} className={` h-full ${openSans.className}`}>
       <body className=" h-full overflow-x-hidden bg-gray-200">
