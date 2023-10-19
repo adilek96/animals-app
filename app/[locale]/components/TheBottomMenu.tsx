@@ -10,7 +10,7 @@ export  function TheBottomMenu() {
             <BiHome/>
             <BiCategoryAlt/>
         </div>
-        <div className='fixed bottom-[5px] left-[calc(50%-45px)] flex justify-center items-center  w-[90px] h-[90px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 border-t-[5px]    border-primary-500 '><FaPlus className="font-extrabold text-3xl  md:mr-3 text-center"/></div>
+        <div className='fixed bottom-[5px] left-[calc(50%-40px)] flex justify-center items-center  w-[80px] h-[80px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 border-t-[5px]    border-primary-500 '><FaPlus className="font-extrabold text-3xl  md:mr-3 text-center"/></div>
         <div className=' w-[30vw]  flex justify-around'> 
             <BiMessageRoundedDots/>
             <VscAccount/>
