@@ -28,12 +28,12 @@ export  function LogInWindow() {
       className=' fixed w-screen backdrop-blur-lg inset-0'>
       
       
-      <div className=' fixed md:w-[50vw] h-[90vh]  md:left-[25%] top-[5%] sm:w-[90vw] sm:left-[5%] bg-white z-50 shadow-2xl  shadow-gray-800 rounded-md border-t-[5px] border-primary-500 flex flex-col gap-3 justify-center items-center'>
+      <div className=' fixed dark:bg-gray-700 md:w-[50vw] h-[90vh]  md:left-[25%] top-[5%] sm:w-[90vw] sm:left-[5%] bg-white z-50 shadow-2xl  shadow-gray-800 rounded-md border-t-[5px] border-primary-500 flex flex-col gap-3 justify-center items-center'>
       <button onClick={() =>  {
         setLoginModalActive(!loginModal);
         setToggle("login");
       }} 
-      className="focus:outline-none active:outline-none shadow-xl shadow-primary-800 absolute right-1 top-0 w-[30px] h-[30px]"><FaWindowClose className="absolute right-0 top-1  text-primary-300 w-[30px] h-[30px]"/></button>
+      className="focus:outline-none active:outline-none shadow-md shadow-primary-800 absolute right-1 top-1 w-[30px] h-[25px]"><FaWindowClose className="absolute right-0 top-0  text-primary-300 w-[30px] h-[30px]"/></button>
       
       {toggle === "forgot" ? 
       (<>

@@ -1,11 +1,27 @@
-import { useState } from 'react'
+'use client'
+import { useState , useEffect} from 'react'
+import { useTheme } from 'next-themes';
 import { Switch } from '@headlessui/react'
 import { motion } from "framer-motion";
 import { RxMoon, RxSun } from "react-icons/rx";
 
 export  function ThemeSwitch({settings}:{settings:boolean}) {
   const [enabled, setEnabled] = useState(false)
+  const {theme, setTheme} = useTheme()
+  const [mounted , setMounted] = useState("false")
+  useEffect(() => {
+      setMounted("true");
+  }, []);
+ 
 
+  if(enabled){
+    setTheme("ligt")
+  } else {
+    setTheme("dark")
+  }
+//   if(!mounted){
+//     return null
+// } 
   return (
     <motion.div 
     initial={{

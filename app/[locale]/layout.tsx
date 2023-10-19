@@ -5,17 +5,18 @@ import { Open_Sans } from "next/font/google";
 import { TheFooter } from "@/app/[locale]/components/TheFooter";
 import { BurgerMenu } from "@/app/[locale]/components/BurgerMenu";
 import { LogInWindow } from "@/app/[locale]/components/popUpWindows/LogInWindow";
+import { Settings } from "@/app/[locale]/components/Settings";
 import { NextIntlClientProvider } from "next-intl";
-
-import {useLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
+import Providers from "./providers";
+
 
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
-// export function generateStaticParams() {
-//   return [{locale: 'en'}, {locale: 'ru'}, {locale: 'az'}];
-// }
+export function generateStaticParams() {
+  return [{locale: 'en'}, {locale: 'ru'}, {locale: 'az'}];
+}
 
 
 export const metadata: Metadata = {
@@ -26,28 +27,33 @@ export const metadata: Metadata = {
 export default async function RootLayout({children, params}: {children: React.ReactNode; params: {locale:string}}) {
  
 
-  const locale = useLocale();
+
 
   let messages;
   
   try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
+    messages = (await import(`../../messages/${params.locale}.json`)).default;
   } catch (error) {
     notFound();
   }
 
 
   return (
-    <html lang={locale} className={` h-full ${openSans.className}`}>
-      <body className=" h-full overflow-x-hidden bg-gray-200">
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <TheHeader />
-          <BurgerMenu/>
-          <LogInWindow />
-          <main >{children}</main>
-          <TheFooter />
+    <html lang={params.locale} className={` h-full ${openSans.className}`}>
+     
+      <body className=" h-full overflow-x-hidden bg-gray-200 dark:bg-gray-800">
+        <NextIntlClientProvider locale={params.locale} messages={messages}>
+        <Providers>
+            <TheHeader />
+            <BurgerMenu/>
+            <LogInWindow />
+            <Settings/>
+            <main>{children}</main>
+            <TheFooter />
+            </Providers>
         </NextIntlClientProvider>
       </body>
+      
     </html>
   );
 }

@@ -1,18 +1,40 @@
 {
-    "TheHeader": {
-      "home": "Home",
-      "ads": "Ads",
-      "articles": "Articles",
-      "clinics": "Vet clinics",
-      "loginButton": "Log in",
-      "addButton": "Add ads",
-      "cats": "Cats",
-      "dogs": "Dogs",
-      "birds": "Birds",
-      "fishs": "Fishs",
-      "allAds": "All ads",
-      "allArticles": "All articles",
-      "guest": "Guest"
-    }
-  
+  "TheHeader": {
+    "home": "Home",
+    "ads": "Ads",
+    "articles": "Articles",
+    "clinics": "Vet clinics",
+    "loginButton": "Log In",
+    "addButton": "Add ads",
+    "cats": "Cats",
+    "dogs": "Dogs",
+    "birds": "Birds",
+    "fishs": "Fish",
+    "allAds": "All ads",
+    "allArticles": "All articles",
+    "guest": "Guest"
+  },
+  "LogInForms": {
+    "loginButton": "Log In",
+    "registrButton": "Sign In",
+    "googleButton": "oogle Log In",
+    "or":"or",
+    "email": "Email",
+    "password": "Password",
+    "passRestore": "Forgot your password?",
+    "name": "Name",
+    "phone": "Phone number",
+    "passRetry": "Repeat password",
+    "passRecovery": "Password recovery",
+    "sendCode": "Send code",
+    "sendCodeText": "A verification code has been sent to your email address",
+    "enterCode": "Enter verification code",
+    "confirmCode": "Confirm code",
+    "newPassText": "Create a new password",
+    "passChange": "Change password",
+    "enterPass": "Enter password",
+    "back": "Back"
+
   }
+
+}

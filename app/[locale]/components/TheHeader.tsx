@@ -58,10 +58,10 @@ export  function TheHeader() {
   const onMouseOutArticleSub = () => {
     setArticleSubActive(false)
   }
-
+ 
 
   return (
-    <header className=" bg-white  overflow-hidden shadow-md shadow-primary-900 box-content  h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-primary-500 border-solid">
+    <header className=" bg-white dark:bg-inherit    dark:text-white overflow-hidden shadow-md shadow-primary-900 box-content  h-[100px] text-gray-800  items-center flex justify-between  px-12 border-b-[5px] border-primary-500 border-solid">
 
       <div className="w-[100px] ">
         <Link href="/" onClick={() => burger ? setBurgerActive(!burger): ""}>
@@ -83,20 +83,20 @@ export  function TheHeader() {
               <li>
                 <Link href="/posts" onMouseEnter ={showPostsSubMenu} onMouseLeave={hidePostsSubMenu} className={` box-content relative h-[100px]  px-3 flex items-center  hover:text-primary-500 duration-500 ${pathname === '/posts' ? ' text-primary-500 border-t-[5px] border-t-primary-500 border-solid' : ''}`} >{t("ads")}<FaChevronDown  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/> </Link>
                 {postsSubActive ? 
-                <ul onMouseEnter={onMouseInPostsSub}  onMouseLeave={onMouseOutPostsSub} className="absolute shadow-xl shadow-orange-900 h-[60px] w-[200px] bg-white  rounded-b-md z-10  ">
+                <ul onMouseEnter={onMouseInPostsSub}  onMouseLeave={onMouseOutPostsSub} className="absolute shadow-md shadow-orange-900 h-[60px] w-[200px] bg-white dark:bg-gray-700  rounded-b-md z-10  ">
                   <li><Link href="/" className={`h-[60px] px-3 flex items-center  hover:text-primary-500 `}>Продавцы</Link></li>
                 </ul> : ""}
               </li>
-              <li>
+              {/* <li>
                 <Link href="/articles" onMouseEnter ={showArticleSubMenu} onMouseLeave={hideArticleSubMenu} className={`box-content relative h-[100px] px-3 flex items-center  hover:text-primary-500 duration-500 ${pathname === '/articles' ? ' text-orange-500 border-t-[5px] border-t-orange-500 border-solid' : ''}`}>{t("articles")} <FaChevronDown  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/></Link>
                 {articleSubActive ? 
-                <ul onMouseEnter={onMouseInArticleSub} onMouseLeave={onMouseOutArticleSub} className="absolute shadow-xl shadow-orange-900 h-[240px] w-[200px] bg-white rounded-b-md z-10 ">
+                <ul onMouseEnter={onMouseInArticleSub} onMouseLeave={onMouseOutArticleSub} className="absolute shadow-md shadow-orange-900 h-[240px] w-[200px] bg-white dark:bg-gray-700 rounded-b-md z-10 ">
                   <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("dogs")}</Link></li>
                   <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("cats")}</Link></li>
                   <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("birds")}</Link></li>
                   <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("fishs")}</Link></li>
                 </ul> : ""}
-              </li>
+              </li> */}
               <li><Link href="/clinic" className={`box-content h-[100px] px-3 flex items-center  hover:text-primary-500 duration-300 ${pathname === '/clinic' ? ' text-primary-500 border-t-[5px] border-t-primary-500 border-solid' : ''}`}>{t("clinics")}</Link></li>
            
          </ul>
@@ -148,9 +148,9 @@ export  function TheHeader() {
      
      
      
-     
-      <div onMouseEnter={() => setSettings(true)} onMouseLeave={() => setSettings(false)} className=" absolute top-[105px] right-[10px] w-[35px] hover:w-[230px] h-[35px] flex justify-start bg-white   rounded-full shadow-md shadow-green-800 duration-700">
-               {/* ----------------------------------- Language change buttons ---------------------------- */}
+     {/* ----------------------------------- Language change buttons ---------------------------- */}
+      {/* <div onMouseEnter={() => setSettings(true)} onMouseLeave={() => setSettings(false)} className="  absolute top-[105px] right-[10px] w-[35px] hover:w-[230px] h-[35px] flex justify-start items-center bg-white dark:bg-transparent  dark:backdrop-blur-lg  dark:text-white    dark:border-[2px] dark:border-green-500  rounded-full shadow-md shadow-green-800 duration-700">
+               
               <LangSwitcher settings={settings}/>
               <ThemeSwitch settings={settings} />
               <motion.div 
@@ -161,10 +161,10 @@ export  function TheHeader() {
                     rotate: settings ? 180: 0,
                   }}
                   transition={{ duration: 0.2 }}
-                  className="absolute  right-0 w-[35px] h-[35px] bg-gradient-to-r from-green-500 to-green-400  rounded-full flex justify-center items-center hover:contrast-125 duration-700 ">
+                  className="absolute   right-[-2px] w-[37px] h-[37px] bg-gradient-to-r from-green-500 to-green-400  rounded-full flex justify-center items-center hover:contrast-125 duration-700 ">
                 <IoSettings className="text-[22px] text-white" />
               </motion.div> 
-     </div>
+     </div> */}
     </header>
     
   )

@@ -8,7 +8,7 @@ export function TheFooter() {
   const contact = "+994556263262";
   const email = "info@animals.al";
   return (
-    <footer className="bg-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-fit  text-gray-800  items-center flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 border-t-[5px] border-primary-500 border-solid">
+    <footer className="bg-white dark:bg-inherit dark:dark:inset-0 dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-fit  text-gray-800  items-center flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 border-t-[5px] border-primary-500 border-solid">
       <div className="w-[100vw]">
       <div className=" flex gap-3 items-center  md:flex-row sm:flex-col  mt-[30px] mb-[30px]">
   
@@ -48,7 +48,7 @@ export function TheFooter() {
               </li>
               
           </ul>
-          <div className="flex gap-3 pt-4 ">
+          <div className="flex md:justify-start sm:justify-center gap-3 pt-4 ">
             <Link href="https://t.me/zooazerbaijan">
               <span className=" hover:text-primary-500 text-2xl  text-gray-400  font-extrabold  ">
                 <FaTelegram />
@@ -69,7 +69,7 @@ export function TheFooter() {
       </div>
       
         <hr className="text-center mx-auto h-[2px] bg-gray-400 w-[70vw] rounded-full"/>
-      <div className="flex  justify-center items-center text-sm h-[40px]">
+      <div className="flex  justify-center items-center text-[12px] h-[40px]">
         Created with honor by &copy;
         <a
           className=" hover:text-primary-500  font-bold"
