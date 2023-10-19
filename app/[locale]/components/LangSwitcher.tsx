@@ -44,7 +44,7 @@ export  function LangSwitcher({settings}:{settings:boolean}) {
                 <li className=" w-[50px] text-black dark:text-white font-bold ">
               <button onMouseEnter={() => setLanguageSubActive(true)} onMouseLeave={() => setLanguageSubActive(false)}   className={` box-content relative   flex items-center  justify-center hover:text-primary-200 duration-500 rounded-lg`}>{locale.toUpperCase()}<FaChevronDown  className="text-xl ml-1 text-black dark:text-white pt-1 font-extrabold"/></button>
               {languageSubActive ? 
-                <ul onMouseEnter={() => setLanguageSubActive(true)} onMouseLeave={() => setLanguageSubActive(false)}  className="absolute  shadow-lg shadow-orange-900 h-[120px] w-[80px] bg-white rounded-b-md z-10 text-gray-700 " >
+                <ul onMouseEnter={() => setLanguageSubActive(true)} onMouseLeave={() => setLanguageSubActive(false)}  className="absolute  dark:bg-gray-600 dark:text-white shadow-md shadow-orange-900 h-[120px] w-[80px] bg-white rounded-b-md z-10 text-gray-700 " >
                   <li  className={`h-[40px] px-5 flex items-center  hover:text-primary-500 cursor-pointer`}><Link href="/" locale="az">AZ</Link></li>
                   <li  className={`h-[40px] px-5 flex items-center  hover:text-primary-500 cursor-pointer`}><Link href="/" locale="ru">RU</Link></li>
                   <li  className={`h-[40px] px-5 flex items-center  hover:text-primary-500 cursor-pointer`}><Link href="/" locale="en">EN</Link></li>

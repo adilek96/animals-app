@@ -83,7 +83,7 @@ export  function TheHeader() {
               <li>
                 <Link href="/posts" onMouseEnter ={showPostsSubMenu} onMouseLeave={hidePostsSubMenu} className={` box-content relative h-[100px]  px-3 flex items-center  hover:text-primary-500 duration-500 ${pathname === '/posts' ? ' text-primary-500 border-t-[5px] border-t-primary-500 border-solid' : ''}`} >{t("ads")}<FaChevronDown  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/> </Link>
                 {postsSubActive ? 
-                <ul onMouseEnter={onMouseInPostsSub}  onMouseLeave={onMouseOutPostsSub} className="absolute shadow-md shadow-orange-900 h-[60px] w-[200px] bg-white dark:bg-gray-700  rounded-b-md z-10  ">
+                <ul onMouseEnter={onMouseInPostsSub}  onMouseLeave={onMouseOutPostsSub} className="absolute shadow-md shadow-orange-900 h-[60px] w-[200px] bg-white dark:bg-gray-600  rounded-b-md z-10  ">
                   <li><Link href="/" className={`h-[60px] px-3 flex items-center  hover:text-primary-500 `}>Продавцы</Link></li>
                 </ul> : ""}
               </li>

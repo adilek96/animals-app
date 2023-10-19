@@ -9,6 +9,7 @@ import { Settings } from "@/app/[locale]/components/Settings";
 import { NextIntlClientProvider } from "next-intl";
 import {notFound} from 'next/navigation';
 import Providers from "./providers";
+import { TheBottomMenu } from "./components/TheBottomMenu";
 
 
 
@@ -41,7 +42,7 @@ export default async function RootLayout({children, params}: {children: React.Re
   return (
     <html lang={params.locale} className={` h-full ${openSans.className}`}>
      
-      <body className=" h-full overflow-x-hidden bg-gray-200 dark:bg-gray-800">
+      <body className=" h-full relative overflow-x-hidden bg-gray-200 dark:bg-gray-800">
         <NextIntlClientProvider locale={params.locale} messages={messages}>
         <Providers>
             <TheHeader />
@@ -49,6 +50,7 @@ export default async function RootLayout({children, params}: {children: React.Re
             <LogInWindow />
             <Settings/>
             <main>{children}</main>
+            <TheBottomMenu/>
             <TheFooter />
             </Providers>
         </NextIntlClientProvider>

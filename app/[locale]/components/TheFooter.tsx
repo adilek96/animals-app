@@ -8,7 +8,7 @@ export function TheFooter() {
   const contact = "+994556263262";
   const email = "info@animals.al";
   return (
-    <footer className="bg-white dark:bg-inherit dark:dark:inset-0 dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-fit  text-gray-800  items-center flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 border-t-[5px] border-primary-500 border-solid">
+    <footer className="bg-white dark:bg-inherit dark:dark:inset-0 dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-fit  text-gray-800  items-center md:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 border-t-[5px] border-primary-500 border-solid  sm:hidden">
       <div className="w-[100vw]">
       <div className=" flex gap-3 items-center  md:flex-row sm:flex-col  mt-[30px] mb-[30px]">
   
