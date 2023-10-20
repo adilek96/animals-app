@@ -51,7 +51,7 @@ export default async function RootLayout({children, params}: {children: React.Re
             <Settings/>
             <main>{children}</main>
             <TheBottomMenu/>
-            <TheFooter />
+            {/* <TheFooter /> */}
             </Providers>
         </NextIntlClientProvider>
       </body>
