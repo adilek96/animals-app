@@ -5,20 +5,31 @@ import { Switch } from '@headlessui/react'
 import { motion } from "framer-motion";
 import { RxMoon, RxSun } from "react-icons/rx";
 
+
 export  function ThemeSwitch({settings}:{settings:boolean}) {
-  const [enabled, setEnabled] = useState(false)
-  const {theme, setTheme} = useTheme()
+  const [enabled, setEnabled] = useState(true)
+  const {theme, setTheme,  systemTheme} = useTheme()
   const [mounted , setMounted] = useState("false")
   useEffect(() => {
       setMounted("true");
   }, []);
  
 
+  useEffect(() => {
+    if(systemTheme === "light" ){
+      setEnabled(true)
+    } else if ( systemTheme === "dark") {
+      setEnabled(false)
+    } 
+  },[mounted])
+
   if(enabled){
     setTheme("ligt")
   } else {
     setTheme("dark")
-  }
+  } 
+
+  
 //   if(!mounted){
 //     return null
 // } 

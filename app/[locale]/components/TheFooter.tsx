@@ -1,14 +1,18 @@
+'use client'
 import Image from "next/image";
 import animalsLogo from "../../../public/logo/logo.png";
 import Link from "next/link";
 import { FaFacebook, FaTelegram, FaWhatsapp,FaPhone, FaMapPin } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md"
+import { MdEmail } from "react-icons/md";
+import { mobileFooterState } from "../../../store/mobileFooterState";
 
 export function TheFooter() {
+  const footerHide = mobileFooterState(state => state.footerHide);
+
   const contact = "+994556263262";
   const email = "info@animals.al";
   return (
-    <footer className="bg-white dark:bg-inherit dark:dark:inset-0 dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-fit  text-gray-800  items-center md:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 border-t-[5px] border-primary-500 border-solid  sm:hidden">
+    <footer className={`bg-white dark:bg-inherit dark:dark:inset-0 dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-fit  text-gray-800  items-center md:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 border-t-[5px] border-primary-500 border-solid  ${footerHide ? 'sm:flex sm:fixed bottom-0': 'sm:hidden'}`}>
       <div className="w-[100vw]">
       <div className=" flex gap-3 items-center  md:flex-row sm:flex-col  mt-[30px] mb-[30px]">
   
@@ -48,7 +52,7 @@ export function TheFooter() {
               </li>
               
           </ul>
-          <div className="flex md:justify-start sm:justify-center gap-3 pt-4 ">
+          <div className="flex md:justify-start sm:justify-center gap-3 pt-4 pl-1 ">
             <Link href="https://t.me/zooazerbaijan">
               <span className=" hover:text-primary-500 text-2xl  text-gray-400  font-extrabold  ">
                 <FaTelegram />
