@@ -22,9 +22,10 @@ export function TheFooter() {
       <div className={` sm:absolute md:hidden z-20 top-[-30px] left-[calc(50%-35px)] flex justify-center items-center  w-[70px] h-[70px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700`}><FaPlus className="font-extrabold text-5xl  text-white text-center"/></div>
 
 
-      <div className={ ` h-fit box-content bg-white dark:bg-gray-800 dark:inset-0 dark:text-white  md:overflow-hidden  shadow-md-revers shadow-primary-900      text-gray-800  items-center sm:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 md:border-t-[5px] border-primary-500 border-solid   `}>
+      <div 
+      className={ `  sm:overflow-y-auto bg-white dark:bg-gray-800 dark:inset-0 dark:text-white  md:overflow-hidden  shadow-md-revers shadow-primary-900      text-gray-800  items-center sm:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 md:border-t-[5px] border-primary-500 border-solid   `}>
         <div className="  w-[100vw] flex flex-col">
-          <div className=" flex gap-3 items-center   md:flex-row sm:flex-col  mt-[30px] mb-[30px]">
+          <div className="sm:h-[500px] flex gap-3 items-center   md:flex-row sm:flex-col  mt-[30px] mb-[30px]">
   
             <Link href="/" >
               <Image
@@ -62,7 +63,7 @@ export function TheFooter() {
                 </li>
               
           </ul>
-          <div className="flex md:justify-start sm:justify-center gap-3 pt-4 pl-1 pb-8">
+          <div className="sm:h-[300px] flex md:justify-start sm:justify-center gap-3 pt-4 pl-1 pb-8">
             <Link href="https://t.me/zooazerbaijan">
               <span className=" hover:text-primary-500 text-2xl  text-gray-400  font-extrabold  ">
                 <FaTelegram />
