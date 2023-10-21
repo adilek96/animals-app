@@ -17,7 +17,7 @@ export function TheFooter() {
   const contact = "+994556263262";
   const email = "info@animals.al";
   return (
-    <footer className={`sm:fixed bottom-0 left-0 right-0  md:static  ${!footerHide ? 'sm:h-[75px]' : 'sm:h-[90vh]'} md:h-fit transition-all duration-500`}>
+    <footer className={`sm:fixed bottom-0 left-0 right-0  md:static  ${!footerHide ? 'sm:h-[75px]' : 'sm:h-[80vh]'} md:h-fit transition-all duration-500`}>
       <TheBottomMenu />
       <div className={` sm:absolute md:hidden z-20 top-[-30px] left-[calc(50%-35px)] flex justify-center items-center  w-[70px] h-[70px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700`}><FaPlus className="font-extrabold text-5xl  text-white text-center"/></div>
 
