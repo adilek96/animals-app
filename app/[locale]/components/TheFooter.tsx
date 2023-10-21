@@ -17,14 +17,14 @@ export function TheFooter() {
   const contact = "+994556263262";
   const email = "info@animals.al";
   return (
-<footer className={`sm:fixed sm:bottom-0 sm:left-0 sm:right-0  md:flex ${!footerHide ? 'sm:h-[75px]' : 'sm:h-[80vh]'} md:h-fit transition-all duration-500`}>
-  <TheBottomMenu />
-  <div className={` sm:absolute md:hidden z-20 top-[-30px] left-[calc(50%-35px)] flex justify-center items-center  w-[70px] h-[70px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700`}><FaPlus className="font-extrabold text-5xl  text-white text-center"/></div>
+    <footer className={`sm:fixed bottom-0 left-0 right-0  md:static  ${!footerHide ? 'sm:h-[75px]' : 'sm:h-[80vh]'} md:h-fit transition-all duration-500`}>
+      <TheBottomMenu />
+      <div className={` sm:absolute md:hidden z-20 top-[-30px] left-[calc(50%-35px)] flex justify-center items-center  w-[70px] h-[70px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700`}><FaPlus className="font-extrabold text-5xl  text-white text-center"/></div>
 
 
-    <div className={`bg-white dark:bg-gray-800 dark:inset-0 dark:text-white  md:overflow-hidden sm:overflow-y-auto shadow-md-revers shadow-primary-900 box-content  h-fit   text-gray-800  items-center sm:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 md:border-t-[5px] border-primary-500 border-solid  `}>
-      <div className="w-[100vw] ">
-      <div className=" flex gap-3 items-center  md:flex-row sm:flex-col  mt-[30px] mb-[30px]">
+      <div className={ ` bg-white dark:bg-gray-800 dark:inset-0 dark:text-white  md:overflow-hidden  shadow-md-revers shadow-primary-900 box-content  h-fit   text-gray-800  items-center sm:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 md:border-t-[5px] border-primary-500 border-solid sm:overflow-y-auto `}>
+        <div className="w-[100vw] ">
+        <div className=" flex gap-3 items-center   md:flex-row sm:flex-col  mt-[30px] mb-[30px]">
   
           <Link href="/" >
             <Image
