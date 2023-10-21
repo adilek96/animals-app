@@ -13,7 +13,7 @@ export  function TheBottomMenu() {
 
   return (
 
-    <div className={`  relative   bg-white dark:bg-inherit  dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-[70px]  text-gray-800 text-[35px]  items-center sm:flex md:hidden  sm:justify-around content-center   px-6 border-t-[5px] border-primary-500 border-solid `}>
+    <div className={`  relative   bg-white dark:bg-gray-800  dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-[70px]  text-gray-800 text-[35px]  items-center sm:flex md:hidden  sm:justify-around content-center   px-6 border-t-[5px] border-primary-500 border-solid `}>
       
             <div className='flex flex-col justify-center items-center  hover:text-primary-500'><Link href="/" ><BiHome/><p className='text-[10px] text-center'>Home</p></Link></div>
             <div className='flex flex-col justify-center items-center  hover:text-primary-500'><BiCategoryAlt/><p className='text-[10px] self-center'>Categories</p></div>
