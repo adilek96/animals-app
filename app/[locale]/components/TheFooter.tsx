@@ -25,7 +25,7 @@ export function TheFooter() {
       <div 
       className={ `  sm:overflow-y-auto bg-white dark:bg-gray-800 dark:inset-0 dark:text-white  md:overflow-hidden  shadow-md-revers shadow-primary-900      text-gray-800  items-center sm:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 md:border-t-[5px] border-primary-500 border-solid   `}>
         <div className="  w-[100vw] flex flex-col">
-          <div className="sm:h-[500px] flex gap-3 items-center   md:flex-row sm:flex-col  mt-[30px] mb-[30px]">
+          <div className="sm:h-[500px] md:h-min flex gap-3 items-center   md:flex-row sm:flex-col  mt-[30px] mb-[30px]">
   
             <Link href="/" >
               <Image
@@ -37,12 +37,12 @@ export function TheFooter() {
               ></Image>
             </Link>
       
-            <p className="w-[300px] md:text-left sm:text-center">
+            <p className="w-[300px]  md:text-left sm:text-center">
               <b>Animals.AL</b> — Первая доска объявлений по поиску, продаже и покупке
               домашних животных в Азербайджане.
             </p>
           
-            <div className="h-[300px]] flex justify-center flex-col mt-8 ">
+            <div className=" flex justify-center flex-col mt-8 ">
               <p className="md:text-left sm:text-center">
                 <b>Контакты:</b>
               </p>
@@ -63,7 +63,7 @@ export function TheFooter() {
                 </li>
               
           </ul>
-          <div className="sm:h-[300px] flex md:justify-start sm:justify-center gap-3 pt-4 pl-1 pb-8">
+          <div className="sm:h-[400px] md:h-min flex md:justify-start sm:justify-center gap-3 pt-4 pl-1 pb-8">
             <Link href="https://t.me/zooazerbaijan">
               <span className=" hover:text-primary-500 text-2xl  text-gray-400  font-extrabold  ">
                 <FaTelegram />
@@ -84,8 +84,8 @@ export function TheFooter() {
       </div>
       
       <hr className="text-center mx-auto h-[2px] bg-gray-400 w-[70vw] rounded-full"/>
-        <div className="flex  justify-center items-center text-[12px] h-[40px]">
-         Created with honor by &copy;
+        <div className="flex  justify-center items-center  text-[12px] h-[40px]">
+         <p>Created with honor by &copy;
           <a
           className=" hover:text-primary-500  font-bold"
           href="https://www.tabs.me"
@@ -99,6 +99,7 @@ export function TheFooter() {
         >
           kemikable.com
           </a>
+          </p>
      
         </div>
       </div>
