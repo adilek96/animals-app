@@ -1,19 +1,29 @@
 'use client'
+
 import Image from "next/image";
 import animalsLogo from "../../../public/logo/logo.png";
 import Link from "next/link";
 import { FaFacebook, FaTelegram, FaWhatsapp,FaPhone, FaMapPin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { mobileFooterState } from "../../../store/mobileFooterState";
+import { TheBottomMenu } from "./TheBottomMenu";
+import { FaPlus } from "react-icons/fa";
+
 
 export function TheFooter() {
   const footerHide = mobileFooterState(state => state.footerHide);
+ 
 
   const contact = "+994556263262";
   const email = "info@animals.al";
   return (
-    <footer className={`bg-white dark:bg-gray-800 dark:inset-0 dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-fit  text-gray-800  items-center md:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12  border-primary-500 border-solid  ${footerHide ? 'sm:flex ': 'sm:hidden'}`}>
-      <div className="w-[100vw]">
+<footer className={`sm:fixed sm:bottom-0 sm:left-0 sm:right-0  md:flex ${!footerHide ? 'sm:h-[75px]' : 'sm:h-[80vh]'} md:h-fit transition-all duration-500`}>
+  <TheBottomMenu />
+  <div className={` sm:absolute md:hidden z-20 top-[-30px] left-[calc(50%-35px)] flex justify-center items-center  w-[70px] h-[70px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700`}><FaPlus className="font-extrabold text-5xl  text-white text-center"/></div>
+
+
+    <div className={`bg-white dark:bg-gray-800 dark:inset-0 dark:text-white  md:overflow-hidden sm:overflow-y-auto shadow-md-revers shadow-primary-900 box-content  h-fit   text-gray-800  items-center sm:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 md:border-t-[5px] border-primary-500 border-solid  `}>
+      <div className="w-[100vw] ">
       <div className=" flex gap-3 items-center  md:flex-row sm:flex-col  mt-[30px] mb-[30px]">
   
           <Link href="/" >
@@ -90,8 +100,8 @@ export function TheFooter() {
         </a>
       </div>
       </div>
+    </div>
     
-      
     </footer>
   );
 }

@@ -50,8 +50,8 @@ export default async function RootLayout({children, params}: {children: React.Re
             <LogInWindow />
             <Settings/>
             <main>{children}</main>
-            <TheBottomMenu/>
-            {/* <TheFooter /> */}
+            {/* <TheBottomMenu/> */}
+            <TheFooter />
             </Providers>
         </NextIntlClientProvider>
       </body>
