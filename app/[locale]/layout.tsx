@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { TheFooter } from "@/app/[locale]/components/TheFooter";
 import { BurgerMenu } from "@/app/[locale]/components/BurgerMenu";
-import { LogInWindow } from "@/app/[locale]/components/popUpWindows/LogInWindow";
+import { LogInWindow } from "@/app/[locale]/components/popUpWindows/loginWindow/LogInWindow";
 import { Settings } from "@/app/[locale]/components/Settings";
 import { NextIntlClientProvider } from "next-intl";
 import {notFound} from 'next/navigation';

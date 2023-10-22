@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {logInModalActive} from "../../../../store/logInModalActive";
+import {logInModalActive} from "../../../../../../store/logInModalActive";
 import {useTranslations} from 'next-intl';
 
 export  function ForgotPassword() {

@@ -1,11 +1,11 @@
 'use client'
 import React from 'react';
 import {  FaWindowClose } from "react-icons/fa";
-import {logInModalActive} from "../../../../store/logInModalActive"
+import {logInModalActive} from "../../../../../store/logInModalActive"
 import { motion } from "framer-motion";
-import { LogIn } from './LogIn';
-import { SignIn } from './SignIn';
-import { ForgotPassword } from './ForgotPassword';
+import { LogIn } from './loginWindowComponents/LogIn';
+import { SignIn } from './loginWindowComponents/SignIn';
+import { ForgotPassword } from './loginWindowComponents/ForgotPassword';
 import {useTranslations} from 'next-intl';
 
 export  function LogInWindow() {
