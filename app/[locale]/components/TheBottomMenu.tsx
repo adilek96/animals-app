@@ -10,13 +10,15 @@ import Link from 'next/link';
 export  function TheBottomMenu() {
   const setFooterHide  = mobileFooterState(state => state.setFooterHide);
   const footerHide = mobileFooterState(state => state.footerHide);
+  const setCallCategory  = mobileFooterState(state => state.setCallCategory);
+  const callCategory = mobileFooterState(state => state.callCategory);
 
   return (
 
     <div className={`  relative   bg-white dark:bg-gray-800  dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-[70px]  text-gray-800 text-[35px]  items-center sm:flex md:hidden  sm:justify-around content-center   px-6 border-t-[5px] border-primary-500 border-solid `}>
       
             <div className='flex flex-col justify-center items-center  hover:text-primary-500'><Link href="/" ><BiHome/><p className='text-[10px] text-center'>Home</p></Link></div>
-            <div className='flex flex-col justify-center items-center  hover:text-primary-500'><BiCategoryAlt/><p className='text-[10px] self-center'>Categories</p></div>
+            <div onClick={() => setCallCategory(!callCategory)} className='flex flex-col justify-center items-center  hover:text-primary-500'><BiCategoryAlt/><p className='text-[10px] self-center'>Categories</p></div>
             
             {/* <div className={` fixed z-20 bottom-[30px] left-[calc(50%-35px)] flex justify-center items-center  w-[70px] h-[70px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700`}><FaPlus className="font-extrabold text-5xl  text-white text-center"/></div> */}
 

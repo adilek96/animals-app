@@ -21,6 +21,7 @@ const config: Config = {
       },
       colors: {
         primary: colors.orange,
+        secondary: colors.orange
       },
       backgroundSize: {
         '50%': '50%',

@@ -9,7 +9,7 @@ import { Settings } from "@/app/[locale]/components/Settings";
 import { NextIntlClientProvider } from "next-intl";
 import {notFound} from 'next/navigation';
 import Providers from "./providers";
-import { TheBottomMenu } from "./components/TheBottomMenu";
+import { CategoryWindow } from "@/app/[locale]/components/popUpWindows/categoryWindow/CategoryWindow";
 
 
 
@@ -48,6 +48,7 @@ export default async function RootLayout({children, params}: {children: React.Re
             <TheHeader />
             <BurgerMenu/>
             <LogInWindow />
+            <CategoryWindow />
             <Settings/>
             <main>{children}</main>
             {/* <TheBottomMenu/> */}
