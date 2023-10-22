@@ -10,11 +10,12 @@ import { useMotionValue, useVelocity } from "framer-motion"
 export  function TheCategories() {
   
   return (
-    <div className=' overflow-x-auto w-full h-[105px] rounded-2xl bg-white dark:bg-gray-400   text-black dark:text-white flex justify-around items-center'>
+   
+    <div className='overscroll-none  overflow-y-hidden overflow-x-auto  snap-x  w-full  h-[120px] rounded-2xl bg-white dark:bg-gray-400   text-black dark:text-white flex gap-8 items-center '>
 
       <Link href="/">
-        <div className='flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
-          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-gray-700 to-green-300  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in transition-all duration-200'>
+        <div className=' snap-center flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center '>
+          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-gray-700 to-green-300  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400'>
               <Image
                 className=""
                 src="/categories/all.svg"
@@ -28,8 +29,8 @@ export  function TheCategories() {
       </Link>
      
       <Link href="/">
-        <div className='flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
-          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center'>
+        <div className='snap-center flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
+          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400'>
               <Image
                 className=""
                 src="/categories/cat2.svg"
@@ -44,8 +45,8 @@ export  function TheCategories() {
    
 
       <Link href="/">
-        <div className='flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
-          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center'>
+        <div className='snap-center flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
+          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400'>
               <Image
                 className=""
                 src="/categories/dog2.svg"
@@ -59,8 +60,8 @@ export  function TheCategories() {
       </Link>
 
       <Link href="/">
-        <div className='flex flex-col justify-center h-[100px] w-[100px]   text-[14px] items-center  '>
-          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center'>
+        <div className='snap-center flex flex-col justify-center h-[100px] w-[100px]   text-[14px] items-center  '>
+          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400'>
               <Image
                 className=""
                 src="/categories/fish2.svg"
@@ -74,8 +75,8 @@ export  function TheCategories() {
       </Link>
 
       <Link href="/">
-        <div className='flex flex-col justify-center h-[100px] w-[100px]   text-[14px] items-center  '>
-          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center'>
+        <div className='snap-center flex flex-col justify-center h-[100px] w-[100px]   text-[14px] items-center  '>
+          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400'>
               <Image
                 className=""
                 src="/categories/bird2.svg"
@@ -89,8 +90,8 @@ export  function TheCategories() {
       </Link>
 
       <Link href="/">
-        <div className='flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
-          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center'>
+        <div className='snap-center flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
+          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400'>
               <Image
                 className=""
                 src="/categories/rat2.svg"
@@ -104,8 +105,8 @@ export  function TheCategories() {
       </Link>
 
       <Link href="/">
-        <div className='flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
-          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center'>
+        <div className='snap-center flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
+          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400'>
               <Image
                 className=""
                 src="/categories/goodHands2.svg"
@@ -119,8 +120,8 @@ export  function TheCategories() {
       </Link>
 
       <Link href="/">
-        <div className='flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
-          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center'>
+        <div className='snap-center flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
+          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400'>
               <Image
                 className=""
                 src="/categories/acsesories2.svg"
@@ -134,8 +135,8 @@ export  function TheCategories() {
       </Link>
 
       <Link href="/">
-        <div className='flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
-          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center'>
+        <div className='snap-center flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center  '>
+          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400'>
               <Image
                 className=""
                 src="/categories/food2.svg"
@@ -149,8 +150,8 @@ export  function TheCategories() {
       </Link>
 
       <Link href="/">
-        <div className='flex flex-col justify-center h-[100px] w-[100px] text-[14px] items-center  '>
-          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center'>
+        <div className='snap-center flex flex-col justify-center h-[100px] w-[100px] text-[14px] items-center  '>
+          <div className='h-[80px] w-[80px] rounded-full bg-gradient-to-r from-green-500 to-green-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400'>
               <Image
                 className=""
                 src="/categories/farm2.svg"
@@ -164,6 +165,6 @@ export  function TheCategories() {
       </Link>
 
     </div>
-
+  
   )
 }
