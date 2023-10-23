@@ -40,9 +40,9 @@ export default async function RootLayout({children, params}: {children: React.Re
 
 
   return (
-    <html lang={params.locale} className={` h-full ${openSans.className}`}>
+    <html lang={params.locale} className={` h-full flex justify-center  ${openSans.className}`}>
      
-      <body className=" h-full relative overflow-x-hidden bg-gray-200 dark:bg-gray-800 scroll-smooth">
+      <body className="max-w-7xl h-full relative overflow-x-hidden bg-gray-200 dark:bg-gray-800 scroll-smooth">
         <NextIntlClientProvider locale={params.locale} messages={messages}>
         <Providers>
             <TheHeader />

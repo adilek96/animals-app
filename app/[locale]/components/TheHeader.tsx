@@ -7,10 +7,8 @@ import { usePathname } from 'next/navigation';
 import  { burgerActiveState }  from "../../../store/burgerActiveState";
 import { motion } from "framer-motion";
 import {logInModalActive} from "../../../store/logInModalActive";
-import  {LangSwitcher}  from "./LangSwitcher"
 import {useTranslations} from 'next-intl';
-import { IoSettings } from "react-icons/io5";
-import { ThemeSwitch } from './ThemeSwitch';
+
 
 
 
@@ -123,7 +121,6 @@ export  function TheHeader() {
                     initial={{ opacity: 1, x: 0 }} 
                     animate={{
                       opacity: !burger ? 1 : 0,
-                      x: !burger ? 0 : -100
                     }}
                     transition={{ duration: 0.7 }}
                     className="w-[20px] h-[3px] bg-white "></motion.span>
@@ -139,32 +136,11 @@ export  function TheHeader() {
                     className="w-[20px] h-[3px] bg-white "></motion.span>    
                       
         </button>
-        <button className=" focus:outline-none active:outline-none shadow-md shadow-green-800  md:w-[250px] sm:w-[40px]  flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
+        <button className=" focus:outline-none active:outline-none shadow-md shadow-green-800  md:w-[250px] sm:w-[40px] sm:hidden  md:flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
           <span className="font-extrabold text-3xl  md:mr-3 text-center"><FaPlus/> </span>  <span className="sm:hidden md:block">{t("addButton")}</span>
         </button>
       </div>
     
-        
-     
-     
-     
-     {/* ----------------------------------- Language change buttons ---------------------------- */}
-      {/* <div onMouseEnter={() => setSettings(true)} onMouseLeave={() => setSettings(false)} className="  absolute top-[105px] right-[10px] w-[35px] hover:w-[230px] h-[35px] flex justify-start items-center bg-white dark:bg-transparent  dark:backdrop-blur-lg  dark:text-white    dark:border-[2px] dark:border-green-500  rounded-full shadow-md shadow-green-800 duration-700">
-               
-              <LangSwitcher settings={settings}/>
-              <ThemeSwitch settings={settings} />
-              <motion.div 
-                  initial={{
-                    rotate: 0,
-                  }}
-                  animate={{
-                    rotate: settings ? 180: 0,
-                  }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute   right-[-2px] w-[37px] h-[37px] bg-gradient-to-r from-green-500 to-green-400  rounded-full flex justify-center items-center hover:contrast-125 duration-700 ">
-                <IoSettings className="text-[22px] text-white" />
-              </motion.div> 
-     </div> */}
     </header>
     
   )

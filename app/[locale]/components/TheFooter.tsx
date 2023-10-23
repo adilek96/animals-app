@@ -23,7 +23,7 @@ export function TheFooter() {
 
 
       <div 
-      className={ `  sm:overflow-y-auto bg-white dark:bg-gray-800 dark:inset-0 dark:text-white  md:overflow-hidden  shadow-md-revers shadow-primary-900      text-gray-800  items-center sm:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 md:border-t-[5px] border-primary-500 border-solid   `}>
+      className={ `  sm:overflow-y-auto no-scrollbar bg-white dark:bg-gray-800 dark:inset-0 dark:text-white  md:overflow-hidden  shadow-md-revers shadow-primary-900      text-gray-800  items-center sm:flex md:justify-between sm:justify-center content-center md:flex-row sm:flex-col px-12 md:border-t-[5px] border-primary-500 border-solid   `}>
         <div className="  w-[100vw] flex flex-col">
           <div className="sm:h-[500px] md:h-min flex gap-3 items-center   md:flex-row sm:flex-col  mt-[30px] mb-[30px]">
   

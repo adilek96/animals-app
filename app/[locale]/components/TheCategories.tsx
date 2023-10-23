@@ -11,7 +11,7 @@ export  function TheCategories() {
   
   return (
    
-    <section className='overscroll-none  overflow-y-hidden overflow-x-auto  snap-x snap-mandatory scroll-smooth w-full  h-[120px] rounded-2xl bg-white dark:bg-gray-400   text-black dark:text-white flex sm:gap-7 lg:gap-0 lg:justify-around items-center '>
+    <section className='overscroll-none  overflow-y-hidden overflow-x-auto  no-scrollbar snap-x snap-mandatory scroll-smooth w-full  h-[120px] rounded-2xl bg-white dark:bg-gray-400   text-black dark:text-white flex sm:gap-7 lg:gap-0 lg:justify-around items-center '>
 
       <Link href="/">
         <div className=' snap-center flex flex-col justify-center h-[100px] w-[100px]  text-[14px] items-center '>
