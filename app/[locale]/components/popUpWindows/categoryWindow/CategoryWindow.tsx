@@ -10,7 +10,7 @@ export function CategoryWindow() {
 
 
   return (
-     <motion.div 
+  <motion.div 
     initial={{ opacity: 0, y: -1000 }} 
     animate={{
     opacity: callCategory ? 1 : 0,
