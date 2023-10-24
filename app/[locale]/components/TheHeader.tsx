@@ -20,10 +20,6 @@ export  function TheHeader() {
 
   // стейт вызова дроп-меню постов
   const [postsSubActive, setPostsSubActive] = useState(false)
-  // стейт вызова дроп-меню статей
-  const [articleSubActive, setArticleSubActive] = useState(false)
-  // стэйт вызова анимации шестеренки
-  const [settings, setSettings] = useState(false)
   // стэйт вызова бургер меню
   const burger = burgerActiveState(state => state.burger);
   const setBurgerActive = burgerActiveState(state => state.setBurgerActive);
@@ -44,18 +40,18 @@ export  function TheHeader() {
     setPostsSubActive(false)
   }
   // ----------------------------------
-  const showArticleSubMenu = () => {
-    setArticleSubActive(true)
-  }
-  const hideArticleSubMenu = () => {
-    setArticleSubActive(false)
-  }
-  const onMouseInArticleSub = () => {
-    setArticleSubActive(true)
-  }
-  const onMouseOutArticleSub = () => {
-    setArticleSubActive(false)
-  }
+  // const showArticleSubMenu = () => {
+  //   setArticleSubActive(true)
+  // }
+  // const hideArticleSubMenu = () => {
+  //   setArticleSubActive(false)
+  // }
+  // const onMouseInArticleSub = () => {
+  //   setArticleSubActive(true)
+  // }
+  // const onMouseOutArticleSub = () => {
+  //   setArticleSubActive(false)
+  // }
  
 
   return (
@@ -103,7 +99,8 @@ export  function TheHeader() {
                   {/* ------------------------------------ Log In button ------------------------------- */}
           <button onClick={() =>  setLoginModalActive(!loginModal) } className={`flex h-[100px] px-5  items-center   hover:text-primary-500 duration-300`}><FaSignInAlt className="text-2xl mr-2 text-gray-300  font-extrabold"/>{t("loginButton")}</button>
         </div>
-          {/* ---------------------------- Mobile varint ---------------------------- */}
+         
+          {/* ---------------------------- Mobile varint burger menu ---------------------------- */}
         <button  onClick={() => setBurgerActive(!burger)} className="relative 2xl:hidden xl:hidden lg:hidden flex flex-col  items-center justify-center gap-1 bg-primary-300 shadow-md rounded-full shadow-primary-800  w-[40px] h-[40px] mr-2"> 
                   <motion.span 
                     initial={{
@@ -133,9 +130,9 @@ export  function TheHeader() {
                       rotate: burger ? -45: 0,
                     }}
                     transition={{ duration: 0.7 }}
-                    className="w-[20px] h-[3px] bg-white "></motion.span>    
-                      
+                    className="w-[20px] h-[3px] bg-white "></motion.span>     
         </button>
+         
         <button className=" focus:outline-none active:outline-none shadow-md shadow-green-800  md:w-[250px] sm:w-[40px] sm:hidden  md:flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
           <span className="font-extrabold text-3xl  md:mr-3 text-center"><FaPlus/> </span>  <span className="sm:hidden md:block">{t("addButton")}</span>
         </button>

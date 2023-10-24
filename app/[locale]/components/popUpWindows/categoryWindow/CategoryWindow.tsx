@@ -18,7 +18,7 @@ export function CategoryWindow() {
     }}
     transition={{ duration: 0.5 }}
     onClick={() => setCallCategory(!callCategory)}
-    className=' fixed w-screen backdrop-blur-sm inset-0 z-20 pt-20'>
+    className=' fixed w-screen backdrop-blur-sm inset-0 z-20 pt-20 px-5'>
          
           <TheCategories />
      
