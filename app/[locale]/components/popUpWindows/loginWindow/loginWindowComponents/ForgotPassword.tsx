@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {logInModalActive} from "../../../../../../store/logInModalActive";
 import {useTranslations} from 'next-intl';
 
+
 export  function ForgotPassword() {
     const [check ,setCheck] = useState("email");
     const setToggle = logInModalActive(state => state.setToggle);
@@ -45,6 +46,7 @@ export  function ForgotPassword() {
                  >
                    {t("back")}
                  </button>
+                 
                </div>
                 </form>
             </>

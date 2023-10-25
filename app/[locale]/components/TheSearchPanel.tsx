@@ -1,6 +1,5 @@
 'use client'
 import React,{ useEffect, useState} from 'react';
-import { BiSearchAlt2 } from "react-icons/bi";
 import { SearchButton } from './buttons/SearchButton';
 import { FaCat, FaDog, FaFish, FaCow, FaKiwiBird } from "react-icons/fa6";
 import { motion } from "framer-motion";
@@ -30,7 +29,7 @@ export  function TheSearchPanel() {
     
    
   return (
-    <div className='flex flex-col justify-center h-[50px] w-full rounded-lg items-center bg-white dark:bg-gray-400 shadow-md '>
+    <div className=' flex flex-col justify-center h-[50px] w-full rounded-lg items-center bg-white dark:bg-gray-400 shadow-md '>
         <form className='w-full '>   
     <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
     <div className="relative">

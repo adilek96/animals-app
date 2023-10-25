@@ -56,7 +56,7 @@ export function BurgerMenu() {
             x: burger ? 0 : -1000
           }}
           transition={{ duration: 0.5 }}
-          className={`absolute  shadow-xl shadow-orange-900 h-[100%] w-[250px]  bg-white  rounded-md z-100 overflow-hidden  `}>
+          className={`absolute  shadow-xl shadow-orange-900 h-[100%] w-[250px]  bg-white  rounded-md z-20 overflow-hidden  `}>
 
             <div className=" h-[150px] relative flex justify-center items-center gap-2">
                 <button onClick={() => setBurgerActive(!burger)} className="focus:outline-none active:outline-none shadow-xl shadow-primary-800 absolute right-1 top-0 w-[30px] h-[30px]"><FaWindowClose className="absolute right-0 top-1  text-primary-300 w-[30px] h-[30px]"/></button>

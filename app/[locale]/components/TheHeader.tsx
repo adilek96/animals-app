@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import  { burgerActiveState }  from "../../../store/burgerActiveState";
 import { motion } from "framer-motion";
 import {logInModalActive} from "../../../store/logInModalActive";
+import { postAddingState} from "../../../store/postAddingState"
 import {useTranslations} from 'next-intl';
 
 
@@ -26,6 +27,9 @@ export  function TheHeader() {
   // стэйт вызова окна входа
   const loginModal = logInModalActive(state => state.loginModal);
   const setLoginModalActive = logInModalActive(state => state.setLoginModalActive);
+  // стэйт вызова окна добавления товара
+  const isOpen = postAddingState(state => state.isOpen);
+  const setIsOpen = postAddingState(state => state.setIsOpen);
  
   const showPostsSubMenu = () => {
     setPostsSubActive(true)
@@ -133,7 +137,7 @@ export  function TheHeader() {
                     className="w-[20px] h-[3px] bg-white "></motion.span>     
         </button>
          
-        <button className=" focus:outline-none active:outline-none shadow-md shadow-green-800  md:w-[250px] sm:w-[40px] sm:hidden  md:flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
+        <button onClick={() => setIsOpen(!isOpen)} className=" focus:outline-none active:outline-none shadow-md shadow-green-800  md:w-[250px] sm:w-[40px] sm:hidden  md:flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 ">
           <span className="font-extrabold text-3xl  md:mr-3 text-center"><FaPlus/> </span>  <span className="sm:hidden md:block">{t("addButton")}</span>
         </button>
       </div>

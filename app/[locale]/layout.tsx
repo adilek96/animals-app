@@ -11,6 +11,7 @@ import {notFound} from 'next/navigation';
 import Providers from "./providers";
 import { CategoryWindow } from "@/app/[locale]/components/popUpWindows/categoryWindow/CategoryWindow";
 import { TheSearchPanel } from './components/TheSearchPanel';
+import { PostAddingWindow } from "./components/popUpWindows/postAddingWindow/PostAddingWindow";
 
 
 
@@ -47,11 +48,13 @@ export default async function RootLayout({children, params}: {children: React.Re
         <NextIntlClientProvider locale={params.locale} messages={messages}>
         <Providers>
             <TheHeader />
-            <section className=' mt-9 mx-auto w-[95%] '>
+            <BurgerMenu/>
+            <section className=' mt-9 mx-auto w-[95%] z-10'>
               <TheSearchPanel/>
             </section>
-            <BurgerMenu/>
+            
             <LogInWindow />
+            <PostAddingWindow />
             <CategoryWindow />
             <Settings/>
             <main>{children}</main>
