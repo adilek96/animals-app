@@ -50,7 +50,7 @@ export function PostAddingWindow() {
         transition={{ duration: 0.5 }}
         className=" fixed w-screen backdrop-blur-lg inset-0 z-20"
       >
-        <div className=" fixed dark:bg-gray-700 lg:w-[50vw] h-[90vh]  lg:left-[25%] top-[5%] md:w-[70vw] md:left-[15%] sm:w-[90vw] sm:left-[5%] bg-white z-50 shadow-2xl  shadow-gray-800 rounded-md border-t-[5px] border-primary-500 flex flex-col gap-3 justify-around items-center">
+        <div className=" fixed dark:bg-gray-700 lg:w-[50vw] md:h-[90vh] sm:h-[80vh]  lg:left-[25%] top-[5%] md:w-[70vw] md:left-[15%] sm:w-[90vw] sm:left-[5%] bg-white z-50 shadow-2xl  shadow-gray-800 rounded-md border-t-[5px] border-primary-500 flex flex-col gap-3 justify-around items-center">
           <button
             onClick={() => {
               setIsOpen(!isOpen);
