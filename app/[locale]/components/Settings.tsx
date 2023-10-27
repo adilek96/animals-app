@@ -9,7 +9,7 @@ export function Settings() {
     // стэйт вызова анимации шестеренки
   const [settings, setSettings] = useState(false)
   return (
-          <div onMouseEnter={() => setSettings(true)} onMouseLeave={() => setSettings(false)} className="  absolute top-[105px] right-[10px] w-[35px] hover:w-[230px] h-[35px] md:flex justify-start items-center bg-white dark:bg-transparent  dark:backdrop-blur-lg  dark:text-white    dark:border-[2px] dark:border-green-500  rounded-full shadow-md shadow-green-800 duration-700 sm:hidden">
+          <div onMouseEnter={() => setSettings(true)} onMouseLeave={() => setSettings(false)} className="  absolute top-[105px] right-[10px] w-[35px] hover:w-[230px] h-[35px] flex justify-start items-center bg-white dark:bg-transparent  dark:backdrop-blur-lg  dark:text-white    dark:border-[2px] dark:border-green-500  rounded-full shadow-md shadow-green-800 duration-700 ">
                
               <LangSwitcher settings={settings}/>
               <ThemeSwitch settings={settings} />
