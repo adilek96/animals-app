@@ -25,7 +25,7 @@ export function TheFooter() {
   const email = "info@animals.al";
   return (
     <footer
-      className={`sm:fixed bottom-0 left-0 right-0  md:static  ${
+      className={` z-30 sm:fixed bottom-0 left-0 right-0  md:static  ${
         !footerHide ? "sm:h-[75px]" : "sm:h-[80vh]"
       } md:h-fit transition-all duration-500`}
     >

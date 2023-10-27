@@ -7,63 +7,62 @@ import { BurgerMenu } from "@/app/[locale]/components/BurgerMenu";
 import { LogInWindow } from "@/app/[locale]/components/popUpWindows/loginWindow/LogInWindow";
 import { Settings } from "@/app/[locale]/components/Settings";
 import { NextIntlClientProvider } from "next-intl";
-import {notFound} from 'next/navigation';
+import { notFound } from "next/navigation";
 import Providers from "./providers";
 import { CategoryWindow } from "@/app/[locale]/components/popUpWindows/categoryWindow/CategoryWindow";
-import { TheSearchPanel } from './components/TheSearchPanel';
+import { TheSearchPanel } from "./components/TheSearchPanel";
 import { PostAddingWindow } from "./components/popUpWindows/postAddingWindow/PostAddingWindow";
-
-
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
 export function generateStaticParams() {
-  return [{locale: 'en'}, {locale: 'ru'}, {locale: 'az'}];
+  return [{ locale: "en" }, { locale: "ru" }, { locale: "az" }];
 }
-
 
 export const metadata: Metadata = {
   title: "Animals.Al",
   description: "Animals marketplace",
 };
 
-export default async function RootLayout({children, params}: {children: React.ReactNode; params: {locale:string}}) {
- 
-
-
-
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
   let messages;
-  
+
   try {
     messages = (await import(`../../messages/${params.locale}.json`)).default;
   } catch (error) {
     notFound();
   }
 
-
   return (
-    <html lang={params.locale} className={` h-full flex justify-center  ${openSans.className}`}>
-     
-      <body className="max-w-7xl h-full relative overflow-x-hidden bg-gray-200 dark:bg-gray-800 scroll-smooth">
+    <html
+      lang={params.locale}
+      className={` h-full flex justify-center  ${openSans.className}`}
+    >
+      <body className="max-w-12xl w-[100vw] h-full relative overflow-x-hidden bg-gray-200 dark:bg-gray-800 scroll-smooth">
         <NextIntlClientProvider locale={params.locale} messages={messages}>
-        <Providers>
+          <Providers>
             <TheHeader />
-            <BurgerMenu/>
-            <section className=' mt-9 mx-auto w-[95%] z-10'>
-              <TheSearchPanel/>
+            <BurgerMenu />
+            <section className=" mt-9 mx-auto w-[95%] z-10">
+              <TheSearchPanel />
             </section>
-            
+
             <LogInWindow />
             <PostAddingWindow />
             <CategoryWindow />
-            <Settings/>
+            <Settings />
             <main>{children}</main>
             {/* <TheBottomMenu/> */}
             <TheFooter />
-            </Providers>
+          </Providers>
         </NextIntlClientProvider>
       </body>
-      
     </html>
   );
 }
