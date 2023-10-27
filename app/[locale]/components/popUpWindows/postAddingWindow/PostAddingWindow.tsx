@@ -61,7 +61,7 @@ export function PostAddingWindow() {
           </button>
           <div className="mx-auto flex flex-col justify-center items-center">
             <div className="w-[90%] h-[50px] flex justify-center items-center my-6">
-              <motion.p className="w-[50%] bg-gray-200 dark:bg-gray-400 shadow-inner  p-2 rounded-lg  md:text-[16px] sm:text-[12px] ">
+              <motion.p className="w-[50%] bg-gray-200 dark:bg-gray-400 shadow-inner font-bold  p-2 rounded-lg  md:text-[16px] sm:text-[12px] ">
                 {text.split("").map((char, index) => (
                   <motion.span
                     key={index}
@@ -85,7 +85,7 @@ export function PostAddingWindow() {
 
             <div className="w-[90%] h-[50px] flex justify-between items-center">
               <span className="md:w-[30%] sm:w-[25%] h-[3px] bg-primary-500"></span>
-              <span className="md:text-[30px] sm:text[22px]">Step One</span>
+              <span className="text-[30px]  font-bold ">Step One</span>
               <span className="md:w-[30%] sm:w-[25%] h-[3px] bg-primary-500"></span>
             </div>
           </div>
