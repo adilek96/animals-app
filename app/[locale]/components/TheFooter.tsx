@@ -96,9 +96,9 @@ export function TheFooter() {
             </div>
           </div>
 
-          <hr className="text-center mx-auto h-[2px] bg-gray-400 w-[70vw] rounded-full" />
-          <div className="flex  justify-center items-center  text-[12px] h-[40px]">
-            <p>
+          <hr className="mx-auto text-center h-[2px] bg-gray-400 w-[80%] rounded-full" />
+          <div className="flex justify-center items-center  text-[12px] h-[40px]">
+            <p className="text-center ">
               Created with honor by &copy;
               <a
                 className=" hover:text-primary-500  font-bold"
