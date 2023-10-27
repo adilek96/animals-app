@@ -4,7 +4,7 @@ interface PostAddingState {
   isOpen: boolean,
   check: string,
   setCheck: (isToggle: string) => void,
-  setIsOpen: (isActive: boolean) => void
+  setIsOpen: (isActive: boolean) => void,
   
 }
 

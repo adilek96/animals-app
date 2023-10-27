@@ -58,7 +58,7 @@ export function PostAddingWindow() {
         </button>
         <div className="mx-auto flex flex-col justify-center items-center">
           <div className="w-[90%] h-[50px] flex justify-center items-center my-6">
-            <p className="w-[50%] bg-gray-200 dark:bg-shadow-400 shadow-inner  p-2 rounded-lg text-[16px] ">
+            <p className="w-[50%] bg-gray-200 dark:bg-gray-400 shadow-inner  p-2 rounded-lg text-[16px] ">
               Добавьте обьявлениe выполнив несколько простых шагов
             </p>
             <div>
