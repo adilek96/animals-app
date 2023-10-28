@@ -8,6 +8,7 @@ import { StepOne, StepOneAnimate } from "./postAddingComponents/StepOne";
 import { StepTwo, StepTwoAnimate } from "./postAddingComponents/StepTwo";
 import { StepThree, StepThreeAnimate } from "./postAddingComponents/StepThree";
 import { StepFour, StepFourAnimate } from "./postAddingComponents/StepFour";
+import { StepFive, StepFiveAnimate } from "./postAddingComponents/StepFive";
 
 export function PostAddingWindow() {
   const t = useTranslations("LogInForms");
@@ -27,6 +28,8 @@ export function PostAddingWindow() {
       return <StepThree />;
     } else if (check === "stepFour") {
       return <StepFour />;
+    } else if (check === "stepFive") {
+      return <StepFive />;
     }
   };
 
@@ -39,6 +42,8 @@ export function PostAddingWindow() {
       return <StepThreeAnimate />;
     } else if (check === "stepFour") {
       return <StepFourAnimate />;
+    } else if (check === "stepFive") {
+      return <StepFiveAnimate />;
     }
   };
 
@@ -49,6 +54,8 @@ export function PostAddingWindow() {
       return setCheck("stepThree");
     } else if (check === "stepThree") {
       return setCheck("stepFour");
+    } else if (check === "stepFour") {
+      return setCheck("stepFive");
     }
   };
 
@@ -61,6 +68,8 @@ export function PostAddingWindow() {
       return setCheck("stepTwo");
     } else if (check === "stepFour") {
       return setCheck("stepThree");
+    } else if (check === "stepFive") {
+      return setCheck("stepFour");
     }
   };
 

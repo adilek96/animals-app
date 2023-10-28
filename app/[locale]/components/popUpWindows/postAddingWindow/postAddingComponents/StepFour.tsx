@@ -84,7 +84,7 @@ const cities: cities[] = [
 ];
 
 const text =
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim perspiciatis repellat odit illo deserunt";
+  "Предоставление дополнительной информации позволяет более детально описать особенности товара или услуги";
 
 export function StepFour() {
   const [selected, setSelected] = useState(cities[0]);
@@ -229,9 +229,17 @@ export function StepFourAnimate() {
         // x: check === "stepOne" ? 0 : -1000,
       }}
       transition={{ duration: 0.5 }}
-      className={`w-[90%] h-[50px] flex justify-center items-center my-6 `}
+      className={`w-[85%] h-[50px] flex justify-center items-center my-6 `}
     >
-      <motion.p className="w-[65%] bg-gray-200 dark:bg-gray-400 shadow-inner font-bold  p-2 rounded-lg  md:text-[16px] sm:text-[12px] ">
+      <div>
+        <Lottie
+          loop
+          animationData={animations}
+          play
+          style={{ width: 130, height: 170 }}
+        />
+      </div>
+      <motion.p className="w-[75%] bg-gray-200 dark:bg-gray-400 shadow-inner font-bold  p-2 rounded-lg  md:text-[16px] sm:text-[12px] ">
         <Link href="#">
           {text.split("").map((char, index) => (
             <motion.span
@@ -245,14 +253,6 @@ export function StepFourAnimate() {
           ))}
         </Link>
       </motion.p>
-      <div>
-        <Lottie
-          loop
-          animationData={animations}
-          play
-          style={{ width: 170, height: 170 }}
-        />
-      </div>
     </motion.div>
   );
 }

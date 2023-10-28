@@ -1,24 +1,126 @@
-import React from "react";
+import React, { useRef, useState, ChangeEvent } from "react";
+import { motion } from "framer-motion";
+import { postAddingState } from "../../../../../../store/postAddingState";
+import Lottie from "react-lottie-player";
+import animations from "../../../../../../public/animations/step5Animate.json";
+import Link from "next/link";
+import { BiCloudUpload } from "react-icons/bi";
+
+const text =
+  "Фотографии играют важную роль в создании привлекательности и убеждающей силы объявления.";
 
 export function StepFive() {
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+
+  const filePicker = useRef<HTMLInputElement>(null);
+
+  const uploadeHandler = (event: any) => {
+    const files = event.target.files;
+    const updatedSelectedFiles = [...selectedFiles];
+
+    for (let i = 0; i < files.length; i++) {
+      updatedSelectedFiles.push(files[i]);
+    }
+
+    setSelectedFiles(updatedSelectedFiles);
+  };
+
+  const handlePick = () => {
+    if (filePicker.current) {
+      filePicker.current.click();
+    }
+  };
+
+  const handleFileSelect = (event: ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files) {
+      const updatedSelectedFiles = Array.from(files).slice(0, 5);
+      setSelectedFiles(updatedSelectedFiles);
+    }
+  };
+
   return (
     <div className="  w-72  h-[100px] ">
       <label className="block mb-2 text-sm font-bold text-green-600 dark:text-green-300">
         Загрузите фотографии:
       </label>
-      <form className="flex justify-center items-center flex-col">
+      <div className="flex justify-center items-center flex-col">
+        <button
+          onClick={handlePick}
+          className="mt-4 cursor-pointer  focus:outline-none active:outline-none  bg-gradient-to-r from-gray-500 to-gray-400 rounded-full hover:contrast-125 duration-700  shadow-md shadow-gray-800    flex items-center justify-center text-center text-white   h-[40px] w-[180px]"
+        >
+          <BiCloudUpload className="text-2xl" />
+          Выберите фото
+        </button>
         <input
-          className="w-full rounded-lg  py-2 pl-3 pr-10 text-left shadow-m sm:text-sm border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
+          className=" w-0 h-0 opacity-0 overflow-hidden "
           type="file"
           name="photo"
-          accept="image/*"
+          ref={filePicker}
+          onChange={uploadeHandler}
+          accept="image/*,.jpg,.jpeg,.png"
+          multiple
         />
-        <input
-          className="mt-4 cursor-pointer  focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-lg shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[150px]"
-          type="submit"
-          value="Загрузить"
-        />
-      </form>
+        {/* <button className="mt-4 cursor-pointer  focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-lg shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[150px]">
+          Загрузить
+        </button> */}
+      </div>
+      {selectedFiles.length > 0 && (
+        <div className="mt-2">
+          <h2>Выбранные изображения:</h2>
+          <div className="mt-4 flex">
+            {selectedFiles.map((file, index) => (
+              <div key={index}>
+                <img
+                  src={URL.createObjectURL(file)}
+                  alt={file.name}
+                  width="60"
+                  height="60"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
+  );
+}
+
+export function StepFiveAnimate() {
+  const check = postAddingState((state) => state.check);
+  const setCheck = postAddingState((state) => state.setCheck);
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: check === "stepFive" ? 1 : 0,
+        // x: check === "stepOne" ? 0 : -1000,
+      }}
+      transition={{ duration: 0.5 }}
+      className={`w-[90%] h-[50px] flex justify-center items-center my-6 `}
+    >
+      <motion.p className="w-[60%] bg-gray-200 dark:bg-gray-400 shadow-inner font-bold  p-2 rounded-lg  md:text-[16px] sm:text-[12px] ">
+        <Link href="#">
+          {text.split("").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.1, delay: index * 0.1 }}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </Link>
+      </motion.p>
+      <div>
+        <Lottie
+          loop
+          animationData={animations}
+          play
+          style={{ width: 150, height: 150 }}
+        />
+      </div>
+    </motion.div>
   );
 }

@@ -13,8 +13,7 @@ export function TheBottomMenu() {
   const setCallCategory = mobileFooterState((state) => state.setCallCategory);
   const callCategory = mobileFooterState((state) => state.callCategory);
 
-  const isOpen = postAddingState((state) => state.isOpen);
-  const setIsOpen = postAddingState((state) => state.setIsOpen);
+
 
   return (
     <div

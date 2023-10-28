@@ -39,7 +39,7 @@ export function StepTwoAnimate() {
         // x: check === "stepOne" ? 0 : -1000,
       }}
       transition={{ duration: 0.5 }}
-      className={`w-[90%] h-[50px] flex justify-center items-center my-6 `}
+      className={`w-[80%] h-[50px] flex justify-center items-center my-6 `}
     >
       <div>
         <Lottie
