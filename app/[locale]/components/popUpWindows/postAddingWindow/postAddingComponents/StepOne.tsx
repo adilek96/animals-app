@@ -2,6 +2,12 @@ import React from "react";
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { FaChevronDown, FaCheck } from "react-icons/fa";
+import { postAddingState } from "../../../../../../store/postAddingState";
+import { motion } from "framer-motion";
+import Lottie from "react-lottie-player";
+import animations from "../../../../../../public/animations/dogAnimate.json";
+
+const text = "Добавьте обьявлениe выполнив несколько простых шагов";
 
 interface Category {
   name: string;
@@ -91,5 +97,42 @@ export function StepOne() {
           <option value="farm">Farm Animals</option>
         </select> */}
     </div>
+  );
+}
+
+export function StepOneAnimate() {
+  const check = postAddingState((state) => state.check);
+  const setCheck = postAddingState((state) => state.setCheck);
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: check === "stepOne" ? 1 : 0,
+        x: check === "stepOne" ? 0 : -1000,
+      }}
+      transition={{ duration: 0.5 }}
+      className={`w-[90%] h-[50px] flex justify-center items-center my-6 `}
+    >
+      <motion.p className="w-[50%] bg-gray-200 dark:bg-gray-400 shadow-inner font-bold  p-2 rounded-lg  md:text-[16px] sm:text-[12px] ">
+        {text.split("").map((char, index) => (
+          <motion.span
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.1, delay: index * 0.1 }}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </motion.p>
+      <div>
+        <Lottie
+          loop
+          animationData={animations}
+          play
+          style={{ width: 150, height: 150 }}
+        />
+      </div>
+    </motion.div>
   );
 }
