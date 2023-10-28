@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import { StepOne, StepOneAnimate } from "./postAddingComponents/StepOne";
 import { StepTwo, StepTwoAnimate } from "./postAddingComponents/StepTwo";
 import { StepThree, StepThreeAnimate } from "./postAddingComponents/StepThree";
-import { StepFour } from "./postAddingComponents/StepFour";
+import { StepFour, StepFourAnimate } from "./postAddingComponents/StepFour";
 
 export function PostAddingWindow() {
   const t = useTranslations("LogInForms");
@@ -17,8 +17,6 @@ export function PostAddingWindow() {
 
   const check = postAddingState((state) => state.check);
   const setCheck = postAddingState((state) => state.setCheck);
-
-  const text = "Добавьте обьявлениe выполнив несколько простых шагов";
 
   const stepHandler = () => {
     if (check === "stepOne") {
@@ -40,7 +38,7 @@ export function PostAddingWindow() {
     } else if (check === "stepThree") {
       return <StepThreeAnimate />;
     } else if (check === "stepFour") {
-      return <StepOneAnimate />;
+      return <StepFourAnimate />;
     }
   };
 

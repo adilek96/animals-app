@@ -84,18 +84,54 @@ export function StepOne() {
         </div>
       </Listbox>
 
-      {/* <label htmlFor="countries" className="block mb-2 text-sm font-bold text-green-300">Выберите категорию вашего товара</label>
-        <select id="countries" className=" block w-full p-2.5 text-sm text-gray-900 border border-gray-300  bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500 rounded-lg">
-          <option value="cats" selected>Cats</option>
-          <option value="dogs">Dogs</option>
-          <option value="fish">Fishs</option>
-          <option value="rats">Rats</option>
-          <option value="birds">Birds</option>
-          <option value="hands">Good Hands</option>
-          <option value="acsesories">Acsesories</option>
-          <option value="food">Food</option>
-          <option value="farm">Farm Animals</option>
-        </select> */}
+      <div
+        className={`${
+          selected.name === "Dogs" || selected.name === "Cats" ? "" : "hidden"
+        }`}
+      >
+        <div>
+          <label
+            htmlFor="priv"
+            className="flex justify-between items-center mt-4 mb-2 text-sm font-bold text-green-600 dark:text-green-300"
+          >
+            Прививки:
+            <input
+              id="priv"
+              type="checkbox"
+              // onChange={() => handsHandler()}
+              className=" w-[20px] h-[20px] shadow-m  border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            ></input>
+          </label>
+        </div>
+        <div>
+          <label
+            htmlFor="passport"
+            className="flex justify-between items-center mt-4 mb-2 text-sm font-bold text-green-600 dark:text-green-300"
+          >
+            Пасспорт:
+            <input
+              id="passport"
+              type="checkbox"
+              // onChange={() => handsHandler()}
+              className=" w-[20px] h-[20px] shadow-m  border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            ></input>
+          </label>
+        </div>
+        <div>
+          <label
+            htmlFor="rod"
+            className="flex justify-between items-center mt-4 mb-2 text-sm font-bold text-green-600 dark:text-green-300"
+          >
+            Родословная:
+            <input
+              id="rod"
+              type="checkbox"
+              // onChange={() => handsHandler()}
+              className=" w-[20px] h-[20px] shadow-m  border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            ></input>
+          </label>
+        </div>
+      </div>
     </div>
   );
 }
@@ -108,7 +144,7 @@ export function StepOneAnimate() {
       initial={{ opacity: 0 }}
       animate={{
         opacity: check === "stepOne" ? 1 : 0,
-        x: check === "stepOne" ? 0 : -1000,
+        // x: check === "stepOne" ? 0 : -1000,
       }}
       transition={{ duration: 0.5 }}
       className={`w-[90%] h-[50px] flex justify-center items-center my-6 `}
