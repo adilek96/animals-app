@@ -18,13 +18,15 @@ export function TheBottomMenu() {
     <div
       className={`  relative   bg-white dark:bg-gray-800  dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-[70px]  text-gray-800 text-[35px]  items-center sm:flex md:hidden  sm:justify-around content-center   px-6 border-t-[5px] border-primary-500 border-solid `}
     >
-      <div className="w-[60px] flex flex-col justify-center items-center text-center hover:text-primary-500">
-        <BiHome />
-        <p className="text-[10px]  self-center text-center">{t("home")}</p>
-      </div>
+      <Link href="/">
+        <div className="w-[60px] cursor-pointer flex flex-col justify-center items-center text-center hover:text-primary-500">
+          <BiHome />
+          <p className="text-[10px]  self-center text-center">{t("home")}</p>
+        </div>
+      </Link>
       <div
         onClick={() => setCallCategory(!callCategory)}
-        className="w-[60px] flex flex-col justify-center items-center  hover:text-primary-500"
+        className="w-[60px] cursor-pointer flex flex-col justify-center items-center  hover:text-primary-500"
       >
         <BiCategoryAlt />
         <p className="text-[10px] self-center text-center">{t("categories")}</p>
@@ -43,11 +45,11 @@ export function TheBottomMenu() {
         )}
       </div>
 
-      <div className="w-[60px] flex flex-col justify-center items-center  hover:text-primary-500">
+      <div className="w-[60px] cursor-pointer flex flex-col justify-center items-center  hover:text-primary-500">
         <BiMessageRoundedDots />
         <p className="text-[10px] self-center text-center">{t("messages")}</p>
       </div>
-      <div className="w-[60px] flex flex-col justify-center items-center  hover:text-primary-500">
+      <div className="w-[60px] cursor-pointer flex flex-col justify-center items-center  hover:text-primary-500">
         <VscAccount />
         <p className="text-[10px] self-center text-center">{t("account")}</p>
       </div>

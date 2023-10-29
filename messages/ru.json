@@ -151,6 +151,9 @@
       "categories": "Категории",
       "messages": "Сообщения",
       "account": "Аккаунт"
+    },
+    "Search": {
+      "search": "Поиск..."
     }
   
   }

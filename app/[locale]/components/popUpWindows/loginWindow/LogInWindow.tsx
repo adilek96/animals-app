@@ -28,7 +28,7 @@ export function LogInWindow() {
       transition={{ duration: 0.5 }}
       className=" fixed w-screen backdrop-blur-lg inset-0 z-40"
     >
-      <div className=" fixed dark:bg-gray-700 md:w-[50vw] md:h-[90vh] sm:h-[80vh]  md:left-[25%] top-[5%] sm:w-[90vw] sm:left-[5%] bg-white z-50 shadow-2xl  shadow-gray-800 rounded-md border-t-[5px] border-primary-500 flex flex-col gap-3 justify-center items-center">
+      <div className=" fixed dark:bg-gray-700 md:w-[50vw] md:h-[90vh] sm:h-[90vh]  md:left-[25%] top-[5%] sm:w-[90vw] sm:left-[5%] bg-white z-50 shadow-2xl  shadow-gray-800 rounded-md border-t-[5px] border-primary-500  flex flex-col gap-3 justify-center items-center">
         <button
           onClick={() => {
             setLoginModalActive(!loginModal);

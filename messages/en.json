@@ -151,6 +151,9 @@
         "categories": "Categories",
         "messages": "Messages",
         "account": "Account"
+      },
+      "Search": {
+        "search": "Search..."
       }
     
   
