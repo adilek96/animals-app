@@ -6,32 +6,33 @@ import { postAddingState } from "../../../../../../store/postAddingState";
 import { motion } from "framer-motion";
 import Lottie from "react-lottie-player";
 import animations from "../../../../../../public/animations/dogAnimate.json";
-
-const text = "Добавьте обьявлениe выполнив несколько простых шагов";
+import { useTranslations } from "next-intl";
 
 interface Category {
   name: string;
+  type?: string;
 }
 
-const categories: Category[] = [
-  { name: "Cats" },
-  { name: "Dogs" },
-  { name: "Birds" },
-  { name: "Fishs" },
-  { name: "Rats" },
-  { name: "Good Hands" },
-  { name: "Food" },
-  { name: "Acsesories" },
-  { name: "Farm Animals" },
-];
-
 export function StepOne() {
+  const c = useTranslations("Categories");
+  const categories: Category[] = [
+    { name: c("cats"), type: "cats" },
+    { name: c("dogs"), type: "dogs" },
+    { name: c("birds") },
+    { name: c("fishs") },
+    { name: c("rodents") },
+    { name: c("food") },
+    { name: c("acsesories") },
+    { name: c("farmAnimals") },
+  ];
   const [selected, setSelected] = useState(categories[0]);
+
+  const t = useTranslations("PostAdding");
 
   return (
     <div className="  w-72  h-[100px] ">
       <label className="block mb-2 text-sm font-bold text-green-600 dark:text-green-300">
-        Выберите категорию:
+        {t("selectCategory")}
       </label>
       <Listbox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
@@ -86,7 +87,7 @@ export function StepOne() {
 
       <div
         className={`${
-          selected.name === "Dogs" || selected.name === "Cats" ? "" : "hidden"
+          selected.type === "cats" || selected.type === "dogs" ? "" : "hidden"
         }`}
       >
         <div>
@@ -94,7 +95,7 @@ export function StepOne() {
             htmlFor="priv"
             className="flex justify-between items-center mt-4 mb-2 text-sm font-bold text-green-600 dark:text-green-300"
           >
-            Прививки:
+            {t("vaccinations")}
             <input
               id="priv"
               type="checkbox"
@@ -108,7 +109,7 @@ export function StepOne() {
             htmlFor="passport"
             className="flex justify-between items-center mt-4 mb-2 text-sm font-bold text-green-600 dark:text-green-300"
           >
-            Пасспорт:
+            {t("passport")}
             <input
               id="passport"
               type="checkbox"
@@ -122,7 +123,7 @@ export function StepOne() {
             htmlFor="rod"
             className="flex justify-between items-center mt-4 mb-2 text-sm font-bold text-green-600 dark:text-green-300"
           >
-            Родословная:
+            {t("pedigree")}
             <input
               id="rod"
               type="checkbox"
@@ -139,6 +140,8 @@ export function StepOne() {
 export function StepOneAnimate() {
   const check = postAddingState((state) => state.check);
   const setCheck = postAddingState((state) => state.setCheck);
+  const t = useTranslations("PostAdding");
+  const text = t("step1AnimateDesc");
   return (
     <motion.div
       initial={{ opacity: 0 }}

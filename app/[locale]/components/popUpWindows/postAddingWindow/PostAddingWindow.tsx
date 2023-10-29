@@ -11,7 +11,7 @@ import { StepFour, StepFourAnimate } from "./postAddingComponents/StepFour";
 import { StepFive, StepFiveAnimate } from "./postAddingComponents/StepFive";
 
 export function PostAddingWindow() {
-  const t = useTranslations("LogInForms");
+  const t = useTranslations("PostAdding");
 
   const isOpen = postAddingState((state) => state.isOpen);
   const setIsOpen = postAddingState((state) => state.setIsOpen);
@@ -83,7 +83,7 @@ export function PostAddingWindow() {
       transition={{ duration: 0.5 }}
       className=" fixed w-screen backdrop-blur-lg inset-0 z-40"
     >
-      <div className=" fixed dark:bg-gray-700 lg:w-[50vw] md:h-[90vh] sm:h-[80vh]  lg:left-[25%] top-[5%] md:w-[70vw] md:left-[15%] sm:w-[90vw] sm:left-[5%] bg-white z-50 shadow-2xl  shadow-gray-800 rounded-md border-t-[5px] border-primary-500 flex flex-col gap-3 justify-around items-center">
+      <div className=" fixed dark:bg-gray-700 lg:w-[50vw] md:h-[90vh] sm:h-[85vh]  lg:left-[25%] top-[5%] md:w-[70vw] md:left-[15%] sm:w-[90vw] sm:left-[5%] bg-white z-50 shadow-2xl  shadow-gray-800 rounded-md border-t-[5px] border-primary-500 flex flex-col gap-3 justify-around items-center">
         <button
           onClick={() => {
             setIsOpen(!isOpen);
@@ -107,14 +107,14 @@ export function PostAddingWindow() {
           <button
             type="button"
             onClick={() => nextHandler()}
-            className="focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-lg shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[150px] "
+            className="focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-md shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[150px] "
           >
-            {"Next"}
+            {t("nextStep")}
           </button>
           <button
             type="button"
             onClick={() => backHandler()}
-            className="focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-primary-400 rounded-full hover:contrast-125 duration-700  shadow-lg shadow-primary-800    flex items-center justify-center text-center text-white  h-[40px] w-[100px] "
+            className="focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-primary-400 rounded-full hover:contrast-125 duration-700  shadow-md shadow-primary-800    flex items-center justify-center text-center text-white  h-[40px] w-[100px] "
           >
             {t("back")}
           </button>

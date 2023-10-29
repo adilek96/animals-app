@@ -34,7 +34,39 @@
       "passChange": "Change password",
       "enterPass": "Enter password",
       "back": "Back"
-
+    },
+    "PostAdding": {
+      "back": "Back",
+      "nextStep": "Next Step",
+      "step1": "Step One",
+      "step2": "Step Two",
+      "step3": "Step Three",
+      "step4": "Step Four",
+      "step5": "Step Five",
+      "step1AnimateDesc": "Add an advertisement by following a few simple steps",
+      "selectCategory": "Select a category:",
+      "vaccinations": "Vaccinations:",
+      "passport": "Passport:",
+      "pedigree": "Pedigree:",
+      "step2AnimateDesc": "The name should be concise, informative, and comply with the site's rules.",
+      "step2Desc": "For example: 'Labrador Puppy', 'Siamese Kitten', 'Cat Food 'PurinaOne'' and so on.",
+      "aName": "Come up with a name:",
+      "nameDesc": "Labrador Puppy",
+      "step3AnimateDesc": "The description must be objective and not contain false or exaggerated information",
+      "description": "Come up with a description:",
+      "descPlaceholder": "Barks not, bites not, yet doesn't let in."
+    },
+    "Categories":{
+      "all": "All",
+      "cats": "Cats",
+      "dogs": "Dogs",
+      "birds": "Birds",
+      "rodents": "Rodents",
+      "fishs": "Fish",
+      "food": "Food",
+      "acsesories": "Accessories",
+      "goodHands" : "In good hands",
+      "farmAnimals": "Cattle"
     }
   
   }
