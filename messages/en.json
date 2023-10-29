@@ -140,6 +140,17 @@
         "chardaglar": "Chardaglar",
         "shamakhi": "Shamakhi",
         "yardymli": "Yardymli"
+      },
+      "Footer":{
+        "location": "Baku, Azerbaijan",
+        "contacts": "Contacts:",
+        "about": "The first bulletin board for searching, selling and buying pets in Azerbaijan."
+      },
+      "BottomMenu": {
+        "home": "Home",
+        "categories": "Categories",
+        "messages": "Messages",
+        "account": "Account"
       }
     
   

@@ -15,8 +15,10 @@ import { MdEmail } from "react-icons/md";
 import { mobileFooterState } from "../../../store/mobileFooterState";
 import { TheBottomMenu } from "./TheBottomMenu";
 import { FaPlus } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 export function TheFooter() {
+  const t = useTranslations("Footer");
   const footerHide = mobileFooterState((state) => state.footerHide);
   const isOpen = postAddingState((state) => state.isOpen);
   const setIsOpen = postAddingState((state) => state.setIsOpen);
@@ -53,13 +55,12 @@ export function TheFooter() {
             </Link>
 
             <p className="w-[300px]  md:text-left sm:text-center">
-              <b>Animals.AL</b> — Первая доска объявлений по поиску, продаже и
-              покупке домашних животных в Азербайджане.
+              <b>Animals.AL</b> — {t("about")}
             </p>
 
             <div className=" flex justify-center flex-col mt-8 ">
               <p className="md:text-left sm:text-center">
-                <b>Контакты:</b>
+                <b>{t("contacts")}</b>
               </p>
 
               <ul className="list-none  pt-4 space-y-1">
@@ -73,7 +74,7 @@ export function TheFooter() {
                 </li>
                 <li>
                   <FaMapPin className="inline text-2xl ml-1 text-gray-400 pt-1 font-extrabold" />
-                  Баку, Азербайджан
+                  {t("location")}
                 </li>
               </ul>
               <div className="sm:h-[400px] md:h-min flex md:justify-start sm:justify-center gap-3 pt-4 pl-1 pb-8">

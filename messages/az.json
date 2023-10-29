@@ -140,6 +140,17 @@
     "chardaglar": "Çarxıqlar",
     "shamakhi": "Şamaxı",
     "yardymli": "Yardımlı"
+    },
+    "Footer":{
+      "location": "Bakı, Azərbaycan",
+      "contacts": "Əlaqələr:",
+      "about": "Azərbaycanda ev heyvanlarının axtarışı, satışı və alınması üçün ilk məlumat lövhəsi."
+    },
+    "BottomMenu": {
+      "home": "Əsas Səhifə",
+      "categories": "Kateqoriyalar",
+      "messages": "Mesajlar",
+      "account": "Hesab"
     }
 
 
