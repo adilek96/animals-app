@@ -73,6 +73,11 @@ export function PostAddingWindow() {
     }
   };
 
+  const closingHandler = () => {
+    setIsOpen(!isOpen);
+    setCheck("stepOne");
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -1000 }}
@@ -85,19 +90,19 @@ export function PostAddingWindow() {
     >
       <div className=" fixed dark:bg-gray-700 lg:w-[50vw] md:h-[90vh] sm:h-[85vh]  lg:left-[25%] top-[5%] md:w-[70vw] md:left-[15%] sm:w-[90vw] sm:left-[5%] bg-white z-50 shadow-2xl  shadow-gray-800 rounded-md border-t-[5px] border-primary-500 flex flex-col gap-3 justify-around items-center">
         <button
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
+          onClick={closingHandler}
           className="focus:outline-none active:outline-none shadow-md shadow-primary-800 absolute right-1 top-1 w-[30px] h-[25px]"
         >
           <FaWindowClose className="absolute right-0 top-0 z-30  text-primary-300 w-[30px] h-[30px]" />
         </button>
-        <div className=" absolute top-4 mx-auto flex flex-col justify-center items-center">
+        <div className=" absolute top-4 w-full mx-auto flex flex-col justify-center items-center">
           {stepAnimateHandler()}
-          <div className="w-[90%] h-[50px]  flex justify-between items-center">
-            <span className="md:w-[30%] sm:w-[25%] h-[3px] bg-primary-500"></span>
-            <span className="text-[30px]  font-bold ">Step One</span>
-            <span className="md:w-[30%] sm:w-[25%] h-[3px] bg-primary-500"></span>
+          <div className="w-[95%] h-[50px]  flex justify-between items-center">
+            <span className="md:w-[28%] sm:w-[25%] h-[3px]  bg-primary-500"></span>
+            <span className="md:text-[24px] sm:text-[20px] text-center  font-bold ">
+              {t(check)}
+            </span>
+            <span className="md:w-[28%] sm:w-[25%] h-[3px] bg-primary-500"></span>
           </div>
         </div>
 

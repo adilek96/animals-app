@@ -6,10 +6,12 @@ import animations from "../../../../../../public/animations/step5Animate.json";
 import Link from "next/link";
 import Image from "next/image";
 import { BiCloudUpload, BiX } from "react-icons/bi";
+import { useTranslations } from "next-intl";
 
 const text = "Вы можете добавить до 5 фотографий  для вашего обьявления ";
 
 export function StepFive() {
+  const t = useTranslations("PostAdding");
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const filePicker = useRef<HTMLInputElement>(null);
@@ -48,9 +50,9 @@ export function StepFive() {
   };
 
   return (
-    <div className="  w-72  h-[150px] ">
+    <div className="  w-72  h-[130px] ">
       <label className="block mb-2 text-sm font-bold text-green-600 dark:text-green-300">
-        Загрузите фотографии:
+        {t("uploadFhoto")}
       </label>
       <div className="flex justify-center items-center flex-col">
         <button
@@ -58,7 +60,7 @@ export function StepFive() {
           className="mt-4 cursor-pointer  focus:outline-none active:outline-none  bg-gradient-to-r from-gray-500 to-gray-400 rounded-full hover:contrast-125 duration-700  shadow-md shadow-gray-800    flex items-center justify-center text-center text-white   h-[40px] w-[180px]"
         >
           <BiCloudUpload className="text-2xl" />
-          Выберите фото
+          {t("choseFoto")}
         </button>
         <input
           className=" w-0 h-0 opacity-0 overflow-hidden "
@@ -72,7 +74,7 @@ export function StepFive() {
       </div>
       {selectedFiles.length > 0 && (
         <div className="mt-2">
-          <h2>Выбранные изображения:</h2>
+          <h2>{t("selectedImg")}</h2>
           <div className="mt-4  w-[300px] h-[70px] bg-gray-300 dark:bg-gray-400 rounded-xl shadow-md  snap-center  overflow-y-hidden overflow-x-auto  no-scrollbar snap-x snap-mandatory scroll-smooth flex items-center gap-4">
             {selectedFiles.map((file, index) => (
               <div
@@ -104,13 +106,13 @@ export function StepFive() {
 
 export function StepFiveAnimate() {
   const check = postAddingState((state) => state.check);
-  const setCheck = postAddingState((state) => state.setCheck);
+  const t = useTranslations("PostAdding");
+  const text = t("step5AnimateDesc");
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{
         opacity: check === "stepFive" ? 1 : 0,
-        // x: check === "stepOne" ? 0 : -1000,
       }}
       transition={{ duration: 0.5 }}
       className={`w-[90%] h-[50px] flex justify-center items-center my-6 `}
@@ -122,7 +124,7 @@ export function StepFiveAnimate() {
               key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.1, delay: index * 0.1 }}
+              transition={{ duration: 0.05, delay: index * 0.1 }}
             >
               {char}
             </motion.span>

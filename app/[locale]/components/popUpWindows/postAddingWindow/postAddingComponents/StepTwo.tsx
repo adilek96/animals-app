@@ -12,7 +12,7 @@ export function StepTwo() {
   const text2 = t("step2Desc");
 
   return (
-    <div className="  w-72  h-[100px] mt-6 ">
+    <div className="  w-72  h-[120px] mt-6 ">
       <label className="block mb-2 text-sm font-bold text-green-600 dark:text-green-300">
         {t("aName")}
       </label>
@@ -59,7 +59,7 @@ export function StepTwoAnimate() {
               key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.1, delay: index * 0.1 }}
+              transition={{ duration: 0.05, delay: index * 0.1 }}
             >
               {char}
             </motion.span>

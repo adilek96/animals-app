@@ -7,92 +7,85 @@ import { postAddingState } from "../../../../../../store/postAddingState";
 import Lottie from "react-lottie-player";
 import animations from "../../../../../../public/animations/starAnimate.json";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
-interface cities {
+interface Cities {
   name: string;
+  type: string;
 }
 
-const cities: cities[] = [
-  { name: "Баку" },
-  { name: "Гянджа" },
-  { name: "Сумгаит" },
-  { name: "Мингечаур" },
-  { name: "Ширван" },
-  { name: "Нахичеван" },
-  { name: "Ленкорань" },
-  { name: "Шеки" },
-  { name: "Ялама" },
-  { name: "Барда" },
-  { name: "Габала" },
-  { name: "Мардакерт" },
-  { name: "Губа" },
-  { name: "Саатлы" },
-  { name: "Агдам" },
-  { name: "Зангелан" },
-  { name: "Агдаш" },
-  { name: "Северный Газах" },
-  { name: "Ханкенди" },
-  { name: "Гаджи Гарагойнлу" },
-  { name: "Горадиз" },
-  { name: "Шамкир" },
-  { name: "Бейлаган" },
-  { name: "Агджабеди" },
-  { name: "Бильгях" },
-  { name: "Хачмас" },
-  { name: "Астара" },
-  { name: "Бабек" },
-  { name: "Зардаб" },
-  { name: "Бальяси" },
-  { name: "Сабирабад" },
-  { name: "Худат" },
-  { name: "Гаджаллы" },
-  { name: "Гойчай" },
-  { name: "Ордубад" },
-  { name: "Имишли" },
-  { name: "Губадлы" },
-  { name: "Агдам" },
-  { name: "Кельбаджар" },
-  { name: "Джебраил" },
-  { name: "Физули" },
-  { name: "Агдам" },
-  { name: "Кубатлы" },
-  { name: "Агсу" },
-  { name: "Агтюбе" },
-  { name: "Белоканы" },
-  { name: "Биласувар" },
-  { name: "Газах" },
-  { name: "Гейчай" },
-  { name: "Горган" },
-  { name: "Губадли" },
-  { name: "Гусар" },
-  { name: "Джалилабад" },
-  { name: "Исмаиллы" },
-  { name: "Казах" },
-  { name: "Кюрдамир" },
-  { name: "Масаллы" },
-  { name: "Набран" },
-  { name: "Огуз" },
-  { name: "Самух" },
-  { name: "Сарур" },
-  { name: "Сиазань" },
-  { name: "Тертер" },
-  { name: "Уджары" },
-  { name: "Хызы" },
-  { name: "Чардаглар" },
-  { name: "Шамахы" },
-  { name: "Ярдымлы" },
-];
-
-const text =
-  "Предоставление дополнительной информации позволяет более детально описать обьявление";
-
 export function StepFour() {
+  const c = useTranslations("Cities");
+  const cities: Cities[] = [
+    { name: c("baku"), type: "Baku" },
+    { name: c("ganja"), type: "Ganja" },
+    { name: c("sumgait"), type: "Sumgait" },
+    { name: c("mingachevir"), type: "Mingachevir" },
+    { name: c("shirvan"), type: "Shirvan" },
+    { name: c("nakhchivan"), type: "Nakhchivan" },
+    { name: c("lankaran"), type: "Lankaran" },
+    { name: c("sheki"), type: "Sheki" },
+    { name: c("yalama"), type: "Yalama" },
+    { name: c("barda"), type: "Barda" },
+    { name: c("gabala"), type: "Gabala" },
+    { name: c("agdere"), type: "Agdere" },
+    { name: c("guba"), type: "Guba" },
+    { name: c("saatly"), type: "Saatly" },
+    { name: c("agdam"), type: "Agdam" },
+    { name: c("zangilan"), type: "Zangilan" },
+    { name: c("agdash"), type: "Agdash" },
+    { name: c("xankendi"), type: "Xankendi" },
+    { name: c("hajigabul"), type: "Hajigabul" },
+    { name: c("goranboy"), type: "Goranboy" },
+    { name: c("shamkir"), type: "Shamkir" },
+    { name: c("beylagan"), type: "Beylagan" },
+    { name: c("aghjabedi"), type: "Aghjabedi" },
+    { name: c("bilasuvar"), type: "Bilasuvar" },
+    { name: c("khachmaz"), type: "Khachmaz" },
+    { name: c("astara"), type: "Astara" },
+    { name: c("babek"), type: "Babek" },
+    { name: c("zardab"), type: "Zardab" },
+    { name: c("ballyasny"), type: "Ballyasny" },
+    { name: c("sabirabad"), type: "Sabirabad" },
+    { name: c("khudat"), type: "Khudat" },
+    { name: c("gadabay"), type: "Gadabay" },
+    { name: c("goychay"), type: "Goychay" },
+    { name: c("ordubad"), type: "Ordubad" },
+    { name: c("imishli"), type: "Imishli" },
+    { name: c("gubadly"), type: "Gubadly" },
+    { name: c("kelbajar"), type: "Kelbajar" },
+    { name: c("jabrayil"), type: "Jabrayil" },
+    { name: c("fizuli"), type: "Fizuli" },
+    { name: c("kubatly"), type: "Kubatly" },
+    { name: c("agsu"), type: "Agsu" },
+    { name: c("agstafa"), type: "Agstafa" },
+    { name: c("balakan"), type: "Balakan" },
+    { name: c("gazakh"), type: "Gazakh" },
+    { name: c("gorgan"), type: "Gorgan" },
+    { name: c("gusar"), type: "Gusar" },
+    { name: c("jalilabad"), type: "Jalilabad" },
+    { name: c("ismayilli"), type: "Ismayilli" },
+    { name: c("qazakh"), type: "Qazakh" },
+    { name: c("kurdamir"), type: "Kurdamir" },
+    { name: c("masally"), type: "Masally" },
+    { name: c("nabran"), type: "Nabran" },
+    { name: c("oghuz"), type: "Oghuz" },
+    { name: c("samukh"), type: "Samukh" },
+    { name: c("siazan"), type: "Siazan" },
+    { name: c("terter"), type: "Terter" },
+    { name: c("ujar"), type: "Ujar" },
+    { name: c("khojaly"), type: "Khojaly" },
+    { name: c("chardaglar"), type: "Chardaglar" },
+    { name: c("shamakhi"), type: "Shamakhi" },
+    { name: c("yardymli"), type: "Yardymli" },
+  ];
+
+  const t = useTranslations("PostAdding");
   const [selected, setSelected] = useState(cities[0]);
   const [isGoodHand, setGoodHands] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
 
-  const text =
-    "Внимание! При выборе 'В добрые руки' вы не можете устанавливать цену";
+  const text = t("infoDesc");
 
   const handsHandler = () => {
     setGoodHands(!isGoodHand);
@@ -106,16 +99,16 @@ export function StepFour() {
   };
 
   return (
-    <div className="  w-72  h-[100px] ">
+    <div className="  w-72  h-[120px] ">
       <label className="block mb-2 text-sm font-bold text-green-600 dark:text-green-300">
-        Дополнительная информация:
+        {t("info")}
       </label>
       <div>
         <label
           htmlFor="city"
           className="flex justify-between items-center mb-2 text-sm font-bold text-green-600 dark:text-green-300"
         >
-          Город:
+          {t("city")}
           <Listbox value={selected} onChange={setSelected}>
             <div className="relative mt-1">
               <Listbox.Button className="relative w-[170px] cursor-default rounded-lg  py-2 pl-3 pr-10 text-left shadow-m sm:text-sm border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500">
@@ -175,7 +168,7 @@ export function StepFour() {
           htmlFor="hands"
           className="flex justify-between items-center mt-4 mb-2 text-sm font-bold text-green-600 dark:text-green-300"
         >
-          В добрые руки:
+          {t("goodHands")}
           <input
             id="hands"
             type="checkbox"
@@ -202,7 +195,7 @@ export function StepFour() {
             isGoodHand ? "line-through decoration-black decoration-4" : ""
           }`}
         >
-          Цена:
+          {t("price")}
           <input
             type="number"
             min="0"
@@ -220,13 +213,14 @@ export function StepFour() {
 
 export function StepFourAnimate() {
   const check = postAddingState((state) => state.check);
-  const setCheck = postAddingState((state) => state.setCheck);
+  const t = useTranslations("PostAdding");
+  const text = t("step4AnimateDesc");
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{
         opacity: check === "stepFour" ? 1 : 0,
-        // x: check === "stepOne" ? 0 : -1000,
       }}
       transition={{ duration: 0.5 }}
       className={`w-[85%] h-[50px] flex justify-center items-center my-6 `}
@@ -246,7 +240,7 @@ export function StepFourAnimate() {
               key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.1, delay: index * 0.1 }}
+              transition={{ duration: 0.05, delay: index * 0.1 }}
             >
               {char}
             </motion.span>
