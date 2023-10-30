@@ -9,12 +9,12 @@ export function ProfileTabs() {
   const pathname = usePathname();
   return (
     <div className="w-full h-[100px] flex justify-center items-center">
-      <ul className="md:w-[620px] sm:w-[310px] md:h-[60px] sm:h-[45px] backdrop-blur-lg bg-gradient-to-r from-green-500 to-green-400 dark:bg-gray-300/10  rounded-xl flex justify-around items-center text-white font-bold shadow-md shadow-green-800 md:text-[16px] sm:text-[8px]">
+      <ul className="md:w-[60vw] sm:w-[90vw] md:h-[60px] sm:h-[45px] backdrop-blur-lg bg-gradient-to-r from-green-500 to-green-400 dark:bg-gray-300/10  rounded-xl flex justify-around items-center text-white font-bold shadow-md shadow-green-800 md:text-[16px] sm:text-[8px]">
         <Link href="/profile">
           <li
-            className={`md:w-[200px] md:h-[50px] sm:w-[100px] sm:h-[40px] rounded-xl flex justify-around items-center    ${
+            className={`md:w-[19.5vw] md:h-[50px] sm:w-[29vw] sm:h-[40px] rounded-xl flex justify-around items-center    ${
               pathname === "/profile"
-                ? " bg-green-600/80 "
+                ? " bg-green-700/80 "
                 : "hover:bg-white/40"
             }`}
           >
@@ -26,9 +26,9 @@ export function ProfileTabs() {
         </Link>
         <Link href="/profile/messages">
           <li
-            className={`md:w-[200px] md:h-[50px] sm:w-[100px] sm:h-[40px] rounded-xl flex justify-around items-center    ${
+            className={`md:w-[19.5vw] md:h-[50px] sm:w-[29vw] sm:h-[40px] rounded-xl flex justify-around items-center    ${
               pathname === "/profile/messages"
-                ? "bg-green-600/80  "
+                ? "bg-green-700/80  "
                 : "hover:bg-white/40"
             }`}
           >
@@ -40,9 +40,9 @@ export function ProfileTabs() {
         </Link>
         <Link href="/profile/myAds">
           <li
-            className={`md:w-[200px] md:h-[50px] sm:w-[100px] sm:h-[40px] rounded-xl flex justify-around items-center   ${
+            className={`md:w-[19.5vw] md:h-[50px] sm:w-[29vw] sm:h-[40px] rounded-xl flex justify-around items-center   ${
               pathname === "/profile/myAds"
-                ? "bg-green-600/80  "
+                ? "bg-green-700/80  "
                 : "hover:bg-white/40"
             }`}
           >
