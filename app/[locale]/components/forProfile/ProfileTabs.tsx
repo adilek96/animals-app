@@ -7,7 +7,6 @@ import { BiMessageRoundedDots, BiSpreadsheet } from "react-icons/bi";
 
 export function ProfileTabs() {
   const pathname = usePathname();
-  console.log(pathname);
   const [path, setPath] = useState<string>("");
   useEffect(() => {
     setPath(pathname);
