@@ -12,7 +12,7 @@ export function ProfileTabs() {
   useEffect(() => {
     setPath(pathname);
   }, [pathname]);
-  if (path !== "")
+  if (path !== "") {
     return (
       <div className="w-full h-[100px] flex justify-center items-center">
         <ul className="md:w-[60vw] sm:w-[95vw] md:h-[60px] sm:h-[45px] backdrop-blur-lg bg-gradient-to-r from-green-500 to-green-400 dark:bg-gray-300/10  rounded-xl flex justify-around items-center text-white font-bold shadow-md shadow-green-800 md:text-[16px] sm:text-[8px]">
@@ -62,6 +62,13 @@ export function ProfileTabs() {
         </ul>
       </div>
     );
+  } else {
+    return (
+      <div className="w-full h-[100px] flex justify-center items-center">
+        <div className="md:w-[60vw] sm:w-[95vw] md:h-[60px] sm:h-[45px] animate-pulse rounded-xl bg-slate-700"></div>
+      </div>
+    );
+  }
 }
 
 // dark:bg-slate-800/50
