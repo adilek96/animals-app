@@ -8,7 +8,7 @@ import { BiMessageRoundedDots, BiSpreadsheet } from "react-icons/bi";
 export function ProfileTabs() {
   const pathname = usePathname();
   console.log(pathname);
-  const [path, setPath] = useState<string>(pathname);
+  //   const [path, setPath] = useState<string>(pathname);
   if (pathname !== null)
     return (
       <div className="w-full h-[100px] flex justify-center items-center">
@@ -17,7 +17,9 @@ export function ProfileTabs() {
             <li
               //   onClick={() => setPath("/profile")}
               className={`md:w-[19.5vw] md:h-[50px] sm:w-[31vw] sm:h-[40px] rounded-xl flex justify-around items-center focus:bg-green-700/80   ${
-                path === "/profile" ? " bg-green-700/80 " : "hover:bg-white/40"
+                pathname === "/profile"
+                  ? " bg-green-700/80 "
+                  : "hover:bg-white/40"
               }`}
             >
               <p className="flex justify-center flex-col items-center">
@@ -30,7 +32,7 @@ export function ProfileTabs() {
             <li
               //   onClick={() => setPath("/profile/messages")}
               className={`md:w-[19.5vw] md:h-[50px] sm:w-[31vw] sm:h-[40px] rounded-xl flex justify-around items-center    ${
-                path === "/profile/messages"
+                pathname === "/profile/messages"
                   ? "bg-green-700/80  "
                   : "hover:bg-white/40"
               }`}
@@ -45,7 +47,7 @@ export function ProfileTabs() {
             <li
               //   onClick={() => setPath("/profile/myAds")}
               className={`md:w-[19.5vw] md:h-[50px] sm:w-[31vw] sm:h-[40px] rounded-xl flex justify-around items-center   ${
-                path === "/profile/myAds"
+                pathname === "/profile/myAds"
                   ? "bg-green-700/80  "
                   : "hover:bg-white/40"
               }`}
