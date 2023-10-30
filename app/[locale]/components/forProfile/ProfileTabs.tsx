@@ -6,8 +6,8 @@ import { RiUserSettingsLine } from "react-icons/ri";
 import { BiMessageRoundedDots, BiSpreadsheet } from "react-icons/bi";
 
 export function ProfileTabs() {
-  const [path, setPath] = useState<string>("/profile");
   const pathname = usePathname();
+  const [path, setPath] = useState<string>(pathname);
 
   return (
     <div className="w-full h-[100px] flex justify-center items-center">
@@ -19,7 +19,7 @@ export function ProfileTabs() {
               path === "/profile" ? " bg-green-700/80 " : "hover:bg-white/40"
             }`}
           >
-            <p className="flex justify-center items-center">
+            <p className="flex justify-center flex-col items-center">
               <RiUserSettingsLine className="text-2xl text-white md:hidden" />
               Настройки
             </p>
@@ -34,7 +34,7 @@ export function ProfileTabs() {
                 : "hover:bg-white/40"
             }`}
           >
-            <p className="flex justify-center items-center">
+            <p className="flex justify-center flex-col items-center">
               <BiMessageRoundedDots className="text-2xl text-white md:hidden" />
               Сообщения
             </p>
@@ -49,7 +49,7 @@ export function ProfileTabs() {
                 : "hover:bg-white/40"
             }`}
           >
-            <p className="flex justify-center items-center">
+            <p className="flex justify-center flex-col items-center">
               <BiSpreadsheet className="text-2xl text-white md:hidden" />
               Мои обьявления
             </p>
