@@ -57,10 +57,10 @@ export function BurgerMenu() {
   };
   return (
     <motion.div
-      initial={{ opacity: 0, x: -1000 }}
+      initial={{ opacity: 0, x: -3000 }}
       animate={{
         opacity: burger ? 1 : 0,
-        x: burger ? 0 : -1000,
+        x: burger ? 0 : -3000,
       }}
       transition={{ duration: 0.5 }}
       onClick={() => setBurgerActive(!burger)}

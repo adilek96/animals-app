@@ -8,8 +8,6 @@ import Image from "next/image";
 import { BiCloudUpload, BiX } from "react-icons/bi";
 import { useTranslations } from "next-intl";
 
-const text = "Вы можете добавить до 5 фотографий  для вашего обьявления ";
-
 export function StepFive() {
   const t = useTranslations("PostAdding");
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
