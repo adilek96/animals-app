@@ -2,18 +2,25 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaPlus, FaChevronDown, FaSignInAlt } from "react-icons/fa";
+import {
+  FaPlus,
+  FaChevronDown,
+  FaSignInAlt,
+  FaSignOutAlt,
+} from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { burgerActiveState } from "../../../store/burgerActiveState";
 import { motion } from "framer-motion";
 import { logInModalActive } from "../../../store/logInModalActive";
 import { postAddingState } from "../../../store/postAddingState";
 import { useTranslations } from "next-intl";
+import { useSession, signOut } from "next-auth/react";
 
 export function TheHeader() {
   const t = useTranslations("TheHeader");
 
   const pathname = usePathname();
+  const session = useSession();
 
   // стейт вызова дроп-меню постов
   const [postsSubActive, setPostsSubActive] = useState(false);
@@ -134,17 +141,42 @@ export function TheHeader() {
                   {t("clinics")}
                 </Link>
               </li>
+              {session?.data && (
+                <li>
+                  <Link
+                    href="/profile"
+                    className={`box-content h-[100px] px-3 flex items-center  hover:text-primary-500 duration-300 ${
+                      pathname === "/profile"
+                        ? " text-primary-500 border-t-[5px] border-t-primary-500 border-solid"
+                        : ""
+                    }`}
+                  >
+                    Profile
+                  </Link>
+                </li>
+              )}
             </ul>
           </nav>
 
           {/* ------------------------------------ Log In button ------------------------------- */}
-          <button
-            onClick={() => setLoginModalActive(!loginModal)}
-            className={`flex h-[100px] px-5  items-center   hover:text-primary-500 duration-300`}
-          >
-            <FaSignInAlt className="text-2xl mr-2 text-gray-300  font-extrabold" />
-            {t("loginButton")}
-          </button>
+
+          {session?.data ? (
+            <button
+              onClick={() => signOut({ callbackUrl: "/" })}
+              className={`flex h-[100px] px-5  items-center   hover:text-primary-500 duration-300`}
+            >
+              <FaSignOutAlt className="text-2xl mr-2 text-gray-300  font-extrabold" />
+              Выйти
+            </button>
+          ) : (
+            <button
+              onClick={() => setLoginModalActive(!loginModal)}
+              className={`flex h-[100px] px-5  items-center   hover:text-primary-500 duration-300`}
+            >
+              <FaSignInAlt className="text-2xl mr-2 text-gray-300  font-extrabold" />
+              {t("loginButton")}
+            </button>
+          )}
         </div>
 
         {/* ---------------------------- Mobile varint burger menu ---------------------------- */}
