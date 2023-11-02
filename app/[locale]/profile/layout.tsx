@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { ProfileTabs } from "../components/forProfile/ProfileTabs";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Animals.Al",
@@ -11,6 +13,10 @@ export default async function ProfileLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
+  if (!session || !session.user) {
+    redirect("/api/auth/signin");
+  }
   return (
     <>
       <ProfileTabs />

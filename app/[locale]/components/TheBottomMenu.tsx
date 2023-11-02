@@ -44,15 +44,18 @@ export function TheBottomMenu() {
           <FaChevronUp className={`text-[20px] mt-8  hover:text-primary-500`} />
         )}
       </div>
-
-      <div className="w-[60px] cursor-pointer flex flex-col justify-center items-center  hover:text-primary-500">
-        <BiMessageRoundedDots />
-        <p className="text-[10px] self-center text-center">{t("messages")}</p>
-      </div>
-      <div className="w-[60px] cursor-pointer flex flex-col justify-center items-center  hover:text-primary-500">
-        <VscAccount />
-        <p className="text-[10px] self-center text-center">{t("account")}</p>
-      </div>
+      <Link href="/profile/messages">
+        <div className="w-[60px] cursor-pointer flex flex-col justify-center items-center  hover:text-primary-500">
+          <BiMessageRoundedDots />
+          <p className="text-[10px] self-center text-center">{t("messages")}</p>
+        </div>
+      </Link>
+      <Link href="/profile">
+        <div className="w-[60px] cursor-pointer flex flex-col justify-center items-center  hover:text-primary-500">
+          <VscAccount />
+          <p className="text-[10px] self-center text-center">{t("account")}</p>
+        </div>
+      </Link>
     </div>
   );
 }

@@ -141,8 +141,14 @@ export function TheHeader() {
                   {t("clinics")}
                 </Link>
               </li>
-              {session?.data && (
-                <li>
+              <motion.li
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                }}
+                transition={{ duration: 2 }}
+              >
+                {session?.data && (
                   <Link
                     href="/profile"
                     className={`box-content h-[100px] px-3 flex items-center  hover:text-primary-500 duration-300 ${
@@ -153,8 +159,8 @@ export function TheHeader() {
                   >
                     Profile
                   </Link>
-                </li>
-              )}
+                )}
+              </motion.li>
             </ul>
           </nav>
 

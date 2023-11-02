@@ -2,6 +2,8 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { logInModalActive } from "../../../../../../store/logInModalActive";
 import { useTranslations } from "next-intl";
+import { signIn } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 
 export function LogIn() {
   const toggle = logInModalActive((state) => state.toggle);
@@ -9,9 +11,15 @@ export function LogIn() {
 
   const t = useTranslations("LogInForms");
 
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/profile";
+
   return (
     <>
-      <button className="focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[200px] ">
+      <button
+        onClick={() => signIn("google", { callbackUrl })}
+        className="focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-xl shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[200px] "
+      >
         <FcGoogle className="text-[80px]" />
         {t("googleButton")}
       </button>
