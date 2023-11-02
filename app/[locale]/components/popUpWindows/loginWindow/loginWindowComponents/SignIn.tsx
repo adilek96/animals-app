@@ -67,7 +67,7 @@ export function SignIn() {
         <div className="flex items-center justify-between ">
           <label
             htmlFor="password"
-            className="block text-sm font-medium leading-6 dark:text-white px-2 text-gray-700 dark:text-white"
+            className="block text-sm font-medium leading-6  px-2 text-gray-700 dark:text-white"
           >
             {t("password")}
           </label>

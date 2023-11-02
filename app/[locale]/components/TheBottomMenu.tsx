@@ -59,20 +59,3 @@ export function TheBottomMenu() {
     </div>
   );
 }
-//${!footerHide ? 'sm:fixed': 'relative'}
-
-// BiCategoryAlt
-// VscAccount
-// BiHome
-// BiMessageRoundedDots
-// border-r-[5px] border-l-[5px]
-
-/* <div className=' w-[30vw]  flex justify-around'>
-            <BiHome/>
-            <BiCategoryAlt/>
-        </div>
-        <div className='fixed bottom-[20px] left-[calc(50%-40px)] flex justify-center items-center  w-[80px] h-[80px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  '><FaPlus className="font-extrabold text-5xl  text-white text-center"/></div>
-        <div className=' w-[30vw]  flex justify-around'> 
-            <BiMessageRoundedDots/>
-            <VscAccount/>
-        </div> */

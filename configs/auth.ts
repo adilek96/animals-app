@@ -12,7 +12,7 @@ export const authConfig: AuthOptions = {
         })
     ],
     pages: {
-        signIn: "/"
+        signIn: "/signIn"
     
     
     }
