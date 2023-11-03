@@ -19,7 +19,7 @@ const Privacy = () => (
         conditions. The following definitions shall have the same meaning
         regardless of whether they appear in singular or in plural.
       </p>
-      {/* <h2>For the purposes of this Privacy Policy:</h2>
+      <h2>For the purposes of this Privacy Policy:</h2>
       <p>
         Account means a unique account created for You to access our Service or
         parts of our Service. Affiliate means an entity that controls, is
@@ -32,7 +32,7 @@ const Privacy = () => (
         website, containing the details of Your browsing history on that website
         among its many uses.
       </p>
-      <h3>Country refers to: Azerbaijan</h3>
+      {/* <h3>Country refers to: Azerbaijan</h3>
       <p>
         Device means any device that can access the Service such as a computer,
         a cellphone or a digital tablet. Personal Data is any information that
@@ -51,11 +51,11 @@ const Privacy = () => (
         or other legal entity on behalf of which such individual is accessing or
         using the Service, as applicable. Collecting and Using Your Personal
         Data
-      </p>
+      </p> */}
       <h2>Contact Us</h2>
       <p>
         If you have any questions about this Privacy Policy, You can contact us:
-      </p> */}
+      </p>
 
       <p>
         By visiting this page on our website:
