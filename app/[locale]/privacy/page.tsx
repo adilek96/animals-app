@@ -3,8 +3,8 @@ import React from "react";
 
 export default function Privacy() {
   return (
-    <section className=" bg-white dark:bg-gray-700 dark:shadow-gray-800 w-[95%] h-[300px] mx-auto my-[30px]  shadow-md  shadow-gray-400 rounded-2xl">
-      <div>
+    <section className=" bg-white dark:bg-gray-700 dark:shadow-gray-800 w-[95%]  mx-auto my-[30px]  shadow-md  shadow-gray-400 rounded-2xl">
+      <div className="w-[90%] mx-auto my-8">
         <h1>Privacy Policy</h1>
         <p>Last updated: November 02, 2023</p>
         <p>
@@ -548,7 +548,7 @@ export default function Privacy() {
         </p>
         <ul>
           <li>
-            By visiting this page on our website:{" "}
+            By visiting this page on our website:
             <Link
               href="https://animals-app-beige.vercel.app/privacy"
               rel="external nofollow noopener"
