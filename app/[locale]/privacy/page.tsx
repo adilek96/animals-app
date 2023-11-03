@@ -19,7 +19,7 @@ const Privacy = () => (
         conditions. The following definitions shall have the same meaning
         regardless of whether they appear in singular or in plural.
       </p>
-      <h2>For the purposes of this Privacy Policy:</h2>
+      {/* <h2>For the purposes of this Privacy Policy:</h2>
       <p>
         Account means a unique account created for You to access our Service or
         parts of our Service. Affiliate means an entity that controls, is
@@ -55,7 +55,7 @@ const Privacy = () => (
       <h2>Contact Us</h2>
       <p>
         If you have any questions about this Privacy Policy, You can contact us:
-      </p>
+      </p> */}
 
       <p>
         By visiting this page on our website:
