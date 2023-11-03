@@ -108,13 +108,9 @@ export default async function Privacy() {
           <li>
             <p>
               <strong>Website</strong> refers to Animals, accessible from
-              <a
-                href="https://animals-app-beige.vercel.app/"
-                rel="external nofollow noopener"
-                target="_blank"
-              >
+              <Link href="https://animals-app-beige.vercel.app/">
                 https://animals-app-beige.vercel.app/
-              </a>
+              </Link>
             </p>
           </li>
           <li>
@@ -229,10 +225,7 @@ export default async function Privacy() {
           remain on Your personal computer or mobile device when You go offline,
           while Session Cookies are deleted as soon as You close Your web
           browser. Learn more about cookies on the
-          <Link
-            href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking"
-            target="_blank"
-          >
+          <Link href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking">
             Free Privacy Policy website
           </Link>
           article.
@@ -549,11 +542,7 @@ export default async function Privacy() {
         <ul>
           <li>
             By visiting this page on our website:
-            <Link
-              href="https://animals-app-beige.vercel.app/privacy"
-              rel="external nofollow noopener"
-              target="_blank"
-            >
+            <Link href="https://animals-app-beige.vercel.app/privacy">
               https://animals-app-beige.vercel.app/privacy
             </Link>
           </li>
