@@ -23,13 +23,13 @@ const Privacy = () => (
       <p>
         Account means a unique account created for You to access our Service or
         parts of our Service. Affiliate means an entity that controls, is
-        controlled by or is under common control with a party, where "control"
-        means ownership of 50% or more of the shares, equity interest or other
-        securities entitled to vote for election of directors or other managing
-        authority. Company refers to Animals. Cookies are small files that are
-        placed on Your computer, mobile device or any other device by a website,
-        containing the details of Your browsing history on that website among
-        its many uses.
+        controlled by or is under common control with a party, where
+        &quot;"control"&quot; means ownership of 50% or more of the shares,
+        equity interest or other securities entitled to vote for election of
+        directors or other managing authority. Company refers to Animals.
+        Cookies are small files that are placed on Your computer, mobile device
+        or any other device by a website, containing the details of Your
+        browsing history on that website among its many uses.
       </p>
       {/* <h3>Country refers to: Azerbaijan</h3>
       <p>
