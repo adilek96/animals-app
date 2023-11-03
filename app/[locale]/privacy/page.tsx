@@ -2,8 +2,8 @@ import Link from "next/link";
 import React from "react";
 
 const Privacy = () => (
-  <section className="bg-white dark:bg-gray-700 dark:shadow-gray-800 md:w-[50%] sm:w-[95%] h-[300px] mx-auto my-[30px]  shadow-md  shadow-gray-400 rounded-2xl flex justify-center flex-col items-center">
-    <div className="w-[90%] mx-auto my-8">
+  <section className="bg-white dark:bg-gray-700 dark:shadow-gray-800 md:w-[95%] sm:w-[95%]  mx-auto my-[30px]  shadow-md  shadow-gray-400 rounded-2xl flex justify-center flex-col items-center">
+    <div className="w-[95%] mx-auto my-8">
       <h1>Privacy Policy</h1>
       <p>Last updated: November 02, 2023</p>
       <p>
@@ -26,11 +26,10 @@ const Privacy = () => (
         controlled by or is under common control with a party, where "control"
         means ownership of 50% or more of the shares, equity interest or other
         securities entitled to vote for election of directors or other managing
-        authority. Company (referred to as either "the Company", "We", "Us" or
-        "Our" in this Agreement) refers to Animals. Cookies are small files that
-        are placed on Your computer, mobile device or any other device by a
-        website, containing the details of Your browsing history on that website
-        among its many uses.
+        authority. Company refers to Animals. Cookies are small files that are
+        placed on Your computer, mobile device or any other device by a website,
+        containing the details of Your browsing history on that website among
+        its many uses.
       </p>
       {/* <h3>Country refers to: Azerbaijan</h3>
       <p>
