@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { FaChevronDown, FaCheck } from "react-icons/fa";
@@ -7,37 +8,83 @@ import { motion } from "framer-motion";
 import Lottie from "react-lottie-player";
 import animations from "../../../../../../public/animations/dogAnimate.json";
 import { useTranslations } from "next-intl";
+import { newPostState } from "@/store/newPostState";
 
 interface Category {
   name: string;
-  type?: string;
+  type: string | undefined;
+  saveType: string;
 }
 
 export function StepOne() {
   const c = useTranslations("Categories");
   const categories: Category[] = [
-    { name: c("cats"), type: "cats" },
-    { name: c("dogs"), type: "dogs" },
-    { name: c("birds") },
-    { name: c("fishs") },
-    { name: c("rodents") },
-    { name: c("food") },
-    { name: c("acsesories") },
-    { name: c("farmAnimals") },
+    { name: c("cats"), type: "cats", saveType: "cats" },
+    { name: c("dogs"), type: "dogs", saveType: "dogs" },
+    { name: c("birds"), type: undefined, saveType: "birds" },
+    { name: c("fishs"), type: undefined, saveType: "fishs" },
+    { name: c("rodents"), type: undefined, saveType: "rodents" },
+    { name: c("food"), type: undefined, saveType: "food" },
+    { name: c("acsesories"), type: undefined, saveType: "acsesories" },
+    { name: c("farmAnimals"), type: undefined, saveType: "farmAnimals" },
   ];
-  const [selected, setSelected] = useState(categories[0]);
+
+  // стэйт категорий
+  const category = newPostState((state) => state.category);
+  const setCategory = newPostState((state) => state.setCategory);
+  //стэйт прививок
+  const [vacSelected, setVacSelected] = useState<boolean>(false);
+  const vaccinations = newPostState((state) => state.vaccinations);
+  const setVaccinations = newPostState((state) => state.setVaccinations);
+  //стэйт паспорта
+  const [pasSelected, setPasSelected] = useState<boolean>(false);
+  const passport = newPostState((state) => state.passport);
+  const setPassport = newPostState((state) => state.setPassport);
+  //стэйт родословной
+  const [pedSelected, setPedSelected] = useState<boolean>(false);
+  const pedigree = newPostState((state) => state.pedigree);
+  const setPedigree = newPostState((state) => state.setPedigree);
 
   const t = useTranslations("PostAdding");
+
+  useEffect(() => {
+    if (category.name === "") setCategory(categories[0]);
+  }, []);
+
+  const vacHandler = (e: any) => {
+    if (e.target.id === "vac") {
+      if (vaccinations === false) {
+        setVaccinations(true);
+      } else {
+        setVaccinations(false);
+      }
+      setVacSelected(!vacSelected);
+    } else if (e.target.id === "passport") {
+      if (passport === false) {
+        setPassport(true);
+      } else {
+        setPassport(false);
+      }
+      setPasSelected(!pasSelected);
+    } else if (e.target.id === "pedigree") {
+      if (pedigree === false) {
+        setPedigree(true);
+      } else {
+        setPedigree(false);
+      }
+      setPedSelected(!pedSelected);
+    }
+  };
 
   return (
     <div className="  w-72  h-[130px] ">
       <label className="block mb-2 text-sm font-bold text-green-600 dark:text-green-300">
         {t("selectCategory")}
       </label>
-      <Listbox value={selected} onChange={setSelected}>
+      <Listbox value={category} onChange={setCategory}>
         <div className="relative mt-1">
           <Listbox.Button className="relative w-full cursor-default rounded-lg  py-2 pl-3 pr-10 text-left shadow-m sm:text-sm border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500">
-            <span className="block truncate">{selected.name}</span>
+            <span className="block truncate">{category.name}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <FaChevronDown
                 className="h-5 w-5 text-gray-400"
@@ -87,19 +134,20 @@ export function StepOne() {
 
       <div
         className={`${
-          selected.type === "cats" || selected.type === "dogs" ? "" : "hidden"
+          category.type === "cats" || category.type === "dogs" ? "" : "hidden"
         }`}
       >
         <div>
           <label
-            htmlFor="priv"
+            htmlFor="vac"
             className="flex justify-between items-center mt-4 mb-2 text-sm font-bold text-green-600 dark:text-green-300"
           >
             {t("vaccinations")}
             <input
-              id="priv"
+              id="vac"
               type="checkbox"
-              // onChange={() => handsHandler()}
+              checked={vacSelected}
+              onChange={vacHandler}
               className=" w-[20px] h-[20px] shadow-m  border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
             ></input>
           </label>
@@ -113,7 +161,8 @@ export function StepOne() {
             <input
               id="passport"
               type="checkbox"
-              // onChange={() => handsHandler()}
+              checked={pasSelected}
+              onChange={vacHandler}
               className=" w-[20px] h-[20px] shadow-m  border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
             ></input>
           </label>
@@ -125,9 +174,10 @@ export function StepOne() {
           >
             {t("pedigree")}
             <input
-              id="rod"
+              id="pedigree"
               type="checkbox"
-              // onChange={() => handsHandler()}
+              checked={pedSelected}
+              onChange={vacHandler}
               className=" w-[20px] h-[20px] shadow-m  border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
             ></input>
           </label>
@@ -147,7 +197,6 @@ export function StepOneAnimate() {
       initial={{ opacity: 0 }}
       animate={{
         opacity: check === "stepOne" ? 1 : 0,
-        // x: check === "stepOne" ? 0 : -1000,
       }}
       transition={{ duration: 0.5 }}
       className={`w-[90%] h-[50px] flex justify-center items-center my-6 `}

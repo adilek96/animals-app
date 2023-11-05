@@ -1,5 +1,5 @@
 import React from "react";
-import { Fragment, useState, ChangeEvent } from "react";
+import { Fragment, useState, ChangeEvent, useEffect } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { FaChevronDown, FaCheck } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -8,6 +8,7 @@ import Lottie from "react-lottie-player";
 import animations from "../../../../../../public/animations/starAnimate.json";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { newPostState } from "@/store/newPostState";
 
 interface Cities {
   name: string;
@@ -81,11 +82,27 @@ export function StepFour() {
   ];
 
   const t = useTranslations("PostAdding");
+
+  // стэйт выбора города
   const [selected, setSelected] = useState(cities[0]);
-  const [isGoodHand, setGoodHands] = useState<boolean>(false);
+  const city = newPostState((state) => state.city);
+  const setCity = newPostState((state) => state.setCity);
+  // стэйт в добрые руки
+  const isGoodHand = newPostState((state) => state.isGoodHands);
+  const setGoodHands = newPostState((state) => state.setGoodHands);
+  // стэйт прайса
+  const price = newPostState((state) => state.price);
+  const setPrice = newPostState((state) => state.setPrice);
   const [inputValue, setInputValue] = useState<string>("");
 
   const text = t("infoDesc");
+
+  useEffect(() => {
+    if (city === "") setCity(cities[0].type);
+  }, []);
+  useEffect(() => {
+    setCity(selected.type);
+  }, [selected]);
 
   const handsHandler = () => {
     setGoodHands(!isGoodHand);
@@ -95,7 +112,7 @@ export function StepFour() {
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setInputValue(e.target.value);
+    setPrice(+e.target.value);
   };
 
   return (
@@ -172,11 +189,13 @@ export function StepFour() {
           <input
             id="hands"
             type="checkbox"
+            checked={isGoodHand}
             onChange={() => handsHandler()}
             className=" w-[20px] h-[20px] shadow-m  border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
           ></input>
         </label>
       </div>
+
       <motion.p
         initial={{ opacity: 0, height: 0 }}
         animate={{
@@ -201,7 +220,7 @@ export function StepFour() {
             min="0"
             id="price"
             disabled={isGoodHand}
-            value={inputValue}
+            value={price === 0 ? "" : price}
             onChange={handleInputChange}
             className="w-[80px] rounded-lg  py-2 pl-3 pr-2 text-left shadow-m sm:text-sm border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
           />

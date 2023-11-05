@@ -43,18 +43,18 @@ export function BurgerMenu() {
     setPostsSubActive(false);
   };
   // ----------------------------------
-  const showArticleSubMenu = () => {
-    setArticleSubActive(true);
-  };
-  const hideArticleSubMenu = () => {
-    setArticleSubActive(false);
-  };
-  const onMouseInArticleSub = () => {
-    setArticleSubActive(true);
-  };
-  const onMouseOutArticleSub = () => {
-    setArticleSubActive(false);
-  };
+  // const showArticleSubMenu = () => {
+  //   setArticleSubActive(true);
+  // };
+  // const hideArticleSubMenu = () => {
+  //   setArticleSubActive(false);
+  // };
+  // const onMouseInArticleSub = () => {
+  //   setArticleSubActive(true);
+  // };
+  // const onMouseOutArticleSub = () => {
+  //   setArticleSubActive(false);
+  // };
   return (
     <motion.div
       initial={{ opacity: 0, x: -3000 }}

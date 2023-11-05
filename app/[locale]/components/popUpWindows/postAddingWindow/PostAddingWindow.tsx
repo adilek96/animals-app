@@ -9,6 +9,8 @@ import { StepTwo, StepTwoAnimate } from "./postAddingComponents/StepTwo";
 import { StepThree, StepThreeAnimate } from "./postAddingComponents/StepThree";
 import { StepFour, StepFourAnimate } from "./postAddingComponents/StepFour";
 import { StepFive, StepFiveAnimate } from "./postAddingComponents/StepFive";
+import { AdsRegister } from "./postAddingComponents/AdsRegister";
+import { newPostState } from "@/store/newPostState";
 
 export function PostAddingWindow() {
   const t = useTranslations("PostAdding");
@@ -18,6 +20,40 @@ export function PostAddingWindow() {
 
   const check = postAddingState((state) => state.check);
   const setCheck = postAddingState((state) => state.setCheck);
+
+  // стэйт категорий
+  const category = newPostState((state) => state.category);
+  const setCategory = newPostState((state) => state.setCategory);
+  //стэйт прививок
+  const vaccinations = newPostState((state) => state.vaccinations);
+  const setVaccinations = newPostState((state) => state.setVaccinations);
+  //стэйт паспорта
+  const passport = newPostState((state) => state.passport);
+  const setPassport = newPostState((state) => state.setPassport);
+  //стэйт родословной
+  const pedigree = newPostState((state) => state.pedigree);
+  const setPedigree = newPostState((state) => state.setPedigree);
+  //стэйт названия
+  const title = newPostState((state) => state.title);
+  const setTitle = newPostState((state) => state.setTitle);
+  //стэйт описания
+  const description = newPostState((state) => state.description);
+  const setDescription = newPostState((state) => state.setDescription);
+  // стэйт выбора города
+  const city = newPostState((state) => state.city);
+  const setCity = newPostState((state) => state.setCity);
+  // стэйт в добрые руки
+  const isGoodHand = newPostState((state) => state.isGoodHands);
+  const setGoodHands = newPostState((state) => state.setGoodHands);
+  // стэйт прайса
+  const price = newPostState((state) => state.price);
+  const setPrice = newPostState((state) => state.setPrice);
+  //стэйт завершения
+  const isFinish = newPostState((state) => state.isFinish);
+  const setIsFinish = newPostState((state) => state.setIsFinish);
+  //cтэйт ошибки инпута
+  const isError = newPostState((state) => state.isError);
+  const setIsError = newPostState((state) => state.setIsError);
 
   const stepHandler = () => {
     if (check === "stepOne") {
@@ -30,6 +66,8 @@ export function PostAddingWindow() {
       return <StepFour />;
     } else if (check === "stepFive") {
       return <StepFive />;
+    } else if (check === "adsRegister") {
+      return <AdsRegister />;
     }
   };
 
@@ -51,11 +89,23 @@ export function PostAddingWindow() {
     if (check === "stepOne") {
       return setCheck("stepTwo");
     } else if (check === "stepTwo") {
-      return setCheck("stepThree");
+      if (title.length < 2) {
+        setIsError(true);
+      } else {
+        setIsError(false);
+        return setCheck("stepThree");
+      }
     } else if (check === "stepThree") {
-      return setCheck("stepFour");
+      if (description.length < 5) {
+        setIsError(true);
+      } else {
+        setIsError(false);
+        return setCheck("stepFour");
+      }
     } else if (check === "stepFour") {
       return setCheck("stepFive");
+    } else if (check === "stepFive") {
+      return setCheck("adsRegister");
     }
   };
 
@@ -76,6 +126,41 @@ export function PostAddingWindow() {
   const closingHandler = () => {
     setIsOpen(!isOpen);
     setCheck("stepOne");
+    setTitle("");
+    setVaccinations(false);
+    setPassport(false);
+    setPedigree(false);
+    setCity("");
+    setGoodHands(false);
+    setPrice(0);
+  };
+
+  const finishHandler = () => {
+    try {
+      fetch("/api/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          t: title,
+          d: description,
+          u: 1,
+          c: category.saveType,
+          v: vaccinations,
+          pa: passport,
+          pe: pedigree,
+          ci: city,
+          i: isGoodHand,
+          pr: price,
+        }),
+      });
+      setIsFinish(true);
+    } catch (error) {
+      setIsFinish(false);
+    }
+
+    nextHandler();
   };
 
   return (
@@ -108,21 +193,46 @@ export function PostAddingWindow() {
 
         <div className="h-fit">{stepHandler()}</div>
 
-        <div className="absolute bottom-7 w-[300px] flex flex-row-reverse justify-between">
-          <button
-            type="button"
-            onClick={() => nextHandler()}
-            className="focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-md shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[150px] "
-          >
-            {t("nextStep")}
-          </button>
-          <button
-            type="button"
-            onClick={() => backHandler()}
-            className="focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-primary-400 rounded-full hover:contrast-125 duration-700  shadow-md shadow-primary-800    flex items-center justify-center text-center text-white  h-[40px] w-[100px] "
-          >
-            {t("back")}
-          </button>
+        <div className="absolute bottom-7 w-[300px] flex justify-center">
+          {check !== "adsRegister" ? (
+            <div className=" bottom-7 w-[300px] flex flex-row-reverse justify-between">
+              {check !== "stepFive" ? (
+                <button
+                  type="button"
+                  onClick={() => nextHandler()}
+                  className="focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-md shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[150px] "
+                >
+                  {t("nextStep")}
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={finishHandler}
+                  className="focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700  shadow-md shadow-green-800    flex items-center justify-center text-center text-white  h-[40px] w-[150px] "
+                >
+                  {"Добавить"}
+                </button>
+              )}
+
+              <button
+                type="button"
+                onClick={() => backHandler()}
+                className={`focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-primary-400 rounded-full hover:contrast-125 duration-700  shadow-md shadow-primary-800 
+               flex items-center justify-center text-center text-white  h-[40px] w-[100px] `}
+              >
+                {t("back")}
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={closingHandler}
+              className={`focus:outline-none active:outline-none  bg-gradient-to-r from-primary-500 to-primary-400 rounded-full hover:contrast-125 duration-700  shadow-md shadow-primary-800 
+               flex items-center justify-center text-center text-white  h-[40px] w-[100px] `}
+            >
+              {"Завершить"}
+            </button>
+          )}
         </div>
       </div>
     </motion.div>

@@ -15,6 +15,7 @@ import { logInModalActive } from "../../../store/logInModalActive";
 import { postAddingState } from "../../../store/postAddingState";
 import { useTranslations } from "next-intl";
 import { useSession, signOut } from "next-auth/react";
+import { error } from "console";
 
 export function TheHeader() {
   const t = useTranslations("TheHeader");

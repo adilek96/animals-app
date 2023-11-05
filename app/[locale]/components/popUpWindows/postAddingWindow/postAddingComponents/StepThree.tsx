@@ -5,8 +5,16 @@ import { postAddingState } from "../../../../../../store/postAddingState";
 import { motion } from "framer-motion";
 import Lottie from "react-lottie-player";
 import animations from "../../../../../../public/animations/catAnimate.json";
+import { newPostState } from "@/store/newPostState";
 
 export function StepThree() {
+  const description = newPostState((state) => state.description);
+  const setDescription = newPostState((state) => state.setDescription);
+
+  //cтэйт ошибки инпута
+  const isError = newPostState((state) => state.isError);
+  const setIsError = newPostState((state) => state.setIsError);
+
   const t = useTranslations("PostAdding");
 
   return (
@@ -15,9 +23,17 @@ export function StepThree() {
         {t("description")}
       </label>
       <textarea
+        value={description}
+        minLength={5}
+        onChange={(e) => setDescription(e.target.value)}
         className="w-full h-[100px] rounded-lg  py-2 pl-3 pr-10 text-left shadow-m sm:text-sm border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
         placeholder={t("descPlaceholder")}
       />
+      {isError && (
+        <p className="animate-bounce cursor-default w-[100%] mt-3 bg-gray-200 dark:bg-gray-400 shadow-inner font-bold  p-2 rounded-lg text-red-800 md:text-[12px] sm:text-[10px] ">
+          {"Обьявление не может быть без описания!"}
+        </p>
+      )}
     </div>
   );
 }
