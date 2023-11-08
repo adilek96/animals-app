@@ -12,6 +12,9 @@ interface NewPostState {
   price: number,
   isFinish: boolean,
   isError: boolean,
+  downLoadUrl: string[],
+  selectedFiles: File[],
+  isUpload: boolean,
   setCategory: (selectCategory: { name: string; type: string | undefined, saveType: string }) => void,
   setVaccinations: (isTrue: boolean) => void,
   setPassport: (isTrue: boolean) => void,
@@ -22,7 +25,10 @@ interface NewPostState {
   setGoodHands: (isTrue: boolean) => void,
   setPrice: (adsPrice: number) => void,
   setIsFinish: (isFinished: boolean) => void,
-  setIsError: (error: boolean) => void
+  setIsError: (error: boolean) => void,
+  setDownLoadUrl: (urls: string ) => void,
+  setSelectedFiles: (selectFile: any ) => void
+  setIsUpload: (isUp: boolean) => void
   
   
 }
@@ -49,5 +55,11 @@ export const newPostState = create<NewPostState>()((set) => ({
     isFinish: false,
     setIsFinish: (isFinished) => set({isFinish: isFinished}),
     isError: false,
-    setIsError: (error) => set({isError: error})
+    setIsError: (error) => set({isError: error}),
+    downLoadUrl: [],
+    setDownLoadUrl: (urls) => set((state) => ({downLoadUrl: [...state.downLoadUrl, urls] })),
+    selectedFiles: [],
+    setSelectedFiles: (selectFile) => set({selectedFiles: selectFile}),
+    isUpload: false,
+    setIsUpload: (isUp) => set(() => ({isUpload: isUp}))
 }))

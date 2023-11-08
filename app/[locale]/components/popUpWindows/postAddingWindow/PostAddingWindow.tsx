@@ -54,6 +54,13 @@ export function PostAddingWindow() {
   //cтэйт ошибки инпута
   const isError = newPostState((state) => state.isError);
   const setIsError = newPostState((state) => state.setIsError);
+  //
+  const isUpload = newPostState((state) => state.isUpload);
+  const setIsUpload = newPostState((state) => state.setIsUpload);
+  const downLoadUrl = newPostState((state) => state.downLoadUrl);
+  const setDownLoadUrl = newPostState((state) => state.setDownLoadUrl);
+  const selectedFiles = newPostState((state) => state.selectedFiles);
+  const setSelectedFiles = newPostState((state) => state.setSelectedFiles);
 
   const stepHandler = () => {
     if (check === "stepOne") {
@@ -135,8 +142,36 @@ export function PostAddingWindow() {
     setPrice(0);
   };
 
+  // const finishHandler = () => {
+  //   if (isUpload && downLoadUrl.length === selectedFiles.length) {
+  //     try {
+  //       fetch("/api/posts", {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           t: title,
+  //           d: description,
+  //           u: 1,
+  //           c: category.saveType,
+  //           v: vaccinations,
+  //           pa: passport,
+  //           pe: pedigree,
+  //           ci: city,
+  //           i: isGoodHand,
+  //           pr: price,
+  //         }),
+  //       });
+  //       setIsFinish(true);
+  //     } catch (error) {
+  //       setIsFinish(false);
+  //     }
+  //     nextHandler();
+  //   }
+  // };
   const finishHandler = () => {
-    try {
+    if (isUpload && downLoadUrl.length === selectedFiles.length) {
       fetch("/api/posts", {
         method: "POST",
         headers: {
@@ -154,13 +189,49 @@ export function PostAddingWindow() {
           i: isGoodHand,
           pr: price,
         }),
-      });
-      setIsFinish(true);
-    } catch (error) {
-      setIsFinish(false);
-    }
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json(); // Парсим JSON
+        })
+        .then(async (data) => {
+          try {
+            if (
+              data &&
+              data.result &&
+              data.result.rows[0] &&
+              data.result.rows[0].ad_id
+            ) {
+              const response = await fetch("/api/images", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  ad_id: data.result.rows[0].ad_id,
+                  image_url: downLoadUrl,
+                }),
+              });
 
-    nextHandler();
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+
+              setIsFinish(true);
+            } else {
+              setIsFinish(false);
+              console.error("Некорректный ответ от сервера");
+            }
+          } catch (error) {
+            setIsFinish(false);
+            console.error("Ошибка при отправке изображений:", error);
+          }
+        });
+
+      nextHandler();
+    }
   };
 
   return (

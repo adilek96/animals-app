@@ -9,6 +9,7 @@ export async function GET(request: Request) {
   try {
     const result =
       await client.sql`SELECT * FROM posts`;
+      
     return NextResponse.json({ result: result.rows }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
@@ -20,7 +21,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request ) {
   const client = await db.connect()
   const body = await request.json()
-  console.log('Received request body:', body);
+ 
 
 
 
@@ -28,7 +29,8 @@ export async function POST(request: Request ) {
     try {
      
       const result =
-        await client.sql`INSERT INTO ads (title, description, user_id, category, vaccinations, passport, pedigree, city, in_good_hands, price) VALUES (${body.t}, ${body.d}, ${body.u}, ${body.c},${body.v}, ${body.pa},${body.pe},${body.ci}, ${body.i}, ${body.pr})` 
+        await client.sql`INSERT INTO ads (title, description, user_id, category, vaccinations, passport, pedigree, city, in_good_hands, price) VALUES (${body.t}, ${body.d}, ${body.u}, ${body.c},${body.v}, ${body.pa},${body.pe},${body.ci}, ${body.i}, ${body.pr}) RETURNING ad_id`
+        // const ad_id = result[0].ad_id;
         return NextResponse.json({ result }, { status: 200 });
     } catch (error) {
       return NextResponse.json({ error }, { status: 500 });

@@ -1,4 +1,5 @@
-import React, { useRef, useState, ChangeEvent } from "react";
+"use client";
+import React, { useRef, useState, ChangeEvent, useEffect } from "react";
 import { motion } from "framer-motion";
 import { postAddingState } from "../../../../../../store/postAddingState";
 import Lottie from "react-lottie-player";
@@ -7,10 +8,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { BiCloudUpload, BiX } from "react-icons/bi";
 import { useTranslations } from "next-intl";
+import { uploadBytesResumable, ref, getDownloadURL } from "firebase/storage";
+import { storage } from "@/firebaseConfig";
+import { newPostState } from "@/store/newPostState";
 
 export function StepFive() {
   const t = useTranslations("PostAdding");
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+
+  // const [loadStart, setLoadStart] = useState(false);
+  // const [isUpload, setIsUpload] = useState(false);
+  const isUpload = newPostState((state) => state.isUpload);
+  const setIsUpload = newPostState((state) => state.setIsUpload);
+  const downLoadUrl = newPostState((state) => state.downLoadUrl);
+  const setDownLoadUrl = newPostState((state) => state.setDownLoadUrl);
+  const selectedFiles = newPostState((state) => state.selectedFiles);
+  const setSelectedFiles = newPostState((state) => state.setSelectedFiles);
 
   const filePicker = useRef<HTMLInputElement>(null);
 
@@ -25,17 +37,13 @@ export function StepFive() {
     if (files && files.length > 0) {
       const updatedSelectedFiles = Array.from(files).slice(0, 5);
 
-      setSelectedFiles((prevSelectedFiles) => {
-        // Фильтруем уже существующие файлы из нового выбора
-        const newFiles = updatedSelectedFiles.filter((newFile) =>
-          prevSelectedFiles.every(
-            (existingFile) => existingFile.name !== newFile.name
-          )
-        );
+      const newFiles = updatedSelectedFiles.filter((newFile) =>
+        selectedFiles.every(
+          (existingFile) => existingFile.name !== newFile.name
+        )
+      );
 
-        // Объединяем новые файлы с существующими
-        return [...prevSelectedFiles, ...newFiles].slice(0, 5);
-      });
+      setSelectedFiles([...selectedFiles, ...newFiles].slice(0, 5));
     }
   };
 
@@ -44,9 +52,37 @@ export function StepFive() {
       return el.name !== event;
     });
     setSelectedFiles(newArray);
-    console.log(newArray);
   };
 
+  const uploadHandler = () => {
+    if (selectedFiles.length >= 1) {
+      setIsUpload(true);
+      selectedFiles.forEach((file) => {
+        const storageRef = ref(storage, `image/${file.name + Date.now()}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+        //Listen for state changes, errors, and completion of the upload.
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log("Upload is " + progress + "% done");
+          },
+          (error) => {
+            console.log("ошибка");
+          },
+          () => {
+            // Upload completed successfully, now we can get the download URL
+            getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+              setDownLoadUrl(url);
+            });
+          }
+        );
+      });
+    } else {
+      console.log("нет фото");
+    }
+  };
   return (
     <div className="  w-72  h-[130px] ">
       <label className="block mb-2 text-sm font-bold text-green-600 dark:text-green-300">
@@ -98,6 +134,7 @@ export function StepFive() {
           </div>
         </div>
       )}
+      <button onClick={uploadHandler}> upload!</button>
     </div>
   );
 }
