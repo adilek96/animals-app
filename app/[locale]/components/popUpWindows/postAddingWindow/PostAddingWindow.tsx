@@ -54,11 +54,16 @@ export function PostAddingWindow() {
   //cтэйт ошибки инпута
   const isError = newPostState((state) => state.isError);
   const setIsError = newPostState((state) => state.setIsError);
-  //
+  //стэйт окончания загрузки изображений
   const isUpload = newPostState((state) => state.isUpload);
   const setIsUpload = newPostState((state) => state.setIsUpload);
+  //стэйт ссылки на изображение
   const downLoadUrl = newPostState((state) => state.downLoadUrl);
   const setDownLoadUrl = newPostState((state) => state.setDownLoadUrl);
+  const setDownLoadUrlClear = newPostState(
+    (state) => state.setDownLoadUrlClear
+  );
+  //стэйт выбранных фотографий
   const selectedFiles = newPostState((state) => state.selectedFiles);
   const setSelectedFiles = newPostState((state) => state.setSelectedFiles);
 
@@ -112,7 +117,12 @@ export function PostAddingWindow() {
     } else if (check === "stepFour") {
       return setCheck("stepFive");
     } else if (check === "stepFive") {
-      return setCheck("adsRegister");
+      if (isUpload === false) {
+        setIsError(true);
+      } else {
+        setIsError(false);
+        return setCheck("adsRegister");
+      }
     }
   };
 
@@ -134,12 +144,16 @@ export function PostAddingWindow() {
     setIsOpen(!isOpen);
     setCheck("stepOne");
     setTitle("");
+    setDescription("");
     setVaccinations(false);
     setPassport(false);
     setPedigree(false);
     setCity("");
     setGoodHands(false);
     setPrice(0);
+    setSelectedFiles([]);
+    setDownLoadUrlClear();
+    setIsUpload(false);
   };
 
   // const finishHandler = () => {
@@ -231,6 +245,9 @@ export function PostAddingWindow() {
         });
 
       nextHandler();
+      setIsError(false);
+    } else {
+      setIsError(true);
     }
   };
 

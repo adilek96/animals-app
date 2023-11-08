@@ -29,6 +29,7 @@ interface NewPostState {
   setDownLoadUrl: (urls: string ) => void,
   setSelectedFiles: (selectFile: any ) => void
   setIsUpload: (isUp: boolean) => void
+  setDownLoadUrlClear: () => void
   
   
 }
@@ -58,6 +59,7 @@ export const newPostState = create<NewPostState>()((set) => ({
     setIsError: (error) => set({isError: error}),
     downLoadUrl: [],
     setDownLoadUrl: (urls) => set((state) => ({downLoadUrl: [...state.downLoadUrl, urls] })),
+    setDownLoadUrlClear: () => set({downLoadUrl: []}),
     selectedFiles: [],
     setSelectedFiles: (selectFile) => set({selectedFiles: selectFile}),
     isUpload: false,

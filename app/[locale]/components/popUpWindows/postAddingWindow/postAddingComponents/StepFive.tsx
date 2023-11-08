@@ -1,9 +1,10 @@
 "use client";
-import React, { useRef, useState, ChangeEvent, useEffect } from "react";
+import React, { useRef, ChangeEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { postAddingState } from "../../../../../../store/postAddingState";
 import Lottie from "react-lottie-player";
 import animations from "../../../../../../public/animations/step5Animate.json";
+import animationsLoad from "../../../../../../public/animations/loadAnimate.json";
 import Link from "next/link";
 import Image from "next/image";
 import { BiCloudUpload, BiX } from "react-icons/bi";
@@ -15,14 +16,22 @@ import { newPostState } from "@/store/newPostState";
 export function StepFive() {
   const t = useTranslations("PostAdding");
 
-  // const [loadStart, setLoadStart] = useState(false);
-  // const [isUpload, setIsUpload] = useState(false);
+  //стэйт окончания загрузки изображений
   const isUpload = newPostState((state) => state.isUpload);
   const setIsUpload = newPostState((state) => state.setIsUpload);
+  //стэйт ссылки на изображение
   const downLoadUrl = newPostState((state) => state.downLoadUrl);
   const setDownLoadUrl = newPostState((state) => state.setDownLoadUrl);
+  //стэйт выбранных фотографий
   const selectedFiles = newPostState((state) => state.selectedFiles);
   const setSelectedFiles = newPostState((state) => state.setSelectedFiles);
+  //cтэйт ошибки
+  const isError = newPostState((state) => state.isError);
+  const setIsError = newPostState((state) => state.setIsError);
+  //стей загрузки
+  const [isLoadCheck, setIsLoadCheck] = useState("stay");
+
+  const [progress, setProgress] = useState(0);
 
   const filePicker = useRef<HTMLInputElement>(null);
 
@@ -64,11 +73,15 @@ export function StepFive() {
         uploadTask.on(
           "state_changed",
           (snapshot) => {
-            const progress =
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            setProgress(
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+            setIsLoadCheck("load");
             console.log("Upload is " + progress + "% done");
           },
           (error) => {
+            setIsLoadCheck("error");
+
             console.log("ошибка");
           },
           () => {
@@ -76,6 +89,7 @@ export function StepFive() {
             getDownloadURL(uploadTask.snapshot.ref).then((url) => {
               setDownLoadUrl(url);
             });
+            setIsLoadCheck("stay");
           }
         );
       });
@@ -84,57 +98,99 @@ export function StepFive() {
     }
   };
   return (
-    <div className="  w-72  h-[130px] ">
-      <label className="block mb-2 text-sm font-bold text-green-600 dark:text-green-300">
-        {t("uploadFhoto")}
-      </label>
-      <div className="flex justify-center items-center flex-col">
-        <button
-          onClick={handlePick}
-          className="mt-4 cursor-pointer  focus:outline-none active:outline-none  bg-gradient-to-r from-gray-500 to-gray-400 rounded-full hover:contrast-125 duration-700  shadow-md shadow-gray-800    flex items-center justify-center text-center text-white   h-[40px] w-[180px]"
-        >
-          <BiCloudUpload className="text-2xl" />
-          {t("choseFoto")}
-        </button>
-        <input
-          className=" w-0 h-0 opacity-0 overflow-hidden "
-          type="file"
-          name="photo"
-          ref={filePicker}
-          onChange={handleFileSelect}
-          accept="image/*,.jpg,.jpeg,.png"
-          multiple
-        />
-      </div>
-      {selectedFiles.length > 0 && (
-        <div className="mt-2">
-          <h2>{t("selectedImg")}</h2>
-          <div className="mt-4  w-[300px] h-[70px] bg-gray-300 dark:bg-gray-400 rounded-xl shadow-md  snap-center  overflow-y-hidden overflow-x-auto  no-scrollbar snap-x snap-mandatory scroll-smooth flex items-center gap-4">
-            {selectedFiles.map((file, index) => (
-              <div
-                key={index}
-                className="w-[60px] h-[60px]  flex justify-center items-center  snap-center"
-              >
-                <div className=" relative h-[60px] w-[60px] flex justify-center items-center">
-                  <div
-                    onClick={() => deleteHandler(file.name)}
-                    className="absolute top-0 right-0 bg-primary-500 rounded-full  shadow-md text-red-800 text-xl font-bold"
-                  >
-                    <BiX />
-                  </div>
-                  <Image
-                    src={URL.createObjectURL(file)}
-                    alt={file.name}
-                    width={60}
-                    height={60}
-                  />
-                </div>
-              </div>
-            ))}
+    <div className="  w-72  h-[150px] ">
+      {isLoadCheck === "stay" && (
+        <>
+          <label className="block mb-2 text-sm font-bold text-green-600 dark:text-green-300">
+            {t("uploadFhoto")}
+          </label>
+          <div className="flex justify-center items-center flex-row">
+            <button
+              onClick={handlePick}
+              className="mt-4 cursor-pointer  focus:outline-none active:outline-none  bg-gradient-to-r from-gray-500 to-gray-400 rounded-l-full hover:contrast-125 duration-700  shadow-md shadow-gray-800    flex items-center justify-center text-center text-white   h-[40px] w-[170px]"
+            >
+              <BiCloudUpload className="text-2xl" />
+              {t("choseFoto")}
+            </button>
+
+            <input
+              className=" w-0 h-0 opacity-0 overflow-hidden "
+              type="file"
+              name="photo"
+              ref={filePicker}
+              onChange={handleFileSelect}
+              accept="image/*,.jpg,.jpeg,.png"
+              multiple
+            />
+
+            <button
+              className="mt-4 cursor-pointer  focus:outline-none active:outline-none  bg-gradient-to-r from-green-500 to-green-400 rounded-r-full hover:contrast-125 duration-700  shadow-md shadow-gray-800    flex items-center justify-center text-center text-white   h-[40px] w-[90px] "
+              onClick={uploadHandler}
+            >
+              upload!
+            </button>
           </div>
-        </div>
+          {selectedFiles.length > 0 && (
+            <div className="mt-2">
+              <h2>{t("selectedImg")}</h2>
+              <div className="mt-4  w-[300px] h-[70px] bg-gray-300 dark:bg-gray-400 rounded-xl shadow-md  snap-center  overflow-y-hidden overflow-x-auto  no-scrollbar snap-x snap-mandatory scroll-smooth flex items-center gap-4">
+                {selectedFiles.map((file, index) => (
+                  <div
+                    key={index}
+                    className="w-[60px] h-[60px]  flex justify-center items-center  snap-center"
+                  >
+                    <div className=" relative h-[60px] w-[60px] flex justify-center items-center">
+                      <div
+                        onClick={() => deleteHandler(file.name)}
+                        className="absolute top-0 right-0 bg-primary-500 rounded-full  shadow-md text-red-800 text-xl font-bold"
+                      >
+                        <BiX />
+                      </div>
+                      <Image
+                        src={URL.createObjectURL(file)}
+                        alt={file.name}
+                        width={60}
+                        height={60}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          <div className="w-full flex flex-col justify-center items-center">
+            {isError && (
+              <p className=" animate-bounce cursor-default w-[100%] mt-4 bg-gray-200 dark:bg-gray-400 shadow-inner font-bold  p-2 rounded-lg text-red-800 md:text-[12px] sm:text-[10px] ">
+                {"Необходимо загрузить выбранные изоброжения!"}
+              </p>
+            )}
+          </div>
+        </>
       )}
-      <button onClick={uploadHandler}> upload!</button>
+      {isLoadCheck === "load" && (
+        <>
+          <div className="flex flex-col justify-center items-center">
+            <h3>Загрузка</h3>
+
+            <Lottie
+              loop
+              animationData={animationsLoad}
+              play
+              style={{ width: 150, height: 150 }}
+            />
+          </div>
+        </>
+      )}
+      {isLoadCheck === "error" && (
+        <>
+          <div className="flex flex-col justify-center items-center">
+            <h3>Ошибка</h3>
+            <div className="w-full h-4 mb-4 bg-gray-200 rounded-full dark:bg-gray-700">
+              <p>Повторите попытку позже!</p>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

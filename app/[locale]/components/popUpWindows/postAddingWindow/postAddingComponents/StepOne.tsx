@@ -169,7 +169,7 @@ export function StepOne() {
         </div>
         <div>
           <label
-            htmlFor="rod"
+            htmlFor="pedigree"
             className="flex justify-between items-center mt-4 mb-2 text-sm font-bold text-green-600 dark:text-green-300"
           >
             {t("pedigree")}
