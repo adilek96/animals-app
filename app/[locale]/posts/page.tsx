@@ -43,7 +43,7 @@ export default function Posts() {
   }, []);
 
   return (
-    <div className="flex justify-around gap-3 flex-wrap h-fit py-5">
+    <div className="flex justify-around md:gap-3 flex-wrap h-fit py-5">
       {posts.length > 0 &&
         posts.map((post, index) => (
           <motion.div
@@ -53,7 +53,7 @@ export default function Posts() {
             }}
             transition={{ duration: 0.5 }}
             key={index}
-            className="md:w-[200px] sm:w-[140px] md:h-[420px] sm:h-[365px] bg-white flex flex-col items-center mb-5 rounded-lg shadow-md  shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-800 hover:scale-103 transition-all duration-600"
+            className="md:w-[200px] sm:w-[170px] md:h-[420px] sm:h-[365px] bg-white flex flex-col items-center mb-5 rounded-lg shadow-md  shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-800 hover:scale-103 transition-all duration-600"
           >
             <div
               className={`relative bg-primary-500 w-full md:h-[180px] sm:h-[130px] flex justify-center items-center rounded-t-lg shadow-md  shadow-gray-400  dark:shadow-gray-800`}
