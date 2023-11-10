@@ -29,6 +29,9 @@ const config: Config = {
       },
       boxShadow:{
         'md-revers': '0 -3px 6px -1px rgb(0 0 0 / 0.1)'
+      },
+      scale: {
+        '103': '1.03',
       }
 
    
