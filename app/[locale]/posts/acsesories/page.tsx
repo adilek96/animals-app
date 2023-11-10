@@ -5,7 +5,7 @@ import { Card } from "../../components/Card";
 import { ShowMoreButton } from "../../components/buttons/ShowMoreButton";
 import Loading from "../loading";
 
-export default function Cattle() {
+export default function Acsesories() {
   interface Post {
     title: string;
     category: string;
@@ -28,7 +28,7 @@ export default function Cattle() {
       setIsLoading(true);
 
       try {
-        const response = await axios.get(`/api/posts/cattle?p=${page}`);
+        const response = await axios.get(`/api/posts/acsesories?p=${page}`);
         setPosts(response.data.result);
       } catch (error) {
         console.error("Error fetching data:", error);

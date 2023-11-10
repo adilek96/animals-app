@@ -9,7 +9,7 @@ export function TheCategories() {
 
   return (
     <section className=" shadow-md  overscroll-none  overflow-y-hidden overflow-x-auto  no-scrollbar snap-x snap-mandatory scroll-smooth w-full  h-[120px] rounded-2xl bg-gray-300 dark:bg-gray-400   text-black dark:text-white flex sm:gap-7 lg:gap-0 lg:justify-around items-center ">
-      <Link href="/">
+      <Link href="/posts">
         <div className=" snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-gray-700 to-green-300  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -24,7 +24,7 @@ export function TheCategories() {
         </div>
       </Link>
 
-      <Link href="/">
+      <Link href="/posts/cats">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -39,7 +39,7 @@ export function TheCategories() {
         </div>
       </Link>
 
-      <Link href="/">
+      <Link href="/posts/dogs">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -54,7 +54,7 @@ export function TheCategories() {
         </div>
       </Link>
 
-      <Link href="/">
+      <Link href="/posts/fishs">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]   text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -69,7 +69,7 @@ export function TheCategories() {
         </div>
       </Link>
 
-      <Link href="/">
+      <Link href="/posts/birds">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]   text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -84,7 +84,7 @@ export function TheCategories() {
         </div>
       </Link>
 
-      <Link href="/">
+      <Link href="/posts/rodents">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -99,7 +99,7 @@ export function TheCategories() {
         </div>
       </Link>
 
-      <Link href="/">
+      <Link href="/posts/inGoodHands">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -116,7 +116,7 @@ export function TheCategories() {
         </div>
       </Link>
 
-      <Link href="/">
+      <Link href="/posts/acsesories">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -133,7 +133,7 @@ export function TheCategories() {
         </div>
       </Link>
 
-      <Link href="/">
+      <Link href="/posts/food">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -148,7 +148,7 @@ export function TheCategories() {
         </div>
       </Link>
 
-      <Link href="/">
+      <Link href="/posts/cattle">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px] text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
