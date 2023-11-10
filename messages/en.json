@@ -154,6 +154,10 @@
       },
       "Search": {
         "search": "Search..."
+      },
+      "Ads": {
+        "true": "Yes",
+        "false": "No"
       }
     
   

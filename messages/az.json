@@ -154,6 +154,10 @@
     },
     "Search": {
       "search": "Axtarış..."
+    },
+    "Ads": {
+      "true": "Yes",
+      "false": "No"
     }
 
 

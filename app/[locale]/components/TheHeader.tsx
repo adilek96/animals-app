@@ -78,9 +78,9 @@ export function TheHeader() {
               <li>
                 <Link
                   href="/"
-                  className={` box-content h-[100px] px-3 flex items-center hover:text-primary-500 duration-300 ${
+                  className={` box-border h-[100px] px-3 flex items-center hover:text-primary-500 duration-300 ${
                     pathname === "/"
-                      ? " text-primary-500 border-t-[5px] border-t-primary-500 border-solid"
+                      ? " text-primary-500 border-t-[2px] border-t-primary-500 border-solid"
                       : ""
                   }`}
                 >
@@ -92,9 +92,9 @@ export function TheHeader() {
                   href="/posts"
                   onMouseEnter={showPostsSubMenu}
                   onMouseLeave={hidePostsSubMenu}
-                  className={` box-content relative h-[100px]  px-3 flex items-center  hover:text-primary-500 duration-500 ${
+                  className={` box-border relative h-[100px]  px-3 flex items-center  hover:text-primary-500 duration-500 ${
                     pathname === "/posts"
-                      ? " text-primary-500 border-t-[5px] border-t-primary-500 border-solid"
+                      ? " text-primary-500 border-t-[2px] border-t-primary-500 border-solid"
                       : ""
                   }`}
                 >
@@ -133,9 +133,9 @@ export function TheHeader() {
               <li>
                 <Link
                   href="/clinic"
-                  className={`box-content h-[100px] px-3 flex items-center  hover:text-primary-500 duration-300 ${
+                  className={`box-border h-[100px] px-3 flex items-center  hover:text-primary-500 duration-300 ${
                     pathname === "/clinic"
-                      ? " text-primary-500 border-t-[5px] border-t-primary-500 border-solid"
+                      ? " text-primary-500 border-t-[2px] border-t-primary-500 border-solid"
                       : ""
                   }`}
                 >
@@ -152,9 +152,9 @@ export function TheHeader() {
                 {session?.data && (
                   <Link
                     href="/profile"
-                    className={`box-content h-[100px] px-3 flex items-center  hover:text-primary-500 duration-300 ${
+                    className={`box-border h-[100px] px-3 flex items-center  hover:text-primary-500 duration-300 ${
                       pathname === "/profile"
-                        ? " text-primary-500 border-t-[5px] border-t-primary-500 border-solid"
+                        ? " text-primary-500 border-t-[2px] border-t-primary-500 border-solid"
                         : ""
                     }`}
                   >
@@ -229,8 +229,8 @@ export function TheHeader() {
           className=" focus:outline-none active:outline-none shadow-md shadow-green-800  md:w-[250px] sm:w-[40px] sm:hidden  md:flex items-center justify-center text-center text-white  h-[40px] bg-gradient-to-r from-green-500 to-green-400 rounded-full hover:contrast-125 duration-700 "
         >
           <span className="font-extrabold text-3xl  md:mr-3 text-center">
-            <FaPlus />{" "}
-          </span>{" "}
+            <FaPlus />
+          </span>
           <span className="sm:hidden md:block">{t("addButton")}</span>
         </button>
       </div>
