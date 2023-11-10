@@ -53,13 +53,13 @@ export default function Posts() {
             }}
             transition={{ duration: 0.5 }}
             key={index}
-            className="w-[200px] h-[420px] bg-white flex flex-col items-center mb-5 rounded-lg shadow-md  shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-800 hover:scale-103 transition-all duration-600"
+            className="md:w-[200px] sm:w-[140px] md:h-[420px] sm:h-[365px] bg-white flex flex-col items-center mb-5 rounded-lg shadow-md  shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-800 hover:scale-103 transition-all duration-600"
           >
             <div
-              className={`relative bg-primary-500 w-full h-[180px] flex justify-center items-center rounded-t-lg shadow-md  shadow-gray-400  dark:shadow-gray-800`}
+              className={`relative bg-primary-500 w-full md:h-[180px] sm:h-[130px] flex justify-center items-center rounded-t-lg shadow-md  shadow-gray-400  dark:shadow-gray-800`}
             >
               <Image
-                className="w-full h-[180px] rounded-t-lg"
+                className="w-full md:h-[180px] sm:h-[130px] rounded-t-lg"
                 src={post.image_url === null ? animalsLogo : post.image_url}
                 width={130}
                 height={80}
@@ -71,21 +71,23 @@ export default function Posts() {
               </button>
             </div>
 
-            <div className="mt-2 ml-6 w-full grid justify-items-start ">
+            <div className="mt-2 md:ml-6 sm:ml-2 w-full grid justify-items-start ">
               <Link href="#">
-                <h2 className="mt-2 text-2xl h-[20px]">{post.title}</h2>
+                <h2 className="mt-2 md:text-2xl sm:text-lg h-[20px] whitespace-nowrap">
+                  {post.title}
+                </h2>
               </Link>
-              <p className="mt-4 text-[12px] text-gray-400">
+              <p className="md:mt-4 sm:mt-3 md:text-[12px] sm:text-[10px] text-gray-400">
                 Добавлено: {post.formatted_added_date}
               </p>
-              <p className=" text-[12px] text-gray-400">
+              <p className=" md:text-[12px] sm:text-[10px] text-gray-400">
                 <FaLocationDot className="inline" />
                 {post.city}
               </p>
             </div>
 
             {post.category === "cats" || post.category === "dogs" ? (
-              <div className="w-full h-[80px] text-[14px] mt-1 flex flex-col justify-center items-center">
+              <div className="w-full h-[80px] md:text-[14px] sm:text-[12px] mt-1 flex flex-col justify-center items-center">
                 <div className="w-[90%] h-[20px] flex justify-between">
                   <span>
                     <TbVaccine className="inline mr-1 text-gray-400" />
