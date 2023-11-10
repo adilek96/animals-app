@@ -66,7 +66,7 @@ export default function Posts() {
                 alt="animalsLogo"
               ></Image>
 
-              <button className=" absolute top-1 left-2 bg-gradient-to-r from-green-500 to-green-400 hover:contrast-125 duration-600 w-[80px] h-[25px]  text-[14px] rounded-lg flex justify-center items-center shadow-md  shadow-gray-400  dark:shadow-gray-800 text-white">
+              <button className=" absolute top-1 left-2 bg-gradient-to-r from-green-500 to-green-400 hover:contrast-125 duration-600 w-[80px] h-[25px]  text-[14px] rounded-lg flex justify-center items-center shadow-sm  shadow-gray-800  dark:shadow-gray-800 text-white">
                 <p className="text-center align-middle">{t(post.category)}</p>
               </button>
             </div>
