@@ -15,6 +15,8 @@ interface NewPostState {
   downLoadUrl: string[],
   selectedFiles: File[],
   isUpload: boolean,
+  delivery: boolean,
+  isNew: boolean,
   setCategory: (selectCategory: { name: string; type: string | undefined, saveType: string }) => void,
   setVaccinations: (isTrue: boolean) => void,
   setPassport: (isTrue: boolean) => void,
@@ -27,9 +29,11 @@ interface NewPostState {
   setIsFinish: (isFinished: boolean) => void,
   setIsError: (error: boolean) => void,
   setDownLoadUrl: (urls: string ) => void,
-  setSelectedFiles: (selectFile: any ) => void
-  setIsUpload: (isUp: boolean) => void
-  setDownLoadUrlClear: () => void
+  setSelectedFiles: (selectFile: any ) => void,
+  setIsUpload: (isUp: boolean) => void,
+  setDownLoadUrlClear: () => void,
+  setDelivery: (isDelivery: boolean) => void,
+  setIsNew: (isnew: boolean) => void
   
   
 }
@@ -40,9 +44,9 @@ export const newPostState = create<NewPostState>()((set) => ({
     vaccinations: false,
     setVaccinations: (isTrue) => set({ vaccinations: isTrue}),
     passport: false,
-    setPassport: (isTrue) => set({ vaccinations: isTrue}),
+    setPassport: (isTrue) => set({ passport: isTrue}),
     pedigree: false,
-    setPedigree: (isTrue) => set({ vaccinations: isTrue}),
+    setPedigree: (isTrue) => set({ pedigree: isTrue}),
     title: "",
     setTitle: (adsTitle) => set({title: adsTitle}),
     description: "",
@@ -63,5 +67,9 @@ export const newPostState = create<NewPostState>()((set) => ({
     selectedFiles: [],
     setSelectedFiles: (selectFile) => set({selectedFiles: selectFile}),
     isUpload: false,
-    setIsUpload: (isUp) => set(() => ({isUpload: isUp}))
+    setIsUpload: (isUp) => set(() => ({isUpload: isUp})),
+    delivery: false,
+    setDelivery: (isDelivery) => set(() => ({delivery: isDelivery})),
+    isNew: false,
+    setIsNew: (isnew) => set(() => ({isNew: isnew}))
 }))

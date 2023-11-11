@@ -1,13 +1,13 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import animalsLogo from "../../../public/logo/logo.png";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { FaManatSign, FaPassport, FaLocationDot } from "react-icons/fa6";
-import { TbVaccine } from "react-icons/tb";
-import { MdPets } from "react-icons/md";
+import { TbVaccine, TbTruckDelivery } from "react-icons/tb";
+import { MdPets, MdOutlineWavingHand } from "react-icons/md";
 import { FcCancel, FcCheckmark } from "react-icons/fc";
 
 interface Post {
@@ -22,10 +22,26 @@ interface Post {
   price: number;
   in_good_hands: string;
   city: string;
+  isdelevery: boolean;
+  isnew: boolean;
 }
 
 export function Card({ post }: { post: Post }): React.JSX.Element {
   const t = useTranslations("Categories");
+
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const textRef = useRef<HTMLParagraphElement | null>(null);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const textElement = textRef.current;
+
+    if (textElement && container) {
+      setShouldAnimate(textElement.scrollWidth > container.clientWidth);
+    }
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -33,7 +49,7 @@ export function Card({ post }: { post: Post }): React.JSX.Element {
         opacity: 1,
       }}
       transition={{ duration: 0.5 }}
-      className="md:w-[200px] sm:w-[170px] md:h-[420px] sm:h-[365px] bg-white flex flex-col items-center mb-5 rounded-lg shadow-md  shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-800 hover:scale-103 transition-all duration-600"
+      className="md:w-[200px] sm:w-[170px] md:h-[430px] sm:h-[365px] bg-white flex flex-col items-center mb-5 rounded-lg shadow-md  shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-800 hover:scale-103 transition-all duration-600"
     >
       <div
         className={`relative bg-primary-500 w-full md:h-[180px] sm:h-[130px] flex justify-center items-center rounded-t-lg shadow-md  shadow-gray-400  dark:shadow-gray-800`}
@@ -53,9 +69,19 @@ export function Card({ post }: { post: Post }): React.JSX.Element {
 
       <div className="mt-2 md:ml-6 sm:ml-2 w-full grid justify-items-start ">
         <Link href="#">
-          <h2 className="mt-2 md:text-2xl sm:text-lg h-[20px] whitespace-nowrap">
-            {post.title}
-          </h2>
+          <div
+            id="scrollContainer"
+            ref={containerRef}
+            className="mt-2 md:w-[180px] sm:w-[150px] no-scrollbar md:text-2xl sm:text-lg  whitespace-nowrap overflow-x-auto overflow-y-hidden"
+          >
+            <h2
+              id="scrollingText"
+              ref={textRef}
+              className={`${shouldAnimate && "animate-marquee"}`}
+            >
+              {post.title}
+            </h2>
+          </div>
         </Link>
         <p className="md:mt-4 sm:mt-3 md:text-[12px] sm:text-[10px] text-gray-400">
           Добавлено: {post.formatted_added_date}
@@ -117,9 +143,91 @@ export function Card({ post }: { post: Post }): React.JSX.Element {
               )}
             </span>
           </div>
+          <div className="w-[90%] h-[20px] flex justify-between">
+            <span>
+              <TbTruckDelivery className="inline mr-1 text-gray-400" />
+              Доставка:
+            </span>
+            <span>
+              {post.isdelevery ? (
+                <>
+                  {/* <span>{p("true")}</span> */}
+                  <FcCheckmark className="inline " />
+                </>
+              ) : (
+                <>
+                  {/* <span className="mr-1">{p("false")}</span> */}
+                  <FcCancel className="inline " />
+                </>
+              )}
+            </span>
+          </div>
         </div>
       ) : (
-        <div className="w-full h-[80px]  mt-1"></div>
+        <div className="w-full h-[80px] md:text-[14px] sm:text-[12px] mt-1 flex flex-col justify-center items-center">
+          {post.category === "acsesories" ? (
+            <>
+              <div className="w-[90%] h-[20px] flex justify-between">
+                <span>
+                  <TbTruckDelivery className="inline mr-1 text-gray-400" />
+                  Доставка:
+                </span>
+                <span>
+                  {post.isdelevery ? (
+                    <>
+                      {/* <span>{p("true")}</span> */}
+                      <FcCheckmark className="inline " />
+                    </>
+                  ) : (
+                    <>
+                      {/* <span className="mr-1">{p("false")}</span> */}
+                      <FcCancel className="inline " />
+                    </>
+                  )}
+                </span>
+              </div>
+              <div className="w-[90%] h-[20px] flex justify-between">
+                <span>
+                  <MdOutlineWavingHand className="inline mr-1 text-gray-400" />
+                  Новый:
+                </span>
+                <span>
+                  {post.isnew ? (
+                    <>
+                      {/* <span>{p("true")}</span> */}
+                      <FcCheckmark className="inline " />
+                    </>
+                  ) : (
+                    <>
+                      {/* <span className="mr-1">{p("false")}</span> */}
+                      <FcCancel className="inline " />
+                    </>
+                  )}
+                </span>
+              </div>
+            </>
+          ) : (
+            <div className="w-[90%] h-[20px] flex justify-between">
+              <span>
+                <TbTruckDelivery className="inline mr-1 text-gray-400" />
+                Доставка:
+              </span>
+              <span>
+                {post.isdelevery ? (
+                  <>
+                    {/* <span>{p("true")}</span> */}
+                    <FcCheckmark className="inline " />
+                  </>
+                ) : (
+                  <>
+                    {/* <span className="mr-1">{p("false")}</span> */}
+                    <FcCancel className="inline " />
+                  </>
+                )}
+              </span>
+            </div>
+          )}
+        </div>
       )}
       <div className="w-[80%] h-[1px] bg-gray-400 mt-3"></div>
       <div className="w-[90%] grid justify-items-end ">

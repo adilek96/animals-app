@@ -44,6 +44,10 @@ export function StepOne() {
   const [pedSelected, setPedSelected] = useState<boolean>(false);
   const pedigree = newPostState((state) => state.pedigree);
   const setPedigree = newPostState((state) => state.setPedigree);
+  //стэйт нового товара
+  const [newSelected, setNewSelected] = useState<boolean>(false);
+  const isNew = newPostState((state) => state.pedigree);
+  const setIsNew = newPostState((state) => state.setPedigree);
 
   const t = useTranslations("PostAdding");
 
@@ -51,30 +55,30 @@ export function StepOne() {
     if (category.name === "") setCategory(categories[0]);
   }, []);
 
-  const vacHandler = (e: any) => {
-    if (e.target.id === "vac") {
-      if (vaccinations === false) {
-        setVaccinations(true);
-      } else {
-        setVaccinations(false);
-      }
-      setVacSelected(!vacSelected);
-    } else if (e.target.id === "passport") {
-      if (passport === false) {
-        setPassport(true);
-      } else {
-        setPassport(false);
-      }
-      setPasSelected(!pasSelected);
-    } else if (e.target.id === "pedigree") {
-      if (pedigree === false) {
-        setPedigree(true);
-      } else {
-        setPedigree(false);
-      }
-      setPedSelected(!pedSelected);
-    }
-  };
+  // const vacHandler = (e: any) => {
+  //   if (e.target.id === "vac") {
+  //     if (vaccinations === false) {
+  //       setVaccinations(true);
+  //     } else {
+  //       setVaccinations(false);
+  //     }
+  //     setVacSelected(!vacSelected);
+  //   } else if (e.target.id === "passport") {
+  //     if (passport === false) {
+  //       setPassport(true);
+  //     } else {
+  //       setPassport(false);
+  //     }
+  //     setPasSelected(!pasSelected);
+  //   } else if (e.target.id === "pedigree") {
+  //     if (pedigree === false) {
+  //       setPedigree(true);
+  //     } else {
+  //       setPedigree(false);
+  //     }
+  //     setPedSelected(!pedSelected);
+  //   }
+  // };
 
   return (
     <div className="  w-72  h-[130px] ">
@@ -132,6 +136,27 @@ export function StepOne() {
         </div>
       </Listbox>
 
+      <div className={`${category.saveType === "acsesories" ? "" : "hidden"}`}>
+        <div>
+          <label
+            htmlFor="new"
+            className="flex justify-between items-center mt-4 mb-2 text-sm font-bold text-green-600 dark:text-green-300"
+          >
+            {"Новый товар"}
+            <input
+              id="new"
+              type="checkbox"
+              checked={newSelected}
+              onChange={() => {
+                setIsNew(!isNew);
+                setNewSelected(!newSelected);
+              }}
+              className=" w-[20px] h-[20px] shadow-m  border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            ></input>
+          </label>
+        </div>
+      </div>
+
       <div
         className={`${
           category.type === "cats" || category.type === "dogs" ? "" : "hidden"
@@ -147,7 +172,10 @@ export function StepOne() {
               id="vac"
               type="checkbox"
               checked={vacSelected}
-              onChange={vacHandler}
+              onChange={() => {
+                setVaccinations(!vaccinations);
+                setVacSelected(!vacSelected);
+              }}
               className=" w-[20px] h-[20px] shadow-m  border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
             ></input>
           </label>
@@ -162,7 +190,10 @@ export function StepOne() {
               id="passport"
               type="checkbox"
               checked={pasSelected}
-              onChange={vacHandler}
+              onChange={() => {
+                setPassport(!passport);
+                setPasSelected(!pasSelected);
+              }}
               className=" w-[20px] h-[20px] shadow-m  border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
             ></input>
           </label>
@@ -177,7 +208,10 @@ export function StepOne() {
               id="pedigree"
               type="checkbox"
               checked={pedSelected}
-              onChange={vacHandler}
+              onChange={() => {
+                setPedigree(!pedigree);
+                setPedSelected(!pedSelected);
+              }}
               className=" w-[20px] h-[20px] shadow-m  border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500"
             ></input>
           </label>

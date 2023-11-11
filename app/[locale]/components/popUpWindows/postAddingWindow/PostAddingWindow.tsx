@@ -66,6 +66,12 @@ export function PostAddingWindow() {
   //стэйт выбранных фотографий
   const selectedFiles = newPostState((state) => state.selectedFiles);
   const setSelectedFiles = newPostState((state) => state.setSelectedFiles);
+  //стэйт нового товара
+  const isNew = newPostState((state) => state.pedigree);
+  const setIsNew = newPostState((state) => state.setPedigree);
+  // стэйт доставки
+  const delivery = newPostState((state) => state.delivery);
+  const setDelivery = newPostState((state) => state.setDelivery);
 
   const stepHandler = () => {
     if (check === "stepOne") {
@@ -154,6 +160,8 @@ export function PostAddingWindow() {
     setSelectedFiles([]);
     setDownLoadUrlClear();
     setIsUpload(false);
+    setIsNew(false);
+    setDelivery(false);
   };
 
   // const finishHandler = () => {
@@ -202,6 +210,8 @@ export function PostAddingWindow() {
           ci: city,
           i: isGoodHand,
           pr: price,
+          new: isNew,
+          delivery: delivery,
         }),
       })
         .then((response) => {
