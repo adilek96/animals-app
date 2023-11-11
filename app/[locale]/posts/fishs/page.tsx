@@ -18,6 +18,8 @@ export default function Fishs() {
     price: number;
     in_good_hands: string;
     city: string;
+    isdelevery: boolean;
+    isnew: boolean;
   }
   const [posts, setPosts] = useState<Post[]>([]);
   const [page, setPage] = useState(1);
