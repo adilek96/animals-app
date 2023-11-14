@@ -12,6 +12,7 @@ import Providers from "./providers";
 import { CategoryWindow } from "@/app/[locale]/components/popUpWindows/categoryWindow/CategoryWindow";
 import { TheSearchPanel } from "./components/TheSearchPanel";
 import { PostAddingWindow } from "./components/popUpWindows/postAddingWindow/PostAddingWindow";
+import { searchState } from "@/store/seachState";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -49,16 +50,14 @@ export default async function RootLayout({
           <Providers>
             <TheHeader />
             <BurgerMenu />
+            <LogInWindow />
             <section className=" mt-9 mx-auto w-[95%] z-10">
               <TheSearchPanel />
             </section>
-
-            <LogInWindow />
             <PostAddingWindow />
             <CategoryWindow />
             <Settings />
             <main>{children}</main>
-            {/* <TheBottomMenu/> */}
             <TheFooter />
           </Providers>
         </NextIntlClientProvider>

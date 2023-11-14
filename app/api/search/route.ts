@@ -16,6 +16,9 @@ export async function GET(request: Request) {
   const sortMaxPrice = parseFloat(searchParams.get('pmax') as string) ;
   const date = dateSort === 'asc' ? 'ASC' : 'DESC';
   const delivery = sortDelivered === 'true' ? ' ads.isdelevery = true AND' : '';
+  const searchInput = searchParams.get('input') as string;
+  const search = searchInput.toLowerCase();
+  console.log(search);
 
  
 
@@ -25,13 +28,13 @@ export async function GET(request: Request) {
     const perPage = 12 * page; // Количество элементов на странице
     const offset = 0;
 
-    let query: string = "SELECT DISTINCT ON (ads.ad_id) ads.*,TO_CHAR(ads.added_date, 'DD.MM.YY HH24:MI') as formatted_added_date, ads_images.image_url FROM ads LEFT JOIN ads_images ON ads.ad_id = ads_images.ad_id WHERE ads.category = 'cats' AND " + delivery + " ads.price >= " + sortMinPrice + " AND ads.price <= " + sortMaxPrice + "  ORDER BY ads.ad_id " +  date + "  LIMIT $1 OFFSET $2"
+    let query: string = "SELECT DISTINCT ON (ads.ad_id) ads.*,TO_CHAR(ads.added_date, 'DD.MM.YY HH24:MI') as formatted_added_date, ads_images.image_url FROM ads LEFT JOIN ads_images ON ads.ad_id = ads_images.ad_id WHERE ads.title ILIKE  '%"+search+"%'  AND  " + delivery + " ads.price >= " + sortMinPrice + " AND ads.price <= " + sortMaxPrice + "  ORDER BY ads.ad_id " +  date + "  LIMIT $1 OFFSET $2"
     if(sortPrice === "none"){
       query
     } else if(sortPrice === "down"){
-      query = "SELECT DISTINCT ON (ads.price) ads.*,TO_CHAR(ads.added_date, 'DD.MM.YY HH24:MI') as formatted_added_date, ads_images.image_url FROM ads LEFT JOIN ads_images ON ads.ad_id = ads_images.ad_id  WHERE ads.category = 'cats' AND " + delivery + " ads.price >= " + sortMinPrice + " AND ads.price <= " + sortMaxPrice + " ORDER BY ads.price DESC  LIMIT $1 OFFSET $2";
+      query = "SELECT DISTINCT ON (ads.price) ads.*,TO_CHAR(ads.added_date, 'DD.MM.YY HH24:MI') as formatted_added_date, ads_images.image_url FROM ads LEFT JOIN ads_images ON ads.ad_id = ads_images.ad_id  WHERE ads.title ILIKE  '%"+search+"%'  AND  " + delivery + " ads.price >= " + sortMinPrice + " AND ads.price <= " + sortMaxPrice + " ORDER BY ads.price DESC  LIMIT $1 OFFSET $2";
     } else if(sortPrice === "up"){
-      query ="SELECT DISTINCT ON (ads.price) ads.*,TO_CHAR(ads.added_date, 'DD.MM.YY HH24:MI') as formatted_added_date, ads_images.image_url FROM ads LEFT JOIN ads_images ON ads.ad_id = ads_images.ad_id  WHERE ads.category = 'cats' AND " + delivery + " ads.price >= " + sortMinPrice + " AND ads.price <= " + sortMaxPrice + " ORDER BY ads.price ASC  LIMIT $1 OFFSET $2";
+      query ="SELECT DISTINCT ON (ads.price) ads.*,TO_CHAR(ads.added_date, 'DD.MM.YY HH24:MI') as formatted_added_date, ads_images.image_url FROM ads LEFT JOIN ads_images ON ads.ad_id = ads_images.ad_id  WHERE ads.title ILIKE  '%"+search+"%'  AND  " + delivery + " ads.price >= " + sortMinPrice + " AND ads.price <= " + sortMaxPrice + " ORDER BY ads.price ASC  LIMIT $1 OFFSET $2";
     }
     
     const result = await client.query(query, [perPage, offset]);

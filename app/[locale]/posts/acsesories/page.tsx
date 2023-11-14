@@ -4,6 +4,8 @@ import axios from "axios";
 import { Card } from "../../components/Card";
 import { ShowMoreButton } from "../../components/buttons/ShowMoreButton";
 import Loading from "../loading";
+import { SortButton } from "../../components/buttons/SortButton";
+import { Sorting } from "../../components/Sorting";
 
 export default function Acsesories() {
   interface Post {
@@ -24,13 +26,25 @@ export default function Acsesories() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [sortIsOpen, setSortIsOpen] = useState<boolean>(false);
+
+  // стэйт сортировки
+  const [priceSort, setPriceSort] = useState<string>("none");
+  const [dateSort, setDateSort] = useState<string>("desc");
+  const [sortDelivered, setSortDelivered] = useState<boolean>(false);
+  const [min, setMin] = useState<number>(0);
+  const [max, setMax] = useState<number>(999999);
+  const [minChange, setMinChange] = useState("");
+  const [maxChange, setMaxChange] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
 
       try {
-        const response = await axios.get(`/api/posts/acsesories?p=${page}`);
+        const response = await axios.get(
+          `/api/posts/acsesories?p=${page}&ps=${priceSort}&ds=${dateSort}&dls=${sortDelivered}&pmin=${min}&pmax=${max}`
+        );
         setPosts(response.data.result);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -40,7 +54,7 @@ export default function Acsesories() {
     };
 
     fetchData();
-  }, [page]);
+  }, [page, priceSort, dateSort, sortDelivered, min, max]);
 
   return (
     <>
@@ -48,6 +62,28 @@ export default function Acsesories() {
         <Loading />
       ) : (
         <>
+          <div className="w-full  grid justify-items-stretch  ">
+            <SortButton onClick={() => setSortIsOpen(!sortIsOpen)} />
+            {sortIsOpen && (
+              <Sorting
+                sortIsOpen={sortIsOpen}
+                priceSort={priceSort}
+                dateSort={dateSort}
+                sortDelivered={sortDelivered}
+                min={min}
+                max={max}
+                minChange={minChange}
+                maxChange={maxChange}
+                setPriceSort={setPriceSort}
+                setDateSort={setDateSort}
+                setSortDelivered={setSortDelivered}
+                setMin={setMin}
+                setMax={setMax}
+                setMinChange={setMinChange}
+                setMaxChange={setMaxChange}
+              />
+            )}
+          </div>
           <div className="flex justify-around md:gap-3 flex-wrap h-fit py-5">
             {posts.length > 0 &&
               posts.map((post, index) => <Card key={index} post={post} />)}
