@@ -14,26 +14,10 @@ export function TheBottomMenu() {
   const footerHide = mobileFooterState((state) => state.footerHide);
   const setCallCategory = mobileFooterState((state) => state.setCallCategory);
   const callCategory = mobileFooterState((state) => state.callCategory);
-  const [isHidden, setIsHidden] = useState(false);
-
-  // useEffect(() => {
-
-  //   const handleScroll = () => {
-  //     // Определите, в какую сторону происходит скролл
-  //     const isScrollingDown =
-  //       window.scrollY > (window.scrollY || document.documentElement.scrollTop);
-
-  //     setIsHidden(isScrollingDown);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  // }, []);
 
   return (
     <motion.div
-      initial="hidden"
-      whileInView="visible"
-      className={` relative   bg-white dark:bg-gray-800  dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-[70px]  text-gray-800 text-[35px]  items-center sm:flex md:hidden  sm:justify-between content-center   px-6 border-t-[5px] border-primary-500 border-solid   `}
+      className={` relative   bg-white dark:bg-gray-800  dark:text-white  overflow-hidden shadow-md-revers shadow-primary-900 box-content  h-[70px]  text-gray-800 text-[35px]  items-center sm:flex md:hidden  sm:justify-between content-center   px-6 border-t-[5px] border-primary-500 border-solid `}
     >
       <Link href="/">
         <div className="w-[60px] cursor-pointer flex flex-col justify-center items-center text-center hover:text-primary-500">

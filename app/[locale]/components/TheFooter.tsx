@@ -1,5 +1,5 @@
 "use client";
-
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import animalsLogo from "../../../public/logo/logo.png";
 import Link from "next/link";
@@ -16,20 +16,53 @@ import { mobileFooterState } from "../../../store/mobileFooterState";
 import { TheBottomMenu } from "./TheBottomMenu";
 import { FaPlus } from "react-icons/fa";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
+import { useMediaQuery } from "@react-hook/media-query";
 
 export function TheFooter() {
   const t = useTranslations("Footer");
   const footerHide = mobileFooterState((state) => state.footerHide);
   const isOpen = postAddingState((state) => state.isOpen);
   const setIsOpen = postAddingState((state) => state.setIsOpen);
+  const [isHidden, setIsHidden] = useState(false);
+  const [prevScrollY, setPrevScrollY] = useState(0);
+
+  // Определение точек разрешения экрана
+  const sm = useMediaQuery("(mix-width: 336px and max-width: 768px)");
+  const md = useMediaQuery("(min-width: 768px)");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > prevScrollY) {
+        // Прокрутка вниз: скрыть элемент
+        setIsHidden(true);
+      } else {
+        // Прокрутка вверх: показать элемент
+        setIsHidden(false);
+      }
+      setPrevScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollY]);
 
   const contact = "+994556263262";
   const email = "info@animals.al";
   return (
     <footer
-      className={` z-30 sm:fixed bottom-0 left-0 right-0  md:static  ${
+      className={` z-30  md:static md:block sm:fixed  ${
+        !isHidden
+          ? "sm:opacity-100 sm:bottom-0 "
+          : "  sm:bottom-[-80vh] sm:opacity-0 "
+      } md:bottom-0 left-0 right-0   ${
         !footerHide ? "sm:h-[75px]" : "sm:h-[80vh]"
-      } md:h-fit transition-all duration-500`}
+      } md:h-fit transition-all duration-500 
+      } `}
     >
       <TheBottomMenu />
       <button
