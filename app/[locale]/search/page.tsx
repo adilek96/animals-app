@@ -22,6 +22,7 @@ interface Post {
   city: string;
   isdelevery: boolean;
   isnew: boolean;
+  ad_id: number;
 }
 
 export default function Search() {
