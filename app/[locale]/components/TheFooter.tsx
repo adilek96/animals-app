@@ -16,8 +16,6 @@ import { mobileFooterState } from "../../../store/mobileFooterState";
 import { TheBottomMenu } from "./TheBottomMenu";
 import { FaPlus } from "react-icons/fa";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { useMediaQuery } from "@react-hook/media-query";
 
 export function TheFooter() {
   const t = useTranslations("Footer");
@@ -26,10 +24,6 @@ export function TheFooter() {
   const setIsOpen = postAddingState((state) => state.setIsOpen);
   const [isHidden, setIsHidden] = useState(false);
   const [prevScrollY, setPrevScrollY] = useState(0);
-
-  // Определение точек разрешения экрана
-  const sm = useMediaQuery("(mix-width: 336px and max-width: 768px)");
-  const md = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,11 +49,11 @@ export function TheFooter() {
   const email = "info@animals.al";
   return (
     <footer
-      className={` z-30  md:static md:block sm:fixed  ${
+      className={` z-30  md:static  sm:fixed  ${
         !isHidden
           ? "sm:opacity-100 sm:bottom-0 "
           : "  sm:bottom-[-80vh] sm:opacity-0 "
-      } md:bottom-0 left-0 right-0   ${
+      } md:bottom-0 left-0 right-0 md:opacity-100  ${
         !footerHide ? "sm:h-[75px]" : "sm:h-[80vh]"
       } md:h-fit transition-all duration-500 
       } `}

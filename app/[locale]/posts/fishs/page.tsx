@@ -22,6 +22,7 @@ export default function Fishs() {
     city: string;
     isdelevery: boolean;
     isnew: boolean;
+    ad_id: number;
   }
   const [posts, setPosts] = useState<Post[]>([]);
   const [page, setPage] = useState(1);
