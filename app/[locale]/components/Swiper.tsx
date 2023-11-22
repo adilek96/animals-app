@@ -58,18 +58,18 @@ export function Swiper({ images }: any) {
 
       {/* thumbnails */}
 
-      <div className=" relative shadow-md rounded-2xl   w-full bg-slate-200 dark:bg-gray-600 h-[100px]  flex  items-center justify-center ">
-        <div className=" overscroll-none  overflow-y-hidden overflow-x-auto  no-scrollbar snap-x snap-mandatory scroll-smooth  w-[70%] bg-slate-200/50 dark:bg-gray-600/50 h-[95px]  flex  items-center gap-2">
-          {images ? (
-            images.map((el: any, i: any) => {
-              return (
+      <div className=" relative shadow-md rounded-2xl    w-full bg-slate-200 dark:bg-gray-600 h-[100px]  flex  items-center justify-center ">
+        <div className="   overscroll-none  overflow-y-hidden overflow-x-auto  no-scrollbar snap-x snap-mandatory scroll-smooth   w-[70%] bg-slate-200/50 dark:bg-gray-600/50 h-[95px]  flex  items-center gap-2">
+          {images.map((el: any, i: any) => {
+            return (
+              <div className="snap-center">
                 <div
                   key={i}
                   onClick={() => {
                     setImgLink(el);
                     setImgCount(i);
                   }}
-                  className={`snap-center relative bg-slate-800 w-[90px] h-[90px] flex justify-center items-center ${
+                  className={` relative bg-slate-800 w-[90px] h-[90px] flex  justify-center items-center ${
                     imgCount === i ? "border-[2px] border-primary-500" : ""
                   } `}
                 >
@@ -80,11 +80,9 @@ export function Swiper({ images }: any) {
                     objectFit="cover"
                   ></Image>
                 </div>
-              );
-            })
-          ) : (
-            <></>
-          )}
+              </div>
+            );
+          })}
         </div>
         <div
           onClick={countHandlerMinus}

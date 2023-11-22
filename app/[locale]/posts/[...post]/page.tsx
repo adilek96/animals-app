@@ -110,7 +110,7 @@ export default async function Post({ params }: { params: { post: number } }) {
             {posts.in_good_hands ? (
               <p className="text-primary-500 mt-5 text-[24px]">В добрые руки</p>
             ) : (
-              <button className="mt-5 bg-gradient-to-r from-primary-500 to-primary-400 hover:contrast-125 duration-600 w-[150px] h-[35px]  text-lg rounded-full flex justify-center items-center shadow-md  shadow-gray-400  dark:shadow-gray-800 text-white">
+              <button className=" select-none mt-5 bg-gradient-to-r from-primary-500 to-primary-400 hover:contrast-125 duration-600 w-[150px] h-[35px]  text-lg rounded-full flex justify-center items-center shadow-md  shadow-gray-400  dark:shadow-gray-800 text-white">
                 {posts.price}
                 <FaManatSign />
               </button>
