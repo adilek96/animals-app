@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, ChangeEvent, useState } from "react";
+import React, { useRef, ChangeEvent, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { postAddingState } from "../../../../../../store/postAddingState";
 import Lottie from "react-lottie-player";
@@ -65,7 +65,6 @@ export function StepFive() {
 
   const uploadHandler = () => {
     if (selectedFiles.length >= 1) {
-      setIsUpload(true);
       selectedFiles.forEach((file) => {
         const storageRef = ref(storage, `image/${file.name + Date.now()}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -77,19 +76,18 @@ export function StepFive() {
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100
             );
             setIsLoadCheck("load");
-            console.log("Upload is " + progress + "% done");
           },
           (error) => {
             setIsLoadCheck("error");
-
-            console.log("ошибка");
           },
           () => {
             // Upload completed successfully, now we can get the download URL
             getDownloadURL(uploadTask.snapshot.ref).then((url) => {
               setDownLoadUrl(url);
             });
-            setIsLoadCheck("stay");
+
+            // setIsLoadCheck("stay");
+            // setIsUpload(true);
           }
         );
       });
@@ -97,6 +95,14 @@ export function StepFive() {
       console.log("нет фото");
     }
   };
+
+  useEffect(() => {
+    if (downLoadUrl.length === selectedFiles.length) {
+      setIsLoadCheck("stay");
+      setIsUpload(true);
+    }
+  }, [downLoadUrl]);
+
   return (
     <div className="  w-72  h-[150px] ">
       {isLoadCheck === "stay" && (

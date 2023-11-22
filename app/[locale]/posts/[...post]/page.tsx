@@ -25,6 +25,10 @@ interface Post {
   ad_id: number;
 }
 
+interface Images {
+  image_url: string;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -48,8 +52,8 @@ async function getData(post: number): Promise<Post | null> {
   const client = await db.connect();
   try {
     const query =
-      "SELECT * FROM ads  LEFT JOIN ads_images ON ads.ad_id = ads_images.ad_id WHERE ads.ad_id = $1";
-
+      "SELECT *, TO_CHAR(ads.added_date, 'DD.MM.YY HH24:MI') as formatted_added_date FROM ads  WHERE ads.ad_id = $1";
+    // LEFT JOIN ads_images ON ads.ad_id = ads_images.ad_id
     const result = await client.query(query, [+post]);
 
     return result.rows[0] || null;
@@ -61,8 +65,30 @@ async function getData(post: number): Promise<Post | null> {
   }
 }
 
+async function getImages(post: number): Promise<string[] | null> {
+  const client = await db.connect();
+  try {
+    const query =
+      "SELECT image_url FROM  ads_images  WHERE  ads_images.ad_id = $1";
+
+    const result = await client.query(query, [+post]);
+
+    const imageUrls = result.rows.map((item) => item.image_url);
+
+    return imageUrls.length > 0 ? imageUrls : null;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;
+  } finally {
+    client.release();
+  }
+}
+
 export default async function Post({ params }: { params: { post: number } }) {
   const posts = await getData(params.post);
+  const images = await getImages(params.post);
+  console.log(images);
+
   if (!posts) {
     return <div>Not Found</div>;
   }
@@ -78,7 +104,7 @@ export default async function Post({ params }: { params: { post: number } }) {
             <div className="flex md:flex-col sm:flex-col-reverse mt-5 ">
               <h1 className="text-[26px]  my-3">{posts.title}</h1>
               <div className=" w-[100%] flex justify-center items-center">
-                <Swiper />
+                <Swiper images={images} />
               </div>
             </div>
 

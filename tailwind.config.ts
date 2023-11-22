@@ -17,7 +17,7 @@ const config: Config = {
         'az-flag': "url('../public/flags/azflag.svg')",
       },
       screens:{
-        'sm': '336px',
+        'sm': '280px',
       },
       colors: {
         primary: colors.orange,
