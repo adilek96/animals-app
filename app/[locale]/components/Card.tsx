@@ -59,8 +59,10 @@ export function Card({ post }: { post: Post }): React.JSX.Element {
           <Image
             className="w-full md:h-[180px] sm:h-[130px] rounded-t-lg"
             src={post.image_url === null ? animalsLogo : post.image_url}
-            width={130}
-            height={80}
+            // width={130}
+            // height={80}
+            fill={true}
+            objectFit="cover"
             alt="animalsLogo"
           ></Image>
 

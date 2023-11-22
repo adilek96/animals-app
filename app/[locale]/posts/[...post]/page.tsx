@@ -87,7 +87,6 @@ async function getImages(post: number): Promise<string[] | null> {
 export default async function Post({ params }: { params: { post: number } }) {
   const posts = await getData(params.post);
   const images = await getImages(params.post);
-  console.log(images);
 
   if (!posts) {
     return <div>Not Found</div>;
@@ -109,9 +108,9 @@ export default async function Post({ params }: { params: { post: number } }) {
             </div>
 
             {posts.in_good_hands ? (
-              <p className="text-primary-500 mt-3 text-[24px]">В добрые руки</p>
+              <p className="text-primary-500 mt-5 text-[24px]">В добрые руки</p>
             ) : (
-              <button className="mt-3 bg-gradient-to-r from-primary-500 to-primary-400 hover:contrast-125 duration-600 w-[150px] h-[35px]  text-lg rounded-full flex justify-center items-center shadow-md  shadow-gray-400  dark:shadow-gray-800 text-white">
+              <button className="mt-5 bg-gradient-to-r from-primary-500 to-primary-400 hover:contrast-125 duration-600 w-[150px] h-[35px]  text-lg rounded-full flex justify-center items-center shadow-md  shadow-gray-400  dark:shadow-gray-800 text-white">
                 {posts.price}
                 <FaManatSign />
               </button>
@@ -144,23 +143,25 @@ export default async function Post({ params }: { params: { post: number } }) {
                   )}
                 </span>
               </div>
-              <div className="w-[90%] h-[20px] flex justify-between">
-                <span>
-                  <MdOutlineWavingHand className="inline mr-1 text-gray-400" />
-                  Новый:
-                </span>
-                <span>
-                  {posts.isnew ? (
-                    <>
-                      <FcCheckmark className="inline " />
-                    </>
-                  ) : (
-                    <>
-                      <FcCancel className="inline " />
-                    </>
-                  )}
-                </span>
-              </div>
+              {posts.category === "acsesories" && (
+                <div className="w-[90%] h-[20px] flex justify-between">
+                  <span>
+                    <MdOutlineWavingHand className="inline mr-1 text-gray-400" />
+                    Новый:
+                  </span>
+                  <span>
+                    {posts.isnew ? (
+                      <>
+                        <FcCheckmark className="inline " />
+                      </>
+                    ) : (
+                      <>
+                        <FcCancel className="inline " />
+                      </>
+                    )}
+                  </span>
+                </div>
+              )}
 
               {posts.category === "cats" || posts.category === "dogs" ? (
                 <>
