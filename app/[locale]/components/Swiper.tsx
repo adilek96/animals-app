@@ -62,9 +62,9 @@ export function Swiper({ images }: any) {
         <div className="   overscroll-none  overflow-y-hidden overflow-x-auto  no-scrollbar snap-x snap-mandatory scroll-smooth   w-[70%] bg-slate-200/50 dark:bg-gray-600/50 h-[95px]  flex  items-center gap-2">
           {images.map((el: any, i: any) => {
             return (
-              <div className="snap-center">
+              <div key={i} className="snap-center">
                 <div
-                  key={i}
+                  
                   onClick={() => {
                     setImgLink(el);
                     setImgCount(i);
