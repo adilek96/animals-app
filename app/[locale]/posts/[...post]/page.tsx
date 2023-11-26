@@ -106,6 +106,7 @@ export default async function Post({ params }: { params: { post: number } }) {
                 <Swiper images={images} />
               </div>
             </div>
+            <div>dddddd</div>
 
             {posts.in_good_hands ? (
               <p className="text-primary-500 mt-5 text-[24px]">В добрые руки</p>
