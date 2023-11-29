@@ -79,7 +79,13 @@ export function BurgerMenu() {
               onClick={() => setLoginModalActive(!loginModal)}
               className="w-[60px] h-[60px] flex items-center justify-center shadow-inner shadow-orange-900 bg-white rounded-full border-collapse border-[2px] border-primary-500"
             >
-              <Image src="/logo/logo.png" width={60} height={60} alt="logo" />
+              <Image
+                className="rounded-full"
+                src="/logo/logo.png"
+                fill={true}
+                objectFit="fill"
+                alt="logo"
+              />
             </div>
           </div>
           <div className="flex flex-col items-center gap-2">

@@ -7,6 +7,17 @@ import { FaManatSign, FaPassport, FaLocationDot } from "react-icons/fa6";
 import { TbVaccine, TbTruckDelivery } from "react-icons/tb";
 import { MdPets, MdOutlineWavingHand } from "react-icons/md";
 import { FcCancel, FcCheckmark } from "react-icons/fc";
+import Image from "next/image";
+import { UserName } from "../../components/UserName";
+
+import {
+  FaFacebook,
+  FaTelegram,
+  FaWhatsapp,
+  FaPhone,
+  FaMapPin,
+} from "react-icons/fa6";
+import { UserConnection } from "../../components/UserConnection";
 
 interface Post {
   title: string;
@@ -23,6 +34,11 @@ interface Post {
   isdelevery: boolean;
   isnew: boolean;
   ad_id: number;
+  description: string;
+  username: string;
+  avatar_url: string;
+  phone_number: number;
+  whatsapp: boolean;
 }
 
 interface Images {
@@ -52,7 +68,7 @@ async function getData(post: number): Promise<Post | null> {
   const client = await db.connect();
   try {
     const query =
-      "SELECT *, TO_CHAR(ads.added_date, 'DD.MM.YY HH24:MI') as formatted_added_date FROM ads  WHERE ads.ad_id = $1";
+      "SELECT *, TO_CHAR(ads.added_date, 'DD.MM.YY HH24:MI') as formatted_added_date FROM ads JOIN users ON ads.user_id = users.user_id  WHERE ads.ad_id = $1";
     // LEFT JOIN ads_images ON ads.ad_id = ads_images.ad_id
     const result = await client.query(query, [+post]);
 
@@ -105,28 +121,63 @@ export default async function Post({ params }: { params: { post: number } }) {
               <div className=" w-[100%] flex justify-center items-center">
                 <Swiper images={images} />
               </div>
-            </div>
-            <div>d</div>
-
-            {posts.in_good_hands ? (
-              <p className="text-primary-500 mt-5 text-[24px]">В добрые руки</p>
-            ) : (
-              <button className=" select-none mt-5 bg-gradient-to-r from-primary-500 to-primary-400 hover:contrast-125 duration-600 w-[150px] h-[35px]  text-lg rounded-full flex justify-center items-center shadow-md  shadow-gray-400  dark:shadow-gray-800 text-white">
-                {posts.price}
-                <FaManatSign />
-              </button>
-            )}
-          </div>
-          {/* здесь начинается секция дополнений */}
-          <div className="md:w-[30%] sm:w-[100%] ">
-            <div className=" p-5 h-fit  bg-gray-600 rounded-lg my-5">
-              <div className="w-[90%] text-[12px] h-[15px] flex justify-between">
-                <span>Добавлено:</span>
-                <span>{posts.formatted_added_date}</span>
+              <div className=" w-[100%] flex justify-center items-center">
+                <div className="w-[95%] p-5 h-fit rounded-lg my-5 flex flex-col gap-5 bg-gray-300 dark:bg-gray-600 ">
+                  {posts.description}
+                </div>
               </div>
             </div>
+          </div>
+          {/* здесь начинается секция дополнений */}
+
+          <div className="md:w-[30%] sm:w-[100%] ">
             {/* --------------------- */}
-            <div className=" p-5 h-fit  bg-gray-600 rounded-lg my-5">
+            <div className=" p-5 h-fit  bg-gray-300 dark:bg-gray-600 rounded-lg my-5  flex justify-around items-center">
+              <div className="w-[90%] h-fit flex flex-col items-center">
+                <div className="w-[70px] h-[70px] flex items-center justify-center shadow-md shadow-orange-900 bg-primary-200 rounded-full border-collapse border-[3px] border-primary-500">
+                  <div className="relative w-[60px] h-[60px] flex items-center justify-center shadow-inner shadow-orange-900 bg-white rounded-full border-collapse border-[2px] border-primary-500">
+                    <Image
+                      className="rounded-full"
+                      src={posts.avatar_url}
+                      fill={true}
+                      objectFit="fill"
+                      alt="logo"
+                    />
+                  </div>
+                </div>
+                <div className="text-center">
+                  <UserName userName={[posts.username, posts.whatsapp]} />
+                </div>
+              </div>
+            </div>
+
+            {/* --------------------- */}
+            <div className=" p-5 h-fit  bg-gray-300 dark:bg-gray-600 rounded-lg my-5">
+              <div className="w-[90%]  h-fit ">
+                {posts.in_good_hands ? (
+                  <p className="text-primary-500 mt-5 text-[24px]">
+                    В добрые руки
+                  </p>
+                ) : (
+                  <div className="flex justify-between items-center">
+                    <span>Цена:</span>
+                    <button className="  select-none  bg-gradient-to-r from-primary-500 to-primary-400 hover:contrast-125 duration-600 w-[150px] h-[35px]  text-lg rounded-full flex justify-center items-center shadow-md  shadow-gray-400  dark:shadow-gray-800 text-white">
+                      {posts.price}
+                      <FaManatSign />
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className=" p-5 h-fit  bg-gray-300 dark:bg-gray-600 rounded-lg my-5">
+              <div className="w-[90%]  h-fit ">
+                <UserConnection phone_number={posts.phone_number} />
+              </div>
+            </div>
+
+            {/* --------------------- */}
+            <div className=" p-5 h-fit  bg-gray-300 dark:bg-gray-600 rounded-lg my-5">
               <div className="w-[90%] h-[20px] flex justify-between">
                 <span>
                   <TbTruckDelivery className="inline mr-1 text-gray-400" />
@@ -220,6 +271,14 @@ export default async function Post({ params }: { params: { post: number } }) {
                 <></>
               )}
             </div>
+            {/* --------------------- */}
+            <div className=" p-5 h-fit  bg-gray-300 dark:bg-gray-600 rounded-lg my-5">
+              <div className="w-[90%] text-[12px] h-[15px] flex justify-between">
+                <span>Добавлено:</span>
+                <span>{posts.formatted_added_date}</span>
+              </div>
+            </div>
+            {/* --------------------- */}
           </div>
         </div>
       </section>
