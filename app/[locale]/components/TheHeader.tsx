@@ -15,7 +15,6 @@ import { logInModalActive } from "../../../store/logInModalActive";
 import { postAddingState } from "../../../store/postAddingState";
 import { useTranslations } from "next-intl";
 import { useSession, signOut } from "next-auth/react";
-import { error } from "console";
 
 export function TheHeader() {
   const t = useTranslations("TheHeader");
@@ -90,8 +89,8 @@ export function TheHeader() {
               <li>
                 <Link
                   href="/posts"
-                  onMouseEnter={showPostsSubMenu}
-                  onMouseLeave={hidePostsSubMenu}
+                  // onMouseEnter={showPostsSubMenu}
+                  // onMouseLeave={hidePostsSubMenu}
                   className={` box-border relative h-[100px]  px-3 flex items-center  hover:text-primary-500 duration-500 ${
                     pathname === "/posts"
                       ? " text-primary-500 border-t-[2px] border-t-primary-500 border-solid"
@@ -99,37 +98,32 @@ export function TheHeader() {
                   }`}
                 >
                   {t("ads")}
-                  <FaChevronDown className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold" />{" "}
                 </Link>
-                {postsSubActive ? (
-                  <ul
-                    onMouseEnter={onMouseInPostsSub}
-                    onMouseLeave={onMouseOutPostsSub}
-                    className="absolute shadow-md shadow-orange-900 h-[60px] w-[200px] bg-white dark:bg-gray-600  rounded-b-md z-10  "
-                  >
-                    <li>
-                      <Link
-                        href="/"
-                        className={`h-[60px] px-3 flex items-center  hover:text-primary-500 `}
-                      >
-                        Продавцы
-                      </Link>
-                    </li>
-                  </ul>
-                ) : (
-                  ""
-                )}
               </li>
-              {/* <li>
-                <Link href="/articles" onMouseEnter ={showArticleSubMenu} onMouseLeave={hideArticleSubMenu} className={`box-content relative h-[100px] px-3 flex items-center  hover:text-primary-500 duration-500 ${pathname === '/articles' ? ' text-orange-500 border-t-[5px] border-t-orange-500 border-solid' : ''}`}>{t("articles")} <FaChevronDown  className="text-2xl ml-1 text-gray-400 pt-2 font-extrabold"/></Link>
-                {articleSubActive ? 
-                <ul onMouseEnter={onMouseInArticleSub} onMouseLeave={onMouseOutArticleSub} className="absolute shadow-md shadow-orange-900 h-[240px] w-[200px] bg-white dark:bg-gray-700 rounded-b-md z-10 ">
-                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("dogs")}</Link></li>
-                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("cats")}</Link></li>
-                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("birds")}</Link></li>
-                  <li><Link href="/" className={`h-[60px] px-5 flex items-center  hover:text-primary-500 `}>{t("fishs")}</Link></li>
-                </ul> : ""}
-              </li> */}
+              <li>
+                <Link
+                  href=""
+                  className={`transition-1000 box-content relative   px-3 flex items-center    hover:text-primary-500 duration-500 ${
+                    pathname === "/posts"
+                      ? " text-primary-500 dark:bg-gray-500  bg-primary-100  h-[70px]"
+                      : "h-[50px]"
+                  }`}
+                >
+                  Магазины
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
+                  className={`transition-1000 box-content relative   px-3 flex items-center    hover:text-primary-500 duration-500 ${
+                    pathname === "/posts"
+                      ? " text-primary-500 dark:bg-gray-500  bg-primary-100  h-[70px]"
+                      : "h-[50px]"
+                  }`}
+                >
+                  Услуги
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/clinic"

@@ -116,7 +116,7 @@ export default async function Post({ params }: { params: { post: number } }) {
         </button>
         <div className="flex md:flex-row sm:flex-col items-center ">
           <div className="md:w-[70%] sm:w-[100%] mb-4 ">
-            <div className="flex md:flex-col sm:flex-col-reverse mt-5 ">
+            <div className="flex md:flex-col sm:flex-col mt-5 ">
               <h1 className="text-[26px]  my-3">{posts.title}</h1>
               <div className=" w-[100%] flex justify-center items-center">
                 <Swiper images={images} />
@@ -276,6 +276,13 @@ export default async function Post({ params }: { params: { post: number } }) {
               <div className="w-[90%] text-[12px] h-[15px] flex justify-between">
                 <span>Добавлено:</span>
                 <span>{posts.formatted_added_date}</span>
+              </div>
+              <div className="w-[90%] text-[12px] h-[15px] flex justify-between items-center">
+                <span>Локация:</span>
+                <span className="flex justify-center items-center ">
+                  <FaLocationDot className="inline" />
+                  {posts.city}
+                </span>
               </div>
             </div>
             {/* --------------------- */}

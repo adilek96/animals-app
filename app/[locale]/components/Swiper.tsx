@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import animalsLogo from "../../../public/logo/logo.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
@@ -7,6 +7,8 @@ import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 export function Swiper({ images }: any) {
   const [imgLink, setImgLink] = useState(images[0]);
   const [imgCount, setImgCount] = useState(0);
+
+  const myElementRef = useRef<HTMLDivElement>(null);
 
   const countHandlerPlus = () => {
     if (images.length - 1 === imgCount) {
@@ -25,6 +27,18 @@ export function Swiper({ images }: any) {
     } else {
       setImgCount(images.length - 1);
       setImgLink(images[images.length - 1]);
+    }
+  };
+
+  const elScrollMinus = () => {
+    if (myElementRef.current) {
+      myElementRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const elScrollPlus = () => {
+    if (myElementRef.current) {
+      console.log(myElementRef);
     }
   };
 
@@ -62,9 +76,8 @@ export function Swiper({ images }: any) {
         <div className="   overscroll-none  overflow-y-hidden overflow-x-auto  no-scrollbar snap-x snap-mandatory scroll-smooth   w-[70%] bg-slate-200/50 dark:bg-gray-600/50 h-[95px]  flex  items-center gap-2">
           {images.map((el: any, i: any) => {
             return (
-              <div key={i} className="snap-center">
+              <div key={i} ref={myElementRef} className="snap-center">
                 <div
-                  
                   onClick={() => {
                     setImgLink(el);
                     setImgCount(i);
@@ -85,13 +98,19 @@ export function Swiper({ images }: any) {
           })}
         </div>
         <div
-          onClick={countHandlerMinus}
+          onClick={() => {
+            countHandlerMinus();
+            elScrollMinus();
+          }}
           className="absolute top-[38px] left-3 cursor-pointer text-primary-500 text-[30px] w-[20px] h-[30px]"
         >
           <FaAngleLeft />
         </div>
         <div
-          onClick={countHandlerPlus}
+          onClick={() => {
+            countHandlerPlus();
+            elScrollPlus();
+          }}
           className="absolute top-[38px] right-3 cursor-pointer text-primary-500 text-[30px] w-[20px] h-[30px]"
         >
           <FaAngleRight />
