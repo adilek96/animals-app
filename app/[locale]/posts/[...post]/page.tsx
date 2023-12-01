@@ -9,15 +9,8 @@ import { MdPets, MdOutlineWavingHand } from "react-icons/md";
 import { FcCancel, FcCheckmark } from "react-icons/fc";
 import Image from "next/image";
 import { UserName } from "../../components/UserName";
-
-import {
-  FaFacebook,
-  FaTelegram,
-  FaWhatsapp,
-  FaPhone,
-  FaMapPin,
-} from "react-icons/fa6";
 import { UserConnection } from "../../components/UserConnection";
+import Link from "next/link";
 
 interface Post {
   title: string;
@@ -39,10 +32,7 @@ interface Post {
   avatar_url: string;
   phone_number: number;
   whatsapp: boolean;
-}
-
-interface Images {
-  image_url: string;
+  user_id: number;
 }
 
 export async function generateMetadata({
@@ -133,22 +123,24 @@ export default async function Post({ params }: { params: { post: number } }) {
           <div className="md:w-[30%] sm:w-[100%] ">
             {/* --------------------- */}
             <div className=" p-5 h-fit  bg-gray-300 dark:bg-gray-600 rounded-lg my-5  flex justify-around items-center">
-              <div className="w-[90%] h-fit flex flex-col items-center">
-                <div className="w-[70px] h-[70px] flex items-center justify-center shadow-md shadow-orange-900 bg-primary-200 rounded-full border-collapse border-[3px] border-primary-500">
-                  <div className="relative w-[60px] h-[60px] flex items-center justify-center shadow-inner shadow-orange-900 bg-white rounded-full border-collapse border-[2px] border-primary-500">
-                    <Image
-                      className="rounded-full"
-                      src={posts.avatar_url}
-                      fill={true}
-                      objectFit="fill"
-                      alt="logo"
-                    />
+              <Link href={`/posts/users/${posts.user_id}`}>
+                <div className="w-[90%] h-fit flex flex-col items-center">
+                  <div className="w-[70px] h-[70px] flex items-center justify-center shadow-md shadow-orange-900 bg-primary-200 rounded-full border-collapse border-[3px] border-primary-500">
+                    <div className="relative w-[60px] h-[60px] flex items-center justify-center shadow-inner shadow-orange-900 bg-white rounded-full border-collapse border-[2px] border-primary-500">
+                      <Image
+                        className="rounded-full"
+                        src={posts.avatar_url}
+                        fill={true}
+                        objectFit="fill"
+                        alt="logo"
+                      />
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <UserName userName={[posts.username, posts.whatsapp]} />
                   </div>
                 </div>
-                <div className="text-center">
-                  <UserName userName={[posts.username, posts.whatsapp]} />
-                </div>
-              </div>
+              </Link>
             </div>
 
             {/* --------------------- */}

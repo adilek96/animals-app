@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { BiUpArrow, BiDownArrow, BiCircle } from "react-icons/bi";
 import { TbTruckDelivery } from "react-icons/tb";
 
-export default function Rodents() {
+export default function InGoodHands() {
   interface Post {
     title: string;
     category: string;

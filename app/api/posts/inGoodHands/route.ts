@@ -41,7 +41,6 @@ export async function GET(request: Request) {
 
  
 
-  
   const client = await db.connect();
   try {
     const perPage = 12 * page; // Количество элементов на странице
