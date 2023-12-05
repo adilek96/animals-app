@@ -100,7 +100,7 @@ export default async function Post({ params }: { params: { post: number } }) {
 
   return (
     <Suspense fallback={<Loading />}>
-      <section className="dark:bg-gray-700 dark:shadow-gray-800 bg-slate-50 p-[3%] h-fit mx-auto my-[30px]  shadow-md  shadow-gray-400 rounded-2xl">
+      <section className=" cursor-default dark:bg-gray-700 dark:shadow-gray-800 bg-slate-50 p-[3%] h-fit mx-auto my-[30px]  shadow-md  shadow-gray-400 rounded-2xl">
         <button className="  bg-gradient-to-r from-green-500 to-green-400 hover:contrast-125 duration-600 w-[100px] h-[25px]  text-[16px] rounded-lg flex justify-center items-center shadow-sm  shadow-gray-800  dark:shadow-gray-800 text-white">
           <p className="text-center align-middle">{posts.category}</p>
         </button>
@@ -153,7 +153,7 @@ export default async function Post({ params }: { params: { post: number } }) {
                 ) : (
                   <div className="flex justify-between items-center">
                     <span>Цена:</span>
-                    <button className="  select-none  bg-gradient-to-r from-primary-500 to-primary-400 hover:contrast-125 duration-600 w-[150px] h-[35px]  text-lg rounded-full flex justify-center items-center shadow-md  shadow-gray-400  dark:shadow-gray-800 text-white">
+                    <button className=" cursor-default  select-none  bg-gradient-to-r from-primary-500 to-primary-400 hover:contrast-125 duration-600 w-[150px] h-[35px]  text-lg rounded-full flex justify-center items-center shadow-md  shadow-gray-400  dark:shadow-gray-800 text-white">
                       {posts.price}
                       <FaManatSign />
                     </button>

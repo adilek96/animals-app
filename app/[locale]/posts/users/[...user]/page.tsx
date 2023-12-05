@@ -11,6 +11,7 @@ interface User {
   username: string;
   avatar_url: string;
   whatsapp: boolean;
+  phone_number: number;
 }
 
 interface Post {
@@ -97,9 +98,13 @@ export default async function UserPosts({
 
   return (
     <Suspense fallback={<Loading />}>
-      <div className=" p-5 h-fit  bg-gray-300 dark:bg-gray-600 rounded-lg my-5  flex justify-around items-center">
-        <div className="w-[90%] h-fit flex flex-col items-center">
-          <h1>Обьявления пользователя {userData.username} </h1>
+      <div className="cursor-default p-5 h-fit  bg-gray-300 dark:bg-gray-600 rounded-lg my-5  flex flex-wrap justify-around items-center gap-10">
+        <div className="w-[400px] h-fit flex flex-row gap-10 justify-center flex-wrap-reverse items-center">
+          <h1>
+            Обьявления пользователя:
+            <br />
+            <UserName userName={[userData.username, userData.whatsapp]} />
+          </h1>
           <div className="w-[70px] h-[70px] flex items-center justify-center shadow-md shadow-orange-900 bg-primary-200 rounded-full border-collapse border-[3px] border-primary-500">
             <div className="relative w-[60px] h-[60px] flex items-center justify-center shadow-inner shadow-orange-900 bg-white rounded-full border-collapse border-[2px] border-primary-500">
               <Image
@@ -111,9 +116,9 @@ export default async function UserPosts({
               />
             </div>
           </div>
-          {/* <div className="text-center">
-            <UserName userName={[userData.username, userData.whatsapp]} />
-          </div> */}
+        </div>
+        <div className="w-[400px] h-fit flex flex-row justify-around items-center">
+          <UserConnection phone_number={userData.phone_number} />
         </div>
       </div>
       <>

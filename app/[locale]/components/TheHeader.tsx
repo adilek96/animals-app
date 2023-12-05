@@ -102,11 +102,11 @@ export function TheHeader() {
               </li>
               <li>
                 <Link
-                  href=""
-                  className={`transition-1000 box-content relative   px-3 flex items-center    hover:text-primary-500 duration-500 ${
-                    pathname === "/posts"
-                      ? " text-primary-500 dark:bg-gray-500  bg-primary-100  h-[70px]"
-                      : "h-[50px]"
+                  href="/store"
+                  className={` box-border relative h-[100px]  px-3 flex items-center  hover:text-primary-500 duration-500 ${
+                    pathname === "/store"
+                      ? " text-primary-500 border-t-[2px] border-t-primary-500 border-solid"
+                      : ""
                   }`}
                 >
                   Магазины
