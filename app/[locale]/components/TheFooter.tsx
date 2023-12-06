@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import animalsLogo from "../../../public/logo/logo.png";
 import Link from "next/link";
@@ -24,7 +24,6 @@ export function TheFooter() {
   const setIsOpen = postAddingState((state) => state.setIsOpen);
   const [isHidden, setIsHidden] = useState(false);
   const [prevScrollY, setPrevScrollY] = useState(0);
-  const myElementRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
