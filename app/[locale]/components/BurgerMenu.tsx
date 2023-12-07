@@ -118,9 +118,9 @@ export function BurgerMenu() {
           </li>
           <li>
             <Link
-              href=""
+              href="/store"
               className={`transition-1000 box-content relative   px-3 flex items-center    hover:text-primary-500 duration-500 ${
-                pathname === "/posts"
+                pathname === "/store"
                   ? " text-primary-500 dark:bg-gray-500  bg-primary-100  h-[70px]"
                   : "h-[50px]"
               }`}

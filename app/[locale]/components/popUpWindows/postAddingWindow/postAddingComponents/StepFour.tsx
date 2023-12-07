@@ -9,6 +9,7 @@ import animations from "../../../../../../public/animations/starAnimate.json";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { newPostState } from "@/store/newPostState";
+import { cities } from "../../../files/cities";
 
 interface Cities {
   name: string;
@@ -17,69 +18,69 @@ interface Cities {
 
 export function StepFour() {
   const c = useTranslations("Cities");
-  const cities: Cities[] = [
-    { name: c("baku"), type: "Baku" },
-    { name: c("ganja"), type: "Ganja" },
-    { name: c("sumgait"), type: "Sumgait" },
-    { name: c("mingachevir"), type: "Mingachevir" },
-    { name: c("shirvan"), type: "Shirvan" },
-    { name: c("nakhchivan"), type: "Nakhchivan" },
-    { name: c("lankaran"), type: "Lankaran" },
-    { name: c("sheki"), type: "Sheki" },
-    { name: c("yalama"), type: "Yalama" },
-    { name: c("barda"), type: "Barda" },
-    { name: c("gabala"), type: "Gabala" },
-    { name: c("agdere"), type: "Agdere" },
-    { name: c("guba"), type: "Guba" },
-    { name: c("saatly"), type: "Saatly" },
-    { name: c("agdam"), type: "Agdam" },
-    { name: c("zangilan"), type: "Zangilan" },
-    { name: c("agdash"), type: "Agdash" },
-    { name: c("xankendi"), type: "Xankendi" },
-    { name: c("hajigabul"), type: "Hajigabul" },
-    { name: c("goranboy"), type: "Goranboy" },
-    { name: c("shamkir"), type: "Shamkir" },
-    { name: c("beylagan"), type: "Beylagan" },
-    { name: c("aghjabedi"), type: "Aghjabedi" },
-    { name: c("bilasuvar"), type: "Bilasuvar" },
-    { name: c("khachmaz"), type: "Khachmaz" },
-    { name: c("astara"), type: "Astara" },
-    { name: c("babek"), type: "Babek" },
-    { name: c("zardab"), type: "Zardab" },
-    { name: c("ballyasny"), type: "Ballyasny" },
-    { name: c("sabirabad"), type: "Sabirabad" },
-    { name: c("khudat"), type: "Khudat" },
-    { name: c("gadabay"), type: "Gadabay" },
-    { name: c("goychay"), type: "Goychay" },
-    { name: c("ordubad"), type: "Ordubad" },
-    { name: c("imishli"), type: "Imishli" },
-    { name: c("gubadly"), type: "Gubadly" },
-    { name: c("kelbajar"), type: "Kelbajar" },
-    { name: c("jabrayil"), type: "Jabrayil" },
-    { name: c("fizuli"), type: "Fizuli" },
-    { name: c("kubatly"), type: "Kubatly" },
-    { name: c("agsu"), type: "Agsu" },
-    { name: c("agstafa"), type: "Agstafa" },
-    { name: c("balakan"), type: "Balakan" },
-    { name: c("gazakh"), type: "Gazakh" },
-    { name: c("gorgan"), type: "Gorgan" },
-    { name: c("gusar"), type: "Gusar" },
-    { name: c("jalilabad"), type: "Jalilabad" },
-    { name: c("ismayilli"), type: "Ismayilli" },
-    { name: c("qazakh"), type: "Qazakh" },
-    { name: c("kurdamir"), type: "Kurdamir" },
-    { name: c("masally"), type: "Masally" },
-    { name: c("nabran"), type: "Nabran" },
-    { name: c("oghuz"), type: "Oghuz" },
-    { name: c("samukh"), type: "Samukh" },
-    { name: c("siazan"), type: "Siazan" },
-    { name: c("terter"), type: "Terter" },
-    { name: c("ujar"), type: "Ujar" },
-    { name: c("khojaly"), type: "Khojaly" },
-    { name: c("chardaglar"), type: "Chardaglar" },
-    { name: c("shamakhi"), type: "Shamakhi" },
-    { name: c("yardymli"), type: "Yardymli" },
-  ];
+  // const cities: Cities[] = [
+  //   { name: c("baku"), type: "Baku" },
+  //   { name: c("ganja"), type: "Ganja" },
+  //   { name: c("sumgait"), type: "Sumgait" },
+  //   { name: c("mingachevir"), type: "Mingachevir" },
+  //   { name: c("shirvan"), type: "Shirvan" },
+  //   { name: c("nakhchivan"), type: "Nakhchivan" },
+  //   { name: c("lankaran"), type: "Lankaran" },
+  //   { name: c("sheki"), type: "Sheki" },
+  //   { name: c("yalama"), type: "Yalama" },
+  //   { name: c("barda"), type: "Barda" },
+  //   { name: c("gabala"), type: "Gabala" },
+  //   { name: c("agdere"), type: "Agdere" },
+  //   { name: c("guba"), type: "Guba" },
+  //   { name: c("saatly"), type: "Saatly" },
+  //   { name: c("agdam"), type: "Agdam" },
+  //   { name: c("zangilan"), type: "Zangilan" },
+  //   { name: c("agdash"), type: "Agdash" },
+  //   { name: c("xankendi"), type: "Xankendi" },
+  //   { name: c("hajigabul"), type: "Hajigabul" },
+  //   { name: c("goranboy"), type: "Goranboy" },
+  //   { name: c("shamkir"), type: "Shamkir" },
+  //   { name: c("beylagan"), type: "Beylagan" },
+  //   { name: c("aghjabedi"), type: "Aghjabedi" },
+  //   { name: c("bilasuvar"), type: "Bilasuvar" },
+  //   { name: c("khachmaz"), type: "Khachmaz" },
+  //   { name: c("astara"), type: "Astara" },
+  //   { name: c("babek"), type: "Babek" },
+  //   { name: c("zardab"), type: "Zardab" },
+  //   { name: c("ballyasny"), type: "Ballyasny" },
+  //   { name: c("sabirabad"), type: "Sabirabad" },
+  //   { name: c("khudat"), type: "Khudat" },
+  //   { name: c("gadabay"), type: "Gadabay" },
+  //   { name: c("goychay"), type: "Goychay" },
+  //   { name: c("ordubad"), type: "Ordubad" },
+  //   { name: c("imishli"), type: "Imishli" },
+  //   { name: c("gubadly"), type: "Gubadly" },
+  //   { name: c("kelbajar"), type: "Kelbajar" },
+  //   { name: c("jabrayil"), type: "Jabrayil" },
+  //   { name: c("fizuli"), type: "Fizuli" },
+  //   { name: c("kubatly"), type: "Kubatly" },
+  //   { name: c("agsu"), type: "Agsu" },
+  //   { name: c("agstafa"), type: "Agstafa" },
+  //   { name: c("balakan"), type: "Balakan" },
+  //   { name: c("gazakh"), type: "Gazakh" },
+  //   { name: c("gorgan"), type: "Gorgan" },
+  //   { name: c("gusar"), type: "Gusar" },
+  //   { name: c("jalilabad"), type: "Jalilabad" },
+  //   { name: c("ismayilli"), type: "Ismayilli" },
+  //   { name: c("qazakh"), type: "Qazakh" },
+  //   { name: c("kurdamir"), type: "Kurdamir" },
+  //   { name: c("masally"), type: "Masally" },
+  //   { name: c("nabran"), type: "Nabran" },
+  //   { name: c("oghuz"), type: "Oghuz" },
+  //   { name: c("samukh"), type: "Samukh" },
+  //   { name: c("siazan"), type: "Siazan" },
+  //   { name: c("terter"), type: "Terter" },
+  //   { name: c("ujar"), type: "Ujar" },
+  //   { name: c("khojaly"), type: "Khojaly" },
+  //   { name: c("chardaglar"), type: "Chardaglar" },
+  //   { name: c("shamakhi"), type: "Shamakhi" },
+  //   { name: c("yardymli"), type: "Yardymli" },
+  // ];
 
   const t = useTranslations("PostAdding");
 
@@ -133,7 +134,7 @@ export function StepFour() {
             <Listbox value={selected} onChange={setSelected}>
               <div className="relative mt-1">
                 <Listbox.Button className="relative w-[170px] cursor-default rounded-lg  py-2 pl-3 pr-10 text-left shadow-m sm:text-sm border border-gray-300  bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:outline-none focus:ring dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                  <span className="block truncate">{selected.name}</span>
+                  <span className="block truncate">{c(selected.name)}</span>
                   <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                     <FaChevronDown
                       className="h-5 w-5 text-gray-400"
@@ -167,7 +168,7 @@ export function StepFour() {
                                 selected ? "font-medium" : "font-normal"
                               }`}
                             >
-                              {el.name}
+                              {c(el.name)}
                             </span>
                             {selected ? (
                               <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">

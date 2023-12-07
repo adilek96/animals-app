@@ -3,7 +3,6 @@ import Link from "next/link";
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import animalsLogo from "../../../../public/logo/logo.png";
 import { useTranslations } from "next-intl";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaStar, FaStarHalfStroke, FaRegStar } from "react-icons/fa6";
@@ -38,17 +37,21 @@ export function StoreCard({ stores }: { stores: Store }): React.JSX.Element {
 
   const starRaiting = () => {
     const stars = [];
+
     for (let i = 0; i < 5; i++) {
-      if (i < stores.raiting) {
-        if (Number.isInteger(stores.raiting)) {
-          stars.push(<FaStar key={i} />);
-        } else {
-          stars.push(<FaStarHalfStroke key={i} />);
-        }
+      // Проверяем, если текущий индекс меньше целой части рейтинга
+      if (i < Math.floor(stores.raiting)) {
+        stars.push(<FaStar key={i} />);
       } else {
-        stars.push(<FaRegStar key={i} />);
+        // Проверяем, если десятичная часть больше или равна 0.5
+        if (i - stores.raiting < 0.5) {
+          stars.push(<FaStarHalfStroke key={i} />);
+        } else {
+          stars.push(<FaRegStar key={i} />);
+        }
       }
     }
+
     return stars;
   };
 
@@ -94,10 +97,12 @@ export function StoreCard({ stores }: { stores: Store }): React.JSX.Element {
             {stores.location}
           </p>
         </div>
-        <div className="w-full h-[80px] md:text-[14px] sm:text-[12px] mt-1 flex flex-col justify-center items-center">
-          <div className="w-[90%] h-[20px] flex justify-between">
-            {stores.info}
-          </div>
+        <div className="w-[100%] h-[80px] md:text-[14px] sm:text-[12px] mt-1 flex flex-col justify-center items-center">
+          <p className="w-[90%] max-h-[60px]  ">
+            {stores.info.length < 100
+              ? stores.info
+              : stores.info.slice(0, 100) + " ( ... )"}
+          </p>
         </div>
         <div className="w-full h-[80px] md:text-[14px] sm:text-[12px] mt-1 flex flex-col justify-center items-center">
           <div className="w-[90%] h-[20px] flex text-lg gap-1 text-yellow-400">

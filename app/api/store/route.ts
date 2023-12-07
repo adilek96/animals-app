@@ -5,34 +5,34 @@ import { NextResponse } from 'next/server';
 
 // get all ads
 export async function GET(request: Request) {
-  //пагинация
-  const { searchParams } = new URL(request.url)
-  const page = parseInt(searchParams.get('p') as string) || 1;
-  //сортировка
-  const sortDelivered = (searchParams.get('dls') as string) ;
-  const raitingSort = (searchParams.get('rsrt') as string) ;
-
-  const delivery = sortDelivered === 'true' ? 'WHERE stores.shipping = true ' : '';
-  const raiting = raitingSort === 'up' ? 'DESC' : 'ASC';
-
- 
-
-  
-  const client = await db.connect();
   try {
-    const perPage = 12 * page; // Количество элементов на странице
-    const offset = 0;
+    const { searchParams } = new URL(request.url);
+    const page = parseInt(searchParams.get('p') as string) || 1;
+    const sortDelivered = searchParams.get('dls') === 'true';
+    const raitingSort = searchParams.get('rsrt') === 'up' ? 'DESC' : 'ASC';
+    const city = searchParams.get('city');
 
-    let query: string = "SELECT * FROM stores " + delivery + " ORDER BY stores.raiting " + raiting + "  LIMIT $1 OFFSET $2 "
-   
     
+    const cities = city === 'all' ? '' : `WHERE stores.city = '${city}'`;
+
+    let query: string = `SELECT * FROM stores ${cities} ORDER BY stores.raiting ${raitingSort} LIMIT $1 OFFSET $2`;
+
+    if (sortDelivered && city === 'all') {
+      query = `SELECT * FROM stores WHERE stores.shipping = true ORDER BY stores.raiting ${raitingSort} LIMIT $1 OFFSET $2`;
+    } else if (sortDelivered && city !== 'all') {
+      query = `SELECT * FROM stores WHERE stores.shipping = true AND stores.city = '${city}' ORDER BY stores.raiting ${raitingSort} LIMIT $1 OFFSET $2`;
+    }
+
+    const perPage = 12;
+    const offset = (page - 1) * perPage;
+
+    const client = await db.connect();
     const result = await client.query(query, [perPage, offset]);
-  
+
     return NextResponse.json({ result: result.rows, currentPage: page }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error }, { status: 500 });
-  } finally {
-    client.release(); 
+    console.error('Error:', error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
 
