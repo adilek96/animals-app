@@ -64,7 +64,7 @@ export function StoreCard({ stores }: { stores: Store }): React.JSX.Element {
           opacity: 1,
         }}
         transition={{ duration: 0.5 }}
-        className="cursor-pointer md:w-[250px] sm:w-[170px] md:h-[430px] sm:h-[365px] bg-white flex flex-col items-center mb-5 rounded-lg shadow-md  shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-800 hover:scale-103 transition-all duration-600"
+        className="cursor-pointer md:w-[250px] sm:w-[170px] md:h-[430px] sm:h-[365px] bg-slate-100 flex flex-col items-center mb-5 rounded-lg shadow-md  shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-800 hover:scale-103 transition-all duration-600"
       >
         <div
           className={`relative bg-primary-500 w-full md:h-[180px] sm:h-[130px] flex justify-center items-center rounded-t-lg shadow-md  shadow-gray-400  dark:shadow-gray-800`}
