@@ -103,7 +103,7 @@ export default async function UserPosts({
           <h1>
             Обьявления пользователя:
             <br />
-            <UserName userName={[userData.username, userData.whatsapp]} />
+            <UserName userName={userData.username} />
           </h1>
           <div className="w-[70px] h-[70px] flex items-center justify-center shadow-md shadow-orange-900 bg-primary-200 rounded-full border-collapse border-[3px] border-primary-500">
             <div className="relative w-[60px] h-[60px] flex items-center justify-center shadow-inner shadow-orange-900 bg-white rounded-full border-collapse border-[2px] border-primary-500">
@@ -118,7 +118,9 @@ export default async function UserPosts({
           </div>
         </div>
         <div className="w-[400px] h-fit flex flex-row justify-around items-center">
-          <UserConnection phone_number={userData.phone_number} />
+          <UserConnection
+            phone_number={[userData.phone_number, userData.whatsapp]}
+          />
         </div>
       </div>
       <>

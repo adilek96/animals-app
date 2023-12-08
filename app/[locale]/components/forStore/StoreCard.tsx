@@ -5,7 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { FaLocationDot } from "react-icons/fa6";
-import { FaStar, FaStarHalfStroke, FaRegStar } from "react-icons/fa6";
+
+import { StarRaiting } from "./StartRaiting";
 
 interface Store {
   store_id: number;
@@ -35,28 +36,28 @@ export function StoreCard({ stores }: { stores: Store }): React.JSX.Element {
 
   //звездный рейтинг
 
-  const starRaiting = () => {
-    const stars = [];
+  // const starRaiting = () => {
+  //   const stars = [];
 
-    for (let i = 0; i < 5; i++) {
-      // Проверяем, если текущий индекс меньше целой части рейтинга
-      if (i < Math.floor(stores.raiting)) {
-        stars.push(<FaStar key={i} />);
-      } else {
-        // Проверяем, если десятичная часть больше или равна 0.5
-        if (i - stores.raiting < 0.5) {
-          stars.push(<FaStarHalfStroke key={i} />);
-        } else {
-          stars.push(<FaRegStar key={i} />);
-        }
-      }
-    }
+  //   for (let i = 0; i < 5; i++) {
+  //     // Проверяем, если текущий индекс меньше целой части рейтинга
+  //     if (i < Math.floor(stores.raiting)) {
+  //       stars.push(<FaStar key={i} />);
+  //     } else {
+  //       // Проверяем, если десятичная часть больше или равна 0.5
+  //       if (i - stores.raiting < 0.5) {
+  //         stars.push(<FaStarHalfStroke key={i} />);
+  //       } else {
+  //         stars.push(<FaRegStar key={i} />);
+  //       }
+  //     }
+  //   }
 
-    return stars;
-  };
+  //   return stars;
+  // };
 
   return (
-    <Link href={"#"}>
+    <Link href={`/store/${stores.store_id}`}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
@@ -99,14 +100,15 @@ export function StoreCard({ stores }: { stores: Store }): React.JSX.Element {
         </div>
         <div className="w-[100%] h-[80px] md:text-[14px] sm:text-[12px] mt-1 flex flex-col justify-center items-center">
           <p className="w-[90%] max-h-[60px]  ">
-            {stores.info.length < 100
+            {stores.info.length < 80
               ? stores.info
-              : stores.info.slice(0, 100) + " ( ... )"}
+              : stores.info.slice(0, 80) + " ( ... )"}
           </p>
         </div>
         <div className="w-full h-[80px] md:text-[14px] sm:text-[12px] mt-1 flex flex-col justify-center items-center">
           <div className="w-[90%] h-[20px] flex text-lg gap-1 text-yellow-400">
-            {starRaiting()}
+            {/* {starRaiting()} */}
+            <StarRaiting raiting={stores.raiting} />
           </div>
         </div>
       </motion.div>

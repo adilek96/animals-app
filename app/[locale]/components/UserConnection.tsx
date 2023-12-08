@@ -9,7 +9,7 @@ import Link from "next/link";
 export function UserConnection({ phone_number, whatsapp }: any) {
   return (
     <div className="flex justify-center items-center text-lg ">
-      {!whatsapp && (
+      {whatsapp && (
         <Link href={`https://wa.me/${phone_number}`}>
           <span>
             <Lottie
