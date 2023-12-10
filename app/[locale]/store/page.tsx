@@ -59,7 +59,7 @@ export default function Store() {
     fetchData();
   }, [page, sortDelivered, raitingSort, city]);
   return (
-    <>
+    <section className="  dark:bg-gray-700 dark:shadow-gray-800 bg-slate-50 md:w-[80%] sm:w-[95%] h-fit mx-auto my-[30px]  shadow-md  shadow-gray-400 rounded-2xl">
       {isLoading ? (
         <Loading />
       ) : (
@@ -94,6 +94,6 @@ export default function Store() {
           </div>
         </>
       )}
-    </>
+    </section>
   );
 }
