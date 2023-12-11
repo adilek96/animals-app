@@ -8,10 +8,10 @@ export function GoodsCategory() {
   const t = useTranslations("Categories");
 
   return (
-    <section className=" shadow-md  overscroll-none  overflow-y-hidden overflow-x-auto  no-scrollbar snap-x snap-mandatory scroll-smooth w-full  h-[120px] rounded-2xl bg-gray-300 dark:bg-gray-400   text-black dark:text-white flex sm:gap-7 lg:gap-0 lg:justify-around items-center ">
+    <section className=" md:w-[800px] sm:w-[90%] py-2 h-fit rounded-2xl bg-gray-300 dark:bg-gray-400   text-black dark:text-white flex justify-around items-center sm:flex-wrap">
       <Link href="/store/goods">
-        <div className=" snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center ">
-          <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-gray-700 to-green-300  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
+        <div className=" snap-center flex flex-col justify-center h-[150px] w-[150px]  text-[14px] items-center ">
+          <div className="h-[140px] w-[140px] rounded-lg bg-gradient-to-r from-gray-700 to-green-300  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400  flex-col">
             <Image
               className=""
               src="/categories/all.svg"
@@ -19,12 +19,12 @@ export function GoodsCategory() {
               height={70}
               alt="animalsLogo"
             ></Image>
+            <p className=" text-center hover:text-primary-500">{t("all")}</p>
           </div>
-          <p className=" text-center hover:text-primary-500">{t("all")}</p>
         </div>
       </Link>
 
-      <Link href="/store/goods/cats">
+      {/* <Link href="/store/goods/cats">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -37,9 +37,9 @@ export function GoodsCategory() {
           </div>
           <p className=" text-center hover:text-primary-500">{t("cats")}</p>
         </div>
-      </Link>
+      </Link> */}
 
-      <Link href="/store/goods/dogs">
+      {/* <Link href="/store/goods/dogs">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -52,9 +52,9 @@ export function GoodsCategory() {
           </div>
           <p className=" text-center hover:text-primary-500">{t("dogs")}</p>
         </div>
-      </Link>
+      </Link> */}
 
-      <Link href="/store/goods/fishs">
+      {/* <Link href="/store/goods/fishs">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]   text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -67,9 +67,9 @@ export function GoodsCategory() {
           </div>
           <p className=" text-center hover:text-primary-500">{t("fishs")}</p>
         </div>
-      </Link>
+      </Link> */}
 
-      <Link href="/store/goods/birds">
+      {/* <Link href="/store/goods/birds">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]   text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -82,9 +82,9 @@ export function GoodsCategory() {
           </div>
           <p className=" text-center hover:text-primary-500">{t("birds")}</p>
         </div>
-      </Link>
+      </Link> */}
 
-      <Link href="/store/goods/rodents">
+      {/* <Link href="/store/goods/rodents">
         <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center  ">
           <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
             <Image
@@ -97,11 +97,11 @@ export function GoodsCategory() {
           </div>
           <p className=" text-center hover:text-primary-500">{t("rodents")}</p>
         </div>
-      </Link>
+      </Link> */}
 
       <Link href="/store/goods/acsesories">
-        <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center  ">
-          <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
+        <div className="snap-center flex flex-col justify-center h-[150px] w-[150px]  text-[14px] items-center  ">
+          <div className="h-[140px] w-[140px] rounded-lg bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400 flex-col">
             <Image
               className=""
               src="/categories/acsesories2.svg"
@@ -109,16 +109,16 @@ export function GoodsCategory() {
               height={70}
               alt="animalsLogo"
             ></Image>
+            <p className=" text-center hover:text-primary-500">
+              {t("acsesories")}
+            </p>
           </div>
-          <p className=" text-center hover:text-primary-500">
-            {t("acsesories")}
-          </p>
         </div>
       </Link>
 
       <Link href="/store/goods/food">
-        <div className="snap-center flex flex-col justify-center h-[100px] w-[120px]  text-[14px] items-center  ">
-          <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
+        <div className="snap-center flex flex-col justify-center h-[150px] w-[150px]  text-[14px] items-center  ">
+          <div className="h-[140px] w-[140px] rounded-lg bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400 flex-col">
             <Image
               className=""
               src="/categories/food2.svg"
@@ -126,14 +126,14 @@ export function GoodsCategory() {
               height={65}
               alt="animalsLogo"
             ></Image>
+            <p className=" text-center hover:text-primary-500">{t("food")}</p>
           </div>
-          <p className=" text-center hover:text-primary-500">{t("food")}</p>
         </div>
       </Link>
 
       <Link href="/store/goods/other">
-        <div className="snap-center flex flex-col justify-center h-[100px] w-[120px] text-[14px] items-center  ">
-          <div className="h-[80px] w-[80px] rounded-full bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400">
+        <div className="snap-center flex flex-col justify-center h-[150px] w-[150px] text-[14px] items-center  ">
+          <div className="h-[140px] w-[140px] rounded-lg bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400 flex-col">
             <Image
               className=""
               src="/categories/farm2.svg"
@@ -141,8 +141,25 @@ export function GoodsCategory() {
               height={65}
               alt="animalsLogo"
             ></Image>
+            <p className=" text-center hover:text-primary-500">{"Другие"}</p>
           </div>
-          <p className=" text-center hover:text-primary-500">{"Другие"}</p>
+        </div>
+      </Link>
+
+      <Link href="/store/goods/other">
+        <div className="snap-center flex flex-col justify-center h-[150px] w-[150px] text-[14px] items-center  ">
+          <div className="h-[140px] w-[140px] rounded-lg bg-gradient-to-r from-secondary-500 to-secondary-400  shadow-md  shadow-gray-800  flex   justify-center items-center ease-in  hover:shadow-lg hover:shadow-primary-800 transition-all duration-400 flex-col">
+            <Image
+              className=""
+              src="/categories/farm2.svg"
+              width={65}
+              height={65}
+              alt="animalsLogo"
+            ></Image>
+            <p className=" text-center hover:text-primary-500">
+              {"Средства ухода"}
+            </p>
+          </div>
         </div>
       </Link>
     </section>
