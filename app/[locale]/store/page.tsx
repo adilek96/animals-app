@@ -37,7 +37,6 @@ export default function Store() {
   const [notFound, setNotFound] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log(city);
     const fetchData = async () => {
       setIsLoading(true);
 

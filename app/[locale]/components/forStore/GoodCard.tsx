@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import animalsLogo from "../../../public/logo/logo.png";
+import animalsLogo from "../../../../public/logo/logo.png";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
